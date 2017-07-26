@@ -1,0 +1,6 @@
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\bin\Debug\WechatAppLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\bin\Debug\WechatAppLib.pdb
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\bin\Debug\Newtonsoft.Json.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.pdb

@@ -1,0 +1,8 @@
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.pdb
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapper.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.pdb
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.pdb

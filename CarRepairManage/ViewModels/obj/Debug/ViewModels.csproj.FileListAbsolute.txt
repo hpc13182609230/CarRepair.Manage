@@ -1,0 +1,4 @@
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\ViewModels\bin\Debug\ViewModels.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\ViewModels\bin\Debug\ViewModels.pdb
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\ViewModels\obj\Debug\ViewModels.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb

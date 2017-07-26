@@ -1,0 +1,5 @@
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\bin\Debug\LogLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\obj\Debug\LogLib.dll
+F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\obj\Debug\LogLib.pdb

@@ -1,0 +1,4 @@
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.pdb

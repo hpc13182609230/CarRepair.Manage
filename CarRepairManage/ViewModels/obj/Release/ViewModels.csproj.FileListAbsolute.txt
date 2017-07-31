@@ -1,0 +1,4 @@
+E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.pdb

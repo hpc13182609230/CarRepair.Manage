@@ -1,0 +1,5 @@
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.csprojResolveAssemblyReference.cache
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.pdb

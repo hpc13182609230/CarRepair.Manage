@@ -1,0 +1,8 @@
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapperLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapper.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\ViewModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\ViewModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.csprojResolveAssemblyReference.cache
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.pdb

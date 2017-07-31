@@ -1,0 +1,5 @@
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\HelperLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\HelperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\Newtonsoft.Json.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb

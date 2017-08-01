@@ -2,3 +2,8 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewMod
 E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewModels.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Release\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Release\ViewModels.pdb

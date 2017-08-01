@@ -14,3 +14,11 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\ViewMo
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapper.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.pdb

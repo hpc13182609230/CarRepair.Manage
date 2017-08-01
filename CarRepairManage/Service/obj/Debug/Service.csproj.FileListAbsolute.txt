@@ -2,3 +2,8 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Service.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.pdb

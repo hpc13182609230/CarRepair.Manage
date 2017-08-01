@@ -3,3 +3,8 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.pdb

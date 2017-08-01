@@ -4,3 +4,9 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Release\Newto
 E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Release\WechatAppLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Release\WechatAppLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Release\Newtonsoft.Json.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Release\WechatAppLib.pdb

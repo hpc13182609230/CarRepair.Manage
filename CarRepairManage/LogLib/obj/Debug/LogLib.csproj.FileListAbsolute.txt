@@ -7,3 +7,8 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb

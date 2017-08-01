@@ -6,3 +6,11 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\View
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\AutoMapper.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\ViewModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.pdb

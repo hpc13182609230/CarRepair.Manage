@@ -3,3 +3,9 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\HelperLi
 E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\Newtonsoft.Json.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\HelperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\HelperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\Newtonsoft.Json.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.csprojResolveAssemblyReference.cache
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb

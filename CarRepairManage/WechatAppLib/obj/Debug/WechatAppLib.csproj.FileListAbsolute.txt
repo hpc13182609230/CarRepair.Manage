@@ -15,3 +15,4 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Debug\N
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.csprojResolveAssemblyReference.cache

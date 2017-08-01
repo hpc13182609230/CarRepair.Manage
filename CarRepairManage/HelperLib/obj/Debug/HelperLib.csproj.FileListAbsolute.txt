@@ -15,3 +15,4 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Debug\Newt
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.csprojResolveAssemblyReference.cache

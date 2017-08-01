@@ -43,6 +43,12 @@
     <Compile Include="WechatService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WechatAppLib\WechatAppLib.csproj">
+      <Project>{66eca7f2-84de-4d91-8464-8ca1ef61f039}</Project>
+      <Name>WechatAppLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -46,6 +46,21 @@ namespace Em.Future._2017.Common
 
         }
 
+
+        /// <summary>  
+        /// 反序列化包含OpenId和SessionKey的Json数据包  
+        /// </summary>  
+        /// <param name="code">Json数据包</param>  
+        /// <returns>包含OpenId和SessionKey的类</returns>  
+        public OpenIdAndSessionKey DecodeOpenIdAndSessionKey(string code)
+        {
+            OpenIdAndSessionKey oiask = JsonConvert.DeserializeObject<OpenIdAndSessionKey>(GetOpenIdAndSessionKeyString(code));
+            if (!String.IsNullOrEmpty(oiask.errcode))
+                return null;
+            return oiask;
+        }
+
+
         /// <summary>  
         /// 反序列化包含OpenId和SessionKey的Json数据包  
         /// </summary>  

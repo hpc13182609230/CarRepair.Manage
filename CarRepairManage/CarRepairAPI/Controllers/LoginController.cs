@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Em.Future._2017.Common;
+using Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,19 +13,50 @@ namespace CarRepairAPI.Controllers
     [RoutePrefix("api/Login")]
     public class LoginController : ApiController
     {
-        [Route("Wechat_Login")]
+        /// <summary>
+        /// 根据code 获取 thirdSession
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [Route("GetThirdSession")]
         [HttpGet]
-        public DataResultModel Wechat_Login (string thirdSession ="",string code="")
+        public DataResultModel GetThirdSession(string code="")
         {
             DataResultModel result = new DataResultModel();
             try
             {
-
+                result.data = WechatService.GetThirdSession(code);
             }
             catch (Exception ex)
             {
-                result.rs = 0;
-                result.em = ex.Message;
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 获取用户的信息
+        /// </summary>
+        /// <param name="encryptedData">包括敏感数据在内的完整用户信息的加密数据</param>
+        /// <param name="iv">加密算法的初始向量</param>
+        /// <param name="thirdSession"> 获取 sessionKey</param>
+        /// <returns></returns>
+        [Route("GetUserInfo")]
+        [HttpGet]
+        public DataResultModel GetUserInfo(string encryptedData, string iv, string thirdSession)
+        {
+            DataResultModel result = new DataResultModel();
+            try
+            {
+                WechatUserInfo _WechatUserInfo = WechatService.GetUserInfo(encryptedData,iv,thirdSession);
+                result.data = _WechatUserInfo;
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
             }
             return result;
         }

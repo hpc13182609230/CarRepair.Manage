@@ -10,13 +10,13 @@ namespace ViewModel
     {
         public DataResultModel()
         {
-            this.rs = 1;
-            this.em = "OK";
+            this.result = 1;
+            this.message = "OK";
         }
 
-        public int rs { get; set; }
-        public string em { get; set; }
-        public object dt { get; set; }
+        public int result { get; set; }
+        public string message { get; set; }
+        public object data { get; set; }
 
         //public double Count { get; set; }
     }

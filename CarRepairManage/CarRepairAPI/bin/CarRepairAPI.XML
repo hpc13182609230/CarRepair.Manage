@@ -481,5 +481,21 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:CarRepairAPI.Controllers.LoginController.GetThirdSession(System.String)">
+            <summary>
+            根据code 获取 thirdSession
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarRepairAPI.Controllers.LoginController.GetUserInfo(System.String,System.String,System.String)">
+            <summary>
+            获取用户的信息
+            </summary>
+            <param name="encryptedData">包括敏感数据在内的完整用户信息的加密数据</param>
+            <param name="iv">加密算法的初始向量</param>
+            <param name="thirdSession"> 获取 sessionKey</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

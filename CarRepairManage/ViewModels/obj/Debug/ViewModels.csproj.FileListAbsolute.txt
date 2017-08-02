@@ -10,3 +10,4 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\Vie
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\ViewModels.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.csprojResolveAssemblyReference.cache

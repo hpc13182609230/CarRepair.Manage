@@ -317,7 +317,6 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microso
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AI.WindowsServer.xml
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.ApplicationInsights.xml
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Newtonsoft.Json.xml
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Swagger.Net.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Swagger.Net.xml
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\System.Net.Http.Formatting.xml

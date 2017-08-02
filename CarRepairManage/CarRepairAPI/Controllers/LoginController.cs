@@ -47,6 +47,11 @@ namespace CarRepairAPI.Controllers
         [HttpGet]
         public DataResultModel GetUserInfo(string encryptedData, string iv, string thirdSession)
         {
+            //Convert.ToBase64String()转换过的参数发现，+都变成了空格
+            encryptedData = encryptedData.Replace(" ", "+");
+            iv = iv.Replace(" ", "+");
+            thirdSession= thirdSession.Replace(" ", "+");
+
             DataResultModel result = new DataResultModel();
             try
             {

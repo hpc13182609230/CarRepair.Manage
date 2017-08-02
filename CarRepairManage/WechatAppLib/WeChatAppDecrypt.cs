@@ -21,10 +21,10 @@ namespace Em.Future._2017.Common
         /// </summary>  
         /// <param name="appId">应用程序的AppId</param>  
         /// <param name="appSecret">应用程序的AppSecret</param>  
-        public WeChatAppDecrypt(string appId, string appSecret)
+        public WeChatAppDecrypt()
         {
-            this.appId = appId;
-            this.appSecret = appSecret;
+            this.appId = "wx543ed0026ff5b5eb";
+            this.appSecret = "b55ce83698c65f98469e32bd813e1fec";
             return;
         }
 

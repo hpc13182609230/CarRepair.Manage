@@ -26,10 +26,8 @@ namespace Service
             //根据thirdSession 获取 sessionKey
             string sessionKey = thirdSession;
 
-            WechatUserInfo _WechatUserInfo = _WeChatAppDecrypt.Decrypt(encryptedData,iv, sessionKey);
+            WechatUserInfo _WechatUserInfo = _WeChatAppDecrypt.Decrypt(encryptedData, iv, sessionKey);
             return _WechatUserInfo;
         }
-
-
     }
 }

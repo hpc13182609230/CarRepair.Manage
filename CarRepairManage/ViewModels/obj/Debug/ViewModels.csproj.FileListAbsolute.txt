@@ -8,6 +8,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModel
 E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\ViewModels.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\ViewModels.pdb
-F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb

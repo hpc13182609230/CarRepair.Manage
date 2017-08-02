@@ -256,7 +256,6 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\VBCSCompiler.exe
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\VBCSCompiler.exe.config
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.dll.config
-F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.XML
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Antlr3.Runtime.dll
@@ -373,3 +372,19 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\zh-Hans
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Debug\CarRepairAPI.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Debug\CarRepairAPI.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Debug\CarRepairAPI.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\csc.exe.config
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\csc.rsp
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\csi.exe
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\csi.rsp
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.AppContext.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.IO.FileSystem.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\vbc.exe.config
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\vbc.rsp
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.pdb

@@ -12,7 +12,6 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Debug\HelperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Debug\HelperLib.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Debug\Newtonsoft.Json.dll
-F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Debug\HelperLib.csprojResolveAssemblyReference.cache

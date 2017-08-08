@@ -12,3 +12,4 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache

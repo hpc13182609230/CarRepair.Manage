@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
-
 namespace Em.Future._2017.Common
 {
     /// <summary>  
@@ -15,7 +14,6 @@ namespace Em.Future._2017.Common
     {
         private string appId;
         private string appSecret;
-
         /// <summary>  
         /// 构造函数  
         /// </summary>  
@@ -27,7 +25,6 @@ namespace Em.Future._2017.Common
             this.appSecret = "b55ce83698c65f98469e32bd813e1fec";
             return;
         }
-
         /// <summary>  
         ///  这是一个 HTTPS 接口，开发者服务器使用登录凭证 code 获取 session_key 和 openid。其中 session_key 是对用户数据进行加密签名的密钥。
         ///  为了自身应用安全，session_key 不应该在网络上传输。 获取OpenId和SessionKey的Json数据包  
@@ -41,12 +38,8 @@ namespace Em.Future._2017.Common
                 + "&secret=" + appSecret
                 + "&js_code=" + code
                 + "&grant_type=authorization_code";
-
             return GetResponse(temp);
-
         }
-
-
         /// <summary>  
         /// 反序列化包含OpenId和SessionKey的Json数据包  
         /// </summary>  
@@ -59,8 +52,6 @@ namespace Em.Future._2017.Common
                 return null;
             return oiask;
         }
-
-
         /// <summary>  
         /// 反序列化包含OpenId和SessionKey的Json数据包  
         /// </summary>  
@@ -73,7 +64,6 @@ namespace Em.Future._2017.Common
                 return null;
             return oiask;
         }
-
         /// <summary>  
         /// 根据微信小程序平台提供的签名验证算法验证用户发来的数据是否有效  
         /// </summary>  
@@ -94,7 +84,6 @@ namespace Em.Future._2017.Common
             //比对，输出验证结果  
             return signature == result;
         }
-
         /// <summary>  
         /// 根据微信小程序平台提供的签名验证算法验证用户发来的数据是否有效  
         /// </summary>  
@@ -105,7 +94,6 @@ namespace Em.Future._2017.Common
         {
             return VaildateUserInfo(loginInfo.rawData, loginInfo.signature, sessionKey);
         }
-
         /// <summary>  
         /// 根据微信小程序平台提供的签名验证算法验证用户发来的数据是否有效  
         /// </summary>  
@@ -116,7 +104,6 @@ namespace Em.Future._2017.Common
         {
             return VaildateUserInfo(loginInfo, idAndKey.session_key);
         }
-
         /// <summary>  
         /// 根据微信小程序平台提供的解密算法解密数据  
         /// </summary>  
@@ -137,25 +124,18 @@ namespace Em.Future._2017.Common
             byte[] byte_encryptedData = Convert.FromBase64String(encryptedData);
             byte[] byte_iv = Convert.FromBase64String(iv);
             byte[] byte_sessionKey = Convert.FromBase64String(sessionKey);
-
             aes.IV = byte_iv;
             aes.Key = byte_sessionKey;
             //根据设置好的数据生成解密器实例  
             ICryptoTransform transform = aes.CreateDecryptor();
-
             //解密  
             byte[] final = transform.TransformFinalBlock(byte_encryptedData, 0, byte_encryptedData.Length);
-
             //生成结果  
             string result = Encoding.UTF8.GetString(final);
-
             //反序列化结果，生成用户信息实例  
             userInfo = JsonConvert.DeserializeObject<WechatUserInfo>(result);
-
             return userInfo;
-
         }
-
         /// <summary>  
         /// 根据微信小程序平台提供的解密算法解密数据，推荐直接使用此方法  
         /// </summary>  
@@ -165,23 +145,16 @@ namespace Em.Future._2017.Common
         {
             if (loginInfo == null)
                 return null;
-
             if (String.IsNullOrEmpty(loginInfo.code))
                 return null;
-
             OpenIdAndSessionKey oiask = DecodeOpenIdAndSessionKey(loginInfo);
-
             if (oiask == null)
                 return null;
-
             if (!VaildateUserInfo(loginInfo, oiask))
                 return null;
-
             WechatUserInfo userInfo = Decrypt(loginInfo.encryptedData, loginInfo.iv, oiask.session_key);
-
             return userInfo;
         }
-
         /// <summary>  
         /// GET请求  
         /// </summary>  
@@ -191,12 +164,10 @@ namespace Em.Future._2017.Common
         {
             if (url.StartsWith("https"))
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
-
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = httpClient.GetAsync(url).Result;
-
             if (response.IsSuccessStatusCode)
             {
                 string result = response.Content.ReadAsStringAsync().Result;
@@ -204,8 +175,6 @@ namespace Em.Future._2017.Common
             }
             return null;
         }
-
-
     }
     /// <summary>  
     /// 微信小程序登录信息结构  
@@ -232,7 +201,6 @@ namespace Em.Future._2017.Common
         public string avatarUrl { get; set; }
         public string unionId { get; set; }
         public Watermark watermark { get; set; }
-
         public class Watermark
         {
             public string appid { get; set; }

@@ -7,7 +7,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ViewModel;
-
 namespace CarRepairAPI.Controllers
 {
     [RoutePrefix("api/Login")]
@@ -34,8 +33,6 @@ namespace CarRepairAPI.Controllers
             }
             return result;
         }
-
-
         /// <summary>
         /// 获取用户的信息
         /// </summary>
@@ -51,7 +48,6 @@ namespace CarRepairAPI.Controllers
             encryptedData = encryptedData.Replace(" ", "+");
             iv = iv.Replace(" ", "+");
             thirdSession= thirdSession.Replace(" ", "+");
-
             DataResultModel result = new DataResultModel();
             try
             {
@@ -65,6 +61,5 @@ namespace CarRepairAPI.Controllers
             }
             return result;
         }
-
     }
 }

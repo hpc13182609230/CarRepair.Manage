@@ -401,3 +401,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\vbc.ex
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\vbc.rsp
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.pdb

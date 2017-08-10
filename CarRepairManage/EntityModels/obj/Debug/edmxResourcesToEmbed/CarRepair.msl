@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarRepairModelStoreContainer" CdmEntityContainer="CarRepairEntities">
+    <EntitySetMapping Name="ManageMenu">
+      <EntityTypeMapping TypeName="CarRepairModel.ManageMenu">
+        <MappingFragment StoreEntitySet="ManageMenu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManageUser">
+      <EntityTypeMapping TypeName="CarRepairModel.ManageUser">
+        <MappingFragment StoreEntitySet="ManageUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="EncryptKey" ColumnName="EncryptKey" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="LastActiveTime" ColumnName="LastActiveTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WechatUser">
+      <EntityTypeMapping TypeName="CarRepairModel.WechatUser">
+        <MappingFragment StoreEntitySet="WechatUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Openid" ColumnName="Openid" />
+          <ScalarProperty Name="Unionid" ColumnName="Unionid" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EncryptKey" ColumnName="EncryptKey" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HeadImgUrl" ColumnName="HeadImgUrl" />
+          <ScalarProperty Name="SubScribeTime" ColumnName="SubScribeTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LoginToken" ColumnName="LoginToken" />
+          <ScalarProperty Name="LoginTokenExpire" ColumnName="LoginTokenExpire" />
+          <ScalarProperty Name="TgID" ColumnName="TgID" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="LastActiveTime" ColumnName="LastActiveTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

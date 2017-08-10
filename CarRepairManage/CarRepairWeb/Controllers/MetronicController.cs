@@ -40,7 +40,58 @@ namespace CarRepairWeb.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 表单 提交相关的样式
+        /// </summary>
+        /// <returns></returns>
         public ActionResult FormComponents()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 时间轨迹页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Page_TimeLine()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 个人信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult User_Profile()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 搜索 列表展示 以及 分页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SearchAndList()
+        {
+            return View();
+        }
+        public ActionResult Table_Editable()
+        {
+            return View();
+        }
+        public ActionResult Table_Advance()
+        {
+            return View();
+        }
+        public ActionResult VisualCharts()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
+        public ActionResult  Error()
         {
             return View();
         }

@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,9 +47,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ManageUserService.cs" />
     <Compile Include="WechatService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EntityModels\EntityModels.csproj">
+      <Project>{add76bce-0f70-4840-9980-3351e2733733}</Project>
+      <Name>EntityModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelperLib\HelperLib.csproj">
+      <Project>{aafce7e9-ad8d-425b-aa1a-9590f85f25e9}</Project>
+      <Name>HelperLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{f893bbac-f207-4f3b-8dcb-dded509ed0ac}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WechatAppLib\WechatAppLib.csproj">
       <Project>{66eca7f2-84de-4d91-8464-8ca1ef61f039}</Project>
       <Name>WechatAppLib</Name>

@@ -1,0 +1,11 @@
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll.config
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.xml
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.xml
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb

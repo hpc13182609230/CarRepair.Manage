@@ -14,3 +14,15 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\WechatAppLib
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\obj\Debug\Service.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityFramework.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityFramework.SqlServer.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\HelperLib.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\ViewModels.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\HelperLib.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\ViewModels.pdb
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityFramework.xml
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\EntityFramework.SqlServer.xml
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\Service\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "template";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    @Html.Raw("<link type=\"text/css\" href=\"/media/css/timeline.css\" rel=\"stylesheet\" />")
+}
+@section scripts {
+    @Html.Raw("<script src=\"/media/js/ckeditor.js\" type=\"text/javascript\"></script>")
+}

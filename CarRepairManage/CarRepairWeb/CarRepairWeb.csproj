@@ -201,6 +201,9 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetronicController.cs" />
+    <Compile Include="Controllers\PartsSuppliersController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WechatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -652,6 +655,9 @@
     <Content Include="Views\metronic\Login.cshtml" />
     <Content Include="Views\metronic\Error.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\PartsSuppliers\PartsList.cshtml" />
+    <Content Include="Views\Wechat\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

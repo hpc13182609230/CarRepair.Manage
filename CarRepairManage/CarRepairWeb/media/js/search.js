@@ -6,7 +6,6 @@ var Search = function () {
             if (jQuery().datepicker) {
                 $('.date-picker').datepicker();
             }
-
             App.initFancybox();
         }
 

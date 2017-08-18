@@ -13,5 +13,12 @@ namespace CarRepairWeb.Controllers
         {
             return View();
         }
+
+
+        // GET: PartsSuppliers
+        public ActionResult PartDetail(int id=0)
+        {
+            return View();
+        }
     }
 }

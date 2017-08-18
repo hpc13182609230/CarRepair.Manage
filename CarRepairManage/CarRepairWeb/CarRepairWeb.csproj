@@ -587,6 +587,8 @@
     <Content Include="media\js\wysihtml5-0.3.0.js" />
     <Content Include="Scripts\action\account-login.js" />
     <Content Include="Scripts\action\home-index.js" />
+    <Content Include="Scripts\action\PartsSuppliers-PartDetail.js" />
+    <Content Include="Scripts\action\PartsSuppliers-PartsList.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\Base\nav2.js" />
@@ -658,6 +660,7 @@
     <Content Include="Views\User\UserList.cshtml" />
     <Content Include="Views\PartsSuppliers\PartsList.cshtml" />
     <Content Include="Views\Wechat\Menu.cshtml" />
+    <Content Include="Views\PartsSuppliers\PartDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

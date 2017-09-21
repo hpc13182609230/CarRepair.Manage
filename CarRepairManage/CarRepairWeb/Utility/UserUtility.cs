@@ -23,7 +23,7 @@ namespace CarRepairWeb.Utility
         /// <summary>
         /// 帐号ID
         /// </summary>
-        public int AccountID
+        public long AccountID
         {
             get
             {
@@ -63,7 +63,7 @@ namespace CarRepairWeb.Utility
             }
         }
 
-        public void SetLogin(int accountID, string username)
+        public void SetLogin(long accountID, string username)
         {
             AccountID = accountID;
             UserName = username;

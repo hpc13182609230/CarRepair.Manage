@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarRepair\BaseOptionsModel.cs" />
+    <Compile Include="CarRepair\PartsClassifyModel.cs" />
+    <Compile Include="CarRepair\PartsCompanyModel.cs" />
     <Compile Include="DataResultModel.cs" />
     <Compile Include="PageInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

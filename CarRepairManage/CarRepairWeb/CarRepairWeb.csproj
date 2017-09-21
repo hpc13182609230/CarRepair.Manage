@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetronicController.cs" />
     <Compile Include="Controllers\PartsSuppliersController.cs" />
+    <Compile Include="Controllers\PartsTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WechatController.cs" />
     <Compile Include="Global.asax.cs">
@@ -589,6 +590,7 @@
     <Content Include="Scripts\action\home-index.js" />
     <Content Include="Scripts\action\PartsSuppliers-PartDetail.js" />
     <Content Include="Scripts\action\PartsSuppliers-PartsList.js" />
+    <Content Include="Scripts\action\PartsType-PartsClassfy.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\Base\nav2.js" />
@@ -661,6 +663,8 @@
     <Content Include="Views\PartsSuppliers\PartsList.cshtml" />
     <Content Include="Views\Wechat\Menu.cshtml" />
     <Content Include="Views\PartsSuppliers\PartDetail.cshtml" />
+    <Content Include="Views\PartsType\PartsClassify.cshtml" />
+    <Content Include="Views\PartsType\PartsClassifyCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

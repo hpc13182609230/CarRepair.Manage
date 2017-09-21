@@ -14,8 +14,8 @@ namespace EntityModels
     
     public partial class ManageMenu
     {
-        public int ID { get; set; }
-        public Nullable<int> ParentID { get; set; }
+        public long ID { get; set; }
+        public Nullable<long> ParentID { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
         public string Info { get; set; }
@@ -23,7 +23,7 @@ namespace EntityModels
         public string Icon { get; set; }
         public string Permission { get; set; }
         public Nullable<int> DelTF { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
     }
 }

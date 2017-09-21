@@ -14,7 +14,7 @@ namespace EntityModels
     
     public partial class ManageUser
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }

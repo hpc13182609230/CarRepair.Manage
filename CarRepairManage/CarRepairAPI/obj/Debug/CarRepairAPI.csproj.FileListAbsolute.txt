@@ -403,3 +403,7 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Repository.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Repository.pdb

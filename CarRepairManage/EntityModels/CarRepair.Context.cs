@@ -28,5 +28,13 @@ namespace EntityModels
         public virtual DbSet<ManageMenu> ManageMenu { get; set; }
         public virtual DbSet<ManageUser> ManageUser { get; set; }
         public virtual DbSet<WechatUser> WechatUser { get; set; }
+        public virtual DbSet<BaseOptions> BaseOptions { get; set; }
+        public virtual DbSet<PartsClassify> PartsClassify { get; set; }
+        public virtual DbSet<PartsCompany> PartsCompany { get; set; }
+        public virtual DbSet<Points> Points { get; set; }
+        public virtual DbSet<PurchaseOrder> PurchaseOrder { get; set; }
+        public virtual DbSet<RepairOrder> RepairOrder { get; set; }
+        public virtual DbSet<UserCars> UserCars { get; set; }
+        public virtual DbSet<PartsClassifyCompany> PartsClassifyCompany { get; set; }
     }
 }

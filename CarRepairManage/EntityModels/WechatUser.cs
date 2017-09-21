@@ -14,7 +14,7 @@ namespace EntityModels
     
     public partial class WechatUser
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string Openid { get; set; }
         public string Unionid { get; set; }
         public string Password { get; set; }
@@ -35,7 +35,8 @@ namespace EntityModels
         public Nullable<int> Statu { get; set; }
         public Nullable<System.DateTime> LastActiveTime { get; set; }
         public Nullable<int> DelTF { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
+        public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+        public string ShareID { get; set; }
     }
 }

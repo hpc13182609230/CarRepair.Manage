@@ -8,7 +8,7 @@ namespace ViewModels
 {
     public class ManageUserModel
     {
-        public int id { get; set; }
+        public long id { get; set; }
         public string LoginName { get; set; }
         public string Password { get; set; }
         public System.DateTime CreateTime { get; set; }

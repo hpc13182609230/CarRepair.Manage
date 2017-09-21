@@ -11,7 +11,7 @@ namespace Service
 {
     public class ManageUserService
     {
-        public int UserInfo_Save(ManageUserModel model)
+        public long UserInfo_Save(ManageUserModel model)
         {
             using (var entity = new CarRepairEntities())
             {
@@ -27,7 +27,7 @@ namespace Service
                 else
                 {
                     DateTime create = dbmodel.CreateTime;
-                    int ID = dbmodel.ID;
+                    long ID = dbmodel.ID;
                     TransformHelper.ConvertBToA(dbmodel, model);
                     dbmodel.CreateTime = create;
                     dbmodel.ID= ID;
@@ -109,7 +109,7 @@ namespace Service
         }
 
 
-        public int UserInfo_Update_LastLoginTime(int id)
+        public long UserInfo_Update_LastLoginTime(long id)
         {
             using (var entity = new CarRepairEntities())
             {

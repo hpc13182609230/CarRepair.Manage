@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Service;
+@using ViewModels.CarRepair;
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -214,6 +216,28 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="javascript:;">
+                        <i class="icon-cogs"></i>
+                        <span class="title">配件分类</span>
+                        <span class="arrow "></span>
+                    </a>
+                    @{
+                        BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+                        List<BaseOptionsModel> partTypes = _BaseOptionsService.GetByParentID(1);
+                    }
+                    <ul class="sub-menu">
+                        @foreach (var item in partTypes)
+                        {
+                            <li>
+                                <a href="/PartsType/PartsClassify?OptionID=@(item.ID)&name=@(item.Content)">
+                                    @item.Content
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </li>
+                <li class="">
                     <a href="/User/UserList">
                         <i class="icon-bookmark-empty"></i>
                         <span class="title">用户</span>
@@ -273,11 +297,13 @@
 		jQuery(document).ready(function() {
 		    App.init(); // initlayout and core plugins
 		    //Charts.init();
-		    //Charts.initCharts();		    //Charts.initPieCharts();
+		    //Charts.initCharts();
+		    //Charts.initPieCharts();
 
 		    //TableEditable.init();
 		    //TableAdvanced.init();
-		    //Search.init();            //FormComponents.init();
+		    //Search.init();
+            //FormComponents.init();
 		    //Index.init();
 		    //Index.initJQVMAP(); // init index page's custom scripts
 		    //Index.initCalendar(); // init index page's custom scripts

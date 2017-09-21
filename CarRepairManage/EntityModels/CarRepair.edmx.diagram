@@ -8,6 +8,14 @@
         <EntityTypeShape EntityType="CarRepairModel.ManageMenu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarRepairModel.ManageUser" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarRepairModel.WechatUser" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRepairModel.BaseOptions" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CarRepairModel.PartsClassify" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CarRepairModel.PartsCompany" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CarRepairModel.Points" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CarRepairModel.PurchaseOrder" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CarRepairModel.RepairOrder" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CarRepairModel.UserCars" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CarRepairModel.PartsClassifyCompany" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

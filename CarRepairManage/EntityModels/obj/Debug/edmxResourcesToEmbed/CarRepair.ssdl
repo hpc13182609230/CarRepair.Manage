@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CarRepairModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaseOptions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="Content" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
   <EntityType Name="ManageMenu">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ParentID" Type="int" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" />
     <Property Name="Name" Type="varchar" MaxLength="100" />
     <Property Name="Url" Type="varchar" MaxLength="100" />
     <Property Name="Info" Type="varchar" MaxLength="100" />
@@ -13,14 +25,14 @@
     <Property Name="Icon" Type="varchar" MaxLength="100" />
     <Property Name="Permission" Type="varchar" MaxLength="100" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="ManageUser">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LoginName" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar" MaxLength="100" />
     <Property Name="UserName" Type="varchar" MaxLength="100" />
@@ -32,6 +44,117 @@
     <Property Name="Statu" Type="int" />
     <Property Name="LastActiveTime" Type="datetime" />
     <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartsClassify">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OptionID" Type="bigint" />
+    <Property Name="Content" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="PicURL" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartsClassifyCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartsClassifyID" Type="bigint" />
+    <Property Name="PartsCompanyID" Type="bigint" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartsCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Contract" Type="varchar" MaxLength="50" />
+    <Property Name="Content" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="PicURL" Type="varchar" MaxLength="500" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Tel" Type="varchar" MaxLength="50" />
+    <Property Name="PV" Type="int" />
+    <Property Name="Latitude" Type="decimal" Precision="16" Scale="3" />
+    <Property Name="Longitude" Type="decimal" Precision="16" Scale="3" />
+    <Property Name="IP" Type="bigint" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Points">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WechatUserID" Type="bigint" />
+    <Property Name="PointType" Type="bigint" />
+    <Property Name="point" Type="int" />
+    <Property Name="PointSum" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="100" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WechatUserID" Type="bigint" />
+    <Property Name="PartsCompanyID" Type="bigint" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Content" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="Statu" Type="int" />
+    <Property Name="OrderTime" Type="datetime" />
+    <Property Name="PicURL" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RepairOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WechatUserID" Type="bigint" />
+    <Property Name="PurchaseOrderID" Type="bigint" />
+    <Property Name="UserCarID" Type="bigint" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="RepairTime" Type="datetime" />
+    <Property Name="Tel" Type="int" />
+    <Property Name="CarNo" Type="varchar" MaxLength="50" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserCars">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WechatUserID" Type="bigint" />
+    <Property Name="Attribution" Type="varchar" MaxLength="10" />
+    <Property Name="CarType" Type="varchar" MaxLength="50" />
+    <Property Name="CarNO" Type="varchar" MaxLength="10" />
+    <Property Name="CarOwnerName" Type="varchar" MaxLength="500" />
+    <Property Name="CarOwnerTel" Type="int" />
+    <Property Name="InsuranceTime" Type="datetime" />
+    <Property Name="Note" Type="varchar" MaxLength="500" />
+    <Property Name="DelTF" Type="int" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
@@ -39,7 +162,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Openid" Type="varchar" MaxLength="100" />
     <Property Name="Unionid" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar" MaxLength="100" />
@@ -56,16 +179,25 @@
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="LoginToken" Type="varchar" MaxLength="500" />
     <Property Name="LoginTokenExpire" Type="varchar" MaxLength="500" />
+    <Property Name="ShareID" Type="varchar" MaxLength="50" />
     <Property Name="TgID" Type="varchar" MaxLength="500" />
     <Property Name="Statu" Type="int" />
     <Property Name="LastActiveTime" Type="datetime" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityContainer Name="CarRepairModelStoreContainer">
+    <EntitySet Name="BaseOptions" EntityType="Self.BaseOptions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ManageMenu" EntityType="Self.ManageMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ManageUser" EntityType="Self.ManageUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartsClassify" EntityType="Self.PartsClassify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartsClassifyCompany" EntityType="Self.PartsClassifyCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartsCompany" EntityType="Self.PartsCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Points" EntityType="Self.Points" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrder" EntityType="Self.PurchaseOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepairOrder" EntityType="Self.RepairOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCars" EntityType="Self.UserCars" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WechatUser" EntityType="Self.WechatUser" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRepairWeb", "CarRepairWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityModels", "EntityModels\EntityModels.csproj", "{ADD76BCE-0F70-4840-9980-3351E2733733}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{ADD76BCE-0F70-4840-9980-3351E2733733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADD76BCE-0F70-4840-9980-3351E2733733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADD76BCE-0F70-4840-9980-3351E2733733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,5 +93,6 @@ Global
 		{5F756021-5DF4-4B78-AEC3-F19D86C84922} = {A81F2A76-2070-4631-BC61-EE46050CBE98}
 		{46C4746E-CCE1-43DB-A843-1281864711A6} = {BD6558F0-3D11-4564-95D3-869FBB5A11AC}
 		{ADD76BCE-0F70-4840-9980-3351E2733733} = {D1269B9B-A70E-445A-95F2-5D0D33EBC687}
+		{58D69A7B-FBAE-4CE1-8B0B-EC19BFE6C20E} = {22489853-C2F6-46F5-967C-CA2A2F37798C}
 	EndGlobalSection
 EndGlobal

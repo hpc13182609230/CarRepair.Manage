@@ -25,7 +25,7 @@ namespace CarRepairWeb.Controllers
 
         private void CheckLogin(ActionExecutingContext filterContext)
         {
-            int id = Utility.UserUtility.Current.AccountID;
+            long id = Utility.UserUtility.Current.AccountID;
             if (id == 0)
             {
                 filterContext.Result = RedirectToRoute("Default", new { Controller = "Account", Action = "Login" });

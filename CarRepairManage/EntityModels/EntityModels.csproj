@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="BaseOptions.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
     <Compile Include="CarRepair.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,7 +76,28 @@
     <Compile Include="ManageUser.cs">
       <DependentUpon>CarRepair.tt</DependentUpon>
     </Compile>
+    <Compile Include="PartsClassify.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsClassifyCompany.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsCompany.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Points.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepairOrder.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCars.cs">
+      <DependentUpon>CarRepair.tt</DependentUpon>
+    </Compile>
     <Compile Include="WechatUser.cs">
       <DependentUpon>CarRepair.tt</DependentUpon>
     </Compile>

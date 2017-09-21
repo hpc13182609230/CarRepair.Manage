@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseOptionsService.cs" />
+    <Compile Include="PartsClassifyService.cs" />
+    <Compile Include="PartsCompanyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageUserService.cs" />
     <Compile Include="WechatService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoMapperLib\AutoMapperLib.csproj">
+      <Project>{d124d717-5579-4252-b4fd-5af58db94c7a}</Project>
+      <Name>AutoMapperLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntityModels\EntityModels.csproj">
       <Project>{add76bce-0f70-4840-9980-3351e2733733}</Project>
       <Name>EntityModels</Name>
@@ -58,6 +65,10 @@
     <ProjectReference Include="..\HelperLib\HelperLib.csproj">
       <Project>{aafce7e9-ad8d-425b-aa1a-9590f85f25e9}</Project>
       <Name>HelperLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{58d69a7b-fbae-4ce1-8b0b-ec19bfe6c20e}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{f893bbac-f207-4f3b-8dcb-dded509ed0ac}</Project>

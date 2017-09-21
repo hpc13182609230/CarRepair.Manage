@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Entities;
-using ViewModel;
+using EntityModels;
+
+using ViewModels.CarRepair;
 
 
 namespace AutoMapperLib
@@ -37,14 +38,9 @@ namespace AutoMapperLib
         {
             var config = new MapperConfiguration(cfg => {
                 //注册 需要转换的对象
-                //cfg.CreateMap<userInfo, UserInfoModel>();
-                //cfg.CreateMap<T_book_online, T_book_onlineModel>();
-                //cfg.CreateMap<T_book_volume, T_book_volumeModel>();
-                //cfg.CreateMap<T_category_online, T_category_onlineModel>();
-                //cfg.CreateMap<T_category_book_online, T_category_book_onlineModel>();
-                //cfg.CreateMap<T_user_online_bookshelf, T_user_online_bookshelfModel> ();
-                //cfg.CreateMap<Task_ES_Book, Task_ES_BookModel>();
-                //cfg.CreateMap<Task_ES_BookVolume, Task_ES_BookVolumeModel>();
+                cfg.CreateMap<PartsCompany, PartsCompanyModel>();
+                cfg.CreateMap<BaseOptions, BaseOptionsModel>();
+
             }); 
             return config;
         }

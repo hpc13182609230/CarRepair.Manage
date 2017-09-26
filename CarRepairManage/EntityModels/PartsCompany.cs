@@ -12,7 +12,7 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class PartsCompany:BaseEntity
+    public partial class PartsCompany : BaseEntity
     {
 
         public string Name { get; set; }
@@ -20,10 +20,10 @@ namespace EntityModels
         public string Remark { get; set; }
         public string PicURL { get; set; }
         public string Mobile { get; set; }
-        public Nullable<int> PV { get; set; }
-        public Nullable<decimal> Latitude { get; set; }
-        public Nullable<decimal> Longitude { get; set; }
-        public Nullable<int> IP { get; set; }
+        public int PV { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
+        public int IP { get; set; }
         public string Contract { get; set; }
         public string Tel { get; set; }
     }

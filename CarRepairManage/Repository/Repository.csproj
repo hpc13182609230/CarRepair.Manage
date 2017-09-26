@@ -54,6 +54,12 @@
     <Compile Include="Base\BaseRepository.cs" />
     <Compile Include="Base\IBaseRepository.cs" />
     <Compile Include="PartsClassifyRepository.cs" />
+    <Compile Include="PartsClassifyCompanyRepository.cs" />
+    <Compile Include="PurchaseOrderRepository.cs" />
+    <Compile Include="RepairOrderRepository.cs" />
+    <Compile Include="PointsRepository.cs" />
+    <Compile Include="WechatUserRepository.cs" />
+    <Compile Include="UserCarsRepository.cs" />
     <Compile Include="PartsCompanyRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

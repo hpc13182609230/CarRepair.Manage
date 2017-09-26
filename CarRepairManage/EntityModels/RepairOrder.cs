@@ -12,18 +12,16 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class RepairOrder
+    public partial class RepairOrder : BaseEntity
     {
-        public long ID { get; set; }
-        public Nullable<long> WechatUserID { get; set; }
-        public Nullable<long> PurchaseOrderID { get; set; }
-        public Nullable<long> UserCarID { get; set; }
+
+        public long WechatUserID { get; set; }
+        public long PurchaseOrderID { get; set; }
+        public long UserCarID { get; set; }
         public string Note { get; set; }
-        public Nullable<System.DateTime> RepairTime { get; set; }
-        public Nullable<int> Tel { get; set; }
+        public System.DateTime RepairTime { get; set; }
+        public string Tel { get; set; }
         public string CarNo { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
+
     }
 }

@@ -41,8 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarRepair\BaseOptionsModel.cs" />
+    <Compile Include="CarRepair\PartsClassifyCompanyModel.cs" />
     <Compile Include="CarRepair\PartsClassifyModel.cs" />
     <Compile Include="CarRepair\PartsCompanyModel.cs" />
+    <Compile Include="CarRepair\PointsModel.cs" />
+    <Compile Include="CarRepair\PurchaseOrderModel.cs" />
+    <Compile Include="CarRepair\RepairOrderModel.cs" />
+    <Compile Include="CarRepair\UserCarsModel.cs" />
+    <Compile Include="CarRepair\WechatUserModel.cs" />
     <Compile Include="DataResultModel.cs" />
     <Compile Include="PageInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

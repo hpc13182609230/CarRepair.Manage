@@ -5,7 +5,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ParentID" Type="Int64" />
+    <Property Name="ParentID" Type="Int64" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Info" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -29,7 +29,7 @@
     <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="EncryptKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Statu" Type="Int32" />
+    <Property Name="Statu" Type="Int32" Nullable="false" />
     <Property Name="LastActiveTime" Type="DateTime" Precision="3" />
     <Property Name="DelTF" Type="Int32" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
@@ -40,7 +40,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Unionid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="EncryptKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -51,14 +51,14 @@
     <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="HeadImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="SubScribeTime" Type="DateTime" Precision="3" />
+    <Property Name="SubScribeTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="LoginToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="LoginTokenExpire" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="TgID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Statu" Type="Int32" />
-    <Property Name="LastActiveTime" Type="DateTime" Precision="3" />
+    <Property Name="Statu" Type="Int32" Nullable="false" />
+    <Property Name="LastActiveTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="DelTF" Type="Int32" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -82,11 +82,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ParentID" Type="Int64" />
+    <Property Name="ParentID" Type="Int64" Nullable="false" />
     <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PartsClassify">
@@ -94,12 +94,12 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="OptionID" Type="Int64" />
+    <Property Name="OptionID" Type="Int64" Nullable="false" />
     <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="PicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PartsCompany">
@@ -112,12 +112,12 @@
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="PicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PV" Type="Int32" />
-    <Property Name="Latitude" Type="Decimal" Precision="16" Scale="3" />
-    <Property Name="Longitude" Type="Decimal" Precision="16" Scale="3" />
-    <Property Name="IP" Type="Int32" />
+    <Property Name="PV" Type="Int32" Nullable="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="16" Scale="3" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="16" Scale="3" Nullable="false" />
+    <Property Name="IP" Type="Int32" Nullable="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -127,14 +127,14 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WechatUserID" Type="Int64" />
-    <Property Name="PointType" Type="Int32" />
-    <Property Name="point" Type="Int32" />
-    <Property Name="PointSum" Type="Int32" />
+    <Property Name="WechatUserID" Type="Int64" Nullable="false" />
+    <Property Name="PointType" Type="Int32" Nullable="false" />
+    <Property Name="point" Type="Int32" Nullable="false" />
+    <Property Name="PointSum" Type="Int32" Nullable="false" />
     <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PurchaseOrder">
@@ -142,17 +142,17 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WechatUserID" Type="Int64" />
-    <Property Name="PartsCompanyID" Type="Int64" />
-    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="WechatUserID" Type="Int64" Nullable="false" />
+    <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Statu" Type="Int32" />
-    <Property Name="OrderTime" Type="DateTime" Precision="3" />
+    <Property Name="Statu" Type="Int32" Nullable="false" />
+    <Property Name="OrderTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="PicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="DelTF" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="DelTF" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="RepairOrder">
@@ -160,15 +160,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WechatUserID" Type="Int64" />
-    <Property Name="PurchaseOrderID" Type="Int64" />
-    <Property Name="UserCarID" Type="Int64" />
+    <Property Name="WechatUserID" Type="Int64" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="Int64" Nullable="false" />
+    <Property Name="UserCarID" Type="Int64" Nullable="false" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="RepairTime" Type="DateTime" Precision="3" />
-    <Property Name="Tel" Type="Int32" />
+    <Property Name="RepairTime" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="Tel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="CarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="UserCars">
@@ -176,16 +176,16 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WechatUserID" Type="Int64" />
+    <Property Name="WechatUserID" Type="Int64" Nullable="false" />
     <Property Name="Attribution" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CarNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="CarOwnerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="CarOwnerTel" Type="Int32" />
+    <Property Name="CarOwnerTel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="InsuranceTime" Type="DateTime" Precision="3" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PartsClassifyCompany">
@@ -193,11 +193,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PartsClassifyID" Type="Int64" />
-    <Property Name="PartsCompanyID" Type="Int64" />
+    <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
     <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="DelTF" Type="Int32" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="PartsClassifyIDs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
 </Schema>

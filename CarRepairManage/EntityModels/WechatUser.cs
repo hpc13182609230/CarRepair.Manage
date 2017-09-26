@@ -12,9 +12,9 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class WechatUser
+    public partial class WechatUser : BaseEntity
     {
-        public long ID { get; set; }
+
         public string Openid { get; set; }
         public string Unionid { get; set; }
         public string Password { get; set; }
@@ -26,17 +26,14 @@ namespace EntityModels
         public string Province { get; set; }
         public string Country { get; set; }
         public string HeadImgUrl { get; set; }
-        public Nullable<System.DateTime> SubScribeTime { get; set; }
+        public System.DateTime SubScribeTime { get; set; }
         public string Remark { get; set; }
         public string Content { get; set; }
         public string LoginToken { get; set; }
         public string LoginTokenExpire { get; set; }
         public string TgID { get; set; }
-        public Nullable<int> Statu { get; set; }
-        public Nullable<System.DateTime> LastActiveTime { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
+        public int Statu { get; set; }
+        public System.DateTime LastActiveTime { get; set; }
         public string ShareID { get; set; }
     }
 }

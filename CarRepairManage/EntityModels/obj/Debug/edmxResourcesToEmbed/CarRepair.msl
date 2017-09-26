@@ -189,12 +189,12 @@
     <EntitySetMapping Name="PartsClassifyCompany">
       <EntityTypeMapping TypeName="CarRepairModel.PartsClassifyCompany">
         <MappingFragment StoreEntitySet="PartsClassifyCompany">
+          <ScalarProperty Name="PartsClassifyIDs" ColumnName="PartsClassifyIDs" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="DelTF" ColumnName="DelTF" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
-          <ScalarProperty Name="PartsClassifyID" ColumnName="PartsClassifyID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

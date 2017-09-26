@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="BaseOptionsService.cs" />
     <Compile Include="PartsClassifyService.cs" />
+    <Compile Include="PartsClassifyCompanyService.cs" />
+    <Compile Include="PurchaseOrderService.cs" />
+    <Compile Include="RepairOrderService.cs" />
+    <Compile Include="PointsService.cs" />
+    <Compile Include="WechatUserService.cs" />
+    <Compile Include="UserCarsService.cs" />
     <Compile Include="PartsCompanyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageUserService.cs" />

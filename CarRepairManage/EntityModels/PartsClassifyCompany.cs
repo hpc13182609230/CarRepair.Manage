@@ -12,14 +12,11 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class PartsClassifyCompany
+    public partial class PartsClassifyCompany : BaseEntity
     {
-        public long ID { get; set; }
-        public Nullable<long> PartsClassifyID { get; set; }
-        public Nullable<long> PartsCompanyID { get; set; }
+
+        public long PartsCompanyID { get; set; }
         public string Note { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
+        public string PartsClassifyIDs { get; set; }
     }
 }

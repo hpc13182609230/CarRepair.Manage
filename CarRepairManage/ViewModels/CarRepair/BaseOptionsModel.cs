@@ -13,7 +13,7 @@ namespace ViewModels.CarRepair
         public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
 
-        public Nullable<int> ParentID { get; set; }
+        public int ParentID { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }
     }

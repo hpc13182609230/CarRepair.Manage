@@ -5,11 +5,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ParentID" Type="bigint" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="Remark" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="ManageMenu">
@@ -17,7 +17,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ParentID" Type="bigint" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="100" />
     <Property Name="Url" Type="varchar" MaxLength="100" />
     <Property Name="Info" Type="varchar" MaxLength="100" />
@@ -41,7 +41,7 @@
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="Avatar" Type="varchar" MaxLength="100" />
     <Property Name="EncryptKey" Type="varchar" MaxLength="100" />
-    <Property Name="Statu" Type="int" />
+    <Property Name="Statu" Type="int" Nullable="false" />
     <Property Name="LastActiveTime" Type="datetime" />
     <Property Name="DelTF" Type="int" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
@@ -52,12 +52,12 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OptionID" Type="bigint" />
+    <Property Name="OptionID" Type="bigint" Nullable="false" />
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="Remark" Type="varchar" MaxLength="500" />
     <Property Name="PicURL" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PartsClassifyCompany">
@@ -65,11 +65,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PartsClassifyID" Type="bigint" />
-    <Property Name="PartsCompanyID" Type="bigint" />
+    <Property Name="PartsClassifyIDs" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
     <Property Name="Note" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PartsCompany">
@@ -84,12 +84,12 @@
     <Property Name="PicURL" Type="varchar" MaxLength="500" />
     <Property Name="Mobile" Type="varchar" MaxLength="50" />
     <Property Name="Tel" Type="varchar" MaxLength="50" />
-    <Property Name="PV" Type="int" />
-    <Property Name="Latitude" Type="decimal" Precision="16" Scale="3" />
-    <Property Name="Longitude" Type="decimal" Precision="16" Scale="3" />
-    <Property Name="IP" Type="bigint" />
+    <Property Name="PV" Type="int" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />
+    <Property Name="IP" Type="bigint" Nullable="false" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="Points">
@@ -97,14 +97,14 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WechatUserID" Type="bigint" />
-    <Property Name="PointType" Type="bigint" />
-    <Property Name="point" Type="int" />
-    <Property Name="PointSum" Type="int" />
+    <Property Name="WechatUserID" Type="bigint" Nullable="false" />
+    <Property Name="PointType" Type="bigint" Nullable="false" />
+    <Property Name="point" Type="int" Nullable="false" />
+    <Property Name="PointSum" Type="int" Nullable="false" />
     <Property Name="Remark" Type="varchar" MaxLength="100" />
     <Property Name="Note" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PurchaseOrder">
@@ -112,17 +112,17 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WechatUserID" Type="bigint" />
-    <Property Name="PartsCompanyID" Type="bigint" />
-    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="WechatUserID" Type="bigint" Nullable="false" />
+    <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="500" />
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="Remark" Type="varchar" MaxLength="500" />
-    <Property Name="Statu" Type="int" />
-    <Property Name="OrderTime" Type="datetime" />
+    <Property Name="Statu" Type="int" Nullable="false" />
+    <Property Name="OrderTime" Type="datetime" Nullable="false" />
     <Property Name="PicURL" Type="varchar" MaxLength="500" />
-    <Property Name="DelTF" Type="varchar" MaxLength="500" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="DelTF" Type="int" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="RepairOrder">
@@ -130,15 +130,15 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WechatUserID" Type="bigint" />
-    <Property Name="PurchaseOrderID" Type="bigint" />
-    <Property Name="UserCarID" Type="bigint" />
+    <Property Name="WechatUserID" Type="bigint" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="bigint" Nullable="false" />
+    <Property Name="UserCarID" Type="bigint" Nullable="false" />
     <Property Name="Note" Type="varchar" MaxLength="500" />
-    <Property Name="RepairTime" Type="datetime" />
-    <Property Name="Tel" Type="int" />
+    <Property Name="RepairTime" Type="datetime" Nullable="false" />
+    <Property Name="Tel" Type="varchar" MaxLength="50" />
     <Property Name="CarNo" Type="varchar" MaxLength="50" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="UserCars">
@@ -146,16 +146,16 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="WechatUserID" Type="bigint" />
+    <Property Name="WechatUserID" Type="bigint" Nullable="false" />
     <Property Name="Attribution" Type="varchar" MaxLength="10" />
     <Property Name="CarType" Type="varchar" MaxLength="50" />
     <Property Name="CarNO" Type="varchar" MaxLength="10" />
     <Property Name="CarOwnerName" Type="varchar" MaxLength="500" />
-    <Property Name="CarOwnerTel" Type="int" />
+    <Property Name="CarOwnerTel" Type="varchar" MaxLength="50" />
     <Property Name="InsuranceTime" Type="datetime" />
     <Property Name="Note" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
-    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="WechatUser">
@@ -163,7 +163,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Openid" Type="varchar" MaxLength="100" />
+    <Property Name="Openid" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Unionid" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar" MaxLength="100" />
     <Property Name="EncryptKey" Type="varchar" MaxLength="100" />
@@ -174,15 +174,15 @@
     <Property Name="Province" Type="varchar" MaxLength="100" />
     <Property Name="Country" Type="varchar" MaxLength="100" />
     <Property Name="HeadImgUrl" Type="varchar" MaxLength="100" />
-    <Property Name="SubScribeTime" Type="datetime" />
+    <Property Name="SubScribeTime" Type="datetime" Nullable="false" />
     <Property Name="Remark" Type="varchar" MaxLength="100" />
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="LoginToken" Type="varchar" MaxLength="500" />
     <Property Name="LoginTokenExpire" Type="varchar" MaxLength="500" />
     <Property Name="ShareID" Type="varchar" MaxLength="50" />
     <Property Name="TgID" Type="varchar" MaxLength="500" />
-    <Property Name="Statu" Type="int" />
-    <Property Name="LastActiveTime" Type="datetime" />
+    <Property Name="Statu" Type="int" Nullable="false" />
+    <Property Name="LastActiveTime" Type="datetime" Nullable="false" />
     <Property Name="DelTF" Type="int" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UpdateTime" Type="datetime" />

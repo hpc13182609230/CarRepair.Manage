@@ -3,12 +3,11 @@ F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\bin\Debug\LogLib.d
 F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
 F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\obj\Debug\LogLib.dll
 F:\SmallAPP\CSharpCode\新建文件夹\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb

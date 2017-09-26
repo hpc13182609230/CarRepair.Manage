@@ -23,7 +23,7 @@ namespace EntityModels
         public string Content { get; set; }
         public string Avatar { get; set; }
         public string EncryptKey { get; set; }
-        public Nullable<int> Statu { get; set; }
+        public int Statu { get; set; }
         public Nullable<System.DateTime> LastActiveTime { get; set; }
         public Nullable<int> DelTF { get; set; }
         public System.DateTime CreateTime { get; set; }

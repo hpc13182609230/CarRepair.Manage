@@ -29,13 +29,19 @@ namespace CarRepairWeb.Controllers
         }
 
 
-        public ActionResult PartsClassifyCompany(int PartsClassifyID,string Content)
+        public ActionResult PartsClassifyCompany(long PartsClassifyID,string Content)
         {
-            //PartsClassifyService service = new PartsClassifyService();
-            //List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentID(OptionID);
-            //ViewBag.PartsClassify = _PartsClassifyModels;
+            PartsClassifyCompanyService service = new PartsClassifyCompanyService();
+   
+            List<PartsCompanyModel> partsCompanys = service.GetForAPI(PartsClassifyID);
+            ViewBag.partsCompanys = partsCompanys;
             ViewBag.PartsClassifyID = PartsClassifyID;
             ViewBag.Content = Content;
+
+            BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+            ViewBag.options = options;
+
             return View();
         }
     }

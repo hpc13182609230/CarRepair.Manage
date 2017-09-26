@@ -14,9 +14,11 @@ namespace EntityModels
     
     public partial class PartsClassify:BaseEntity
     {
-        public Nullable<long> OptionID { get; set; }
+
+        public long OptionID { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }
         public string PicURL { get; set; }
+
     }
 }

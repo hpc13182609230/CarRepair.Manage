@@ -21,9 +21,15 @@ namespace ViewModels.CarRepair
         public Nullable<int> PV { get; set; }
         public Nullable<decimal> Latitude { get; set; }
         public Nullable<decimal> Longitude { get; set; }
-        public Nullable<int> IP { get; set; }
+        public Nullable<int> IP { get; set; }//option 对应的 id
         public string Contract { get; set; }
         public string Tel { get; set; }
+        public Nullable<System.DateTime> ExpireTime { get; set; }//配件商 有效期
+        public int order { get; set; }//配件商显示的顺序
+
+        //额外字段
+        public string Address { get; set; }//ip对应的地址
+
 
     }
 }

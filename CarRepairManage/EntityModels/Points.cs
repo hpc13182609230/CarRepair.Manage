@@ -12,17 +12,13 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Points
+    public partial class Points : BaseEntity
     {
-        public long ID { get; set; }
-        public Nullable<long> WechatUserID { get; set; }
-        public Nullable<int> PointType { get; set; }
-        public Nullable<int> point { get; set; }
-        public Nullable<int> PointSum { get; set; }
+        public long WechatUserID { get; set; }
+        public int PointType { get; set; }
+        public int point { get; set; }
+        public int PointSum { get; set; }
         public string Remark { get; set; }
         public string Note { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public Nullable<System.DateTime> CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
     }
 }

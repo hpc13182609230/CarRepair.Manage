@@ -7,6 +7,7 @@ using EntityModels;
 using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
+using ViewModels;
 
 namespace Service
 {
@@ -21,6 +22,18 @@ namespace Service
             return model;
         }
 
+        public List<PartsCompanyModel> GetByIDs(List<long> ids)
+        {
+            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
+            PartsCompanyRepository repository = new PartsCompanyRepository();
+            var res = repository.GetEntities(p=>ids.Contains(p.ID));
+            foreach (var item in res)
+            {
+                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                models.Add(model);
+            }          
+            return models;
+        }
 
         public long SavePartsCompany(PartsCompanyModel model)
         {
@@ -38,5 +51,21 @@ namespace Service
             }
             return id;
         }
+
+        public  List<PartsCompanyModel> GetListByPage(PageInfoModel page)
+        {
+            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
+            PartsCompanyRepository repository = new PartsCompanyRepository();
+            var entities = repository.GetEntities();
+            foreach (var item in entities)
+            {
+                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
+
+
     }
 }

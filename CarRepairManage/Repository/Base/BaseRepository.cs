@@ -24,6 +24,53 @@ namespace Repository
             }
         }
 
+
+        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, DateTime>> order = null, bool isAsc = false)
+        {
+            using (DB db = new DB())
+            {
+                DbSet<T> dbSet = db.Set<T>();
+                IQueryable<T> queryable = dbSet.AsQueryable();
+                if (query != null)
+                    queryable = dbSet.Where(query);
+                if (order != null)
+                {
+                    if (isAsc)
+                    {
+                        queryable = queryable.OrderBy(order);
+                    }
+                    else
+                    {
+                        queryable = queryable.OrderByDescending(order);
+                    }
+                }
+                return queryable.FirstOrDefault();
+            }
+        }
+
+        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
+        {
+            using (DB db = new DB())
+            {
+                DbSet<T> dbSet = db.Set<T>();
+                IQueryable<T> queryable = dbSet.AsQueryable();
+                if (query != null)
+                    queryable = dbSet.Where(query);
+                if (order != null)
+                {
+                    if (isAsc)
+                    {
+                        queryable = queryable.OrderBy(order);
+                    }
+                    else
+                    {
+                        queryable = queryable.OrderByDescending(order);
+                    }
+                }
+                return queryable.FirstOrDefault();
+            }
+        }
+
         public T GetEntityByID(long id)
         {
             using (DB db = new DB())
@@ -59,7 +106,7 @@ namespace Repository
             }
         }
 
-        public IEnumerable<T> GetEntitiesForPaging(ref long totalCount, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, string>> order = null, bool isAsc = false)
+        public IEnumerable<T> GetEntitiesForPaging(ref long total, int start = 0, int offset = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, string>> order = null, bool isAsc = false)
         {
             using (DB db = new DB())
             {
@@ -67,7 +114,7 @@ namespace Repository
                 IQueryable<T> queryable = dbSet.AsQueryable();
                 if (query != null)
                     queryable = dbSet.Where(query);
-                totalCount = queryable.Count();
+                total = queryable.Count();
                 if (order!=null)
                 {
                     if (isAsc)
@@ -79,7 +126,7 @@ namespace Repository
                         queryable = queryable.OrderByDescending(order);
                     }
                 }
-                queryable = queryable.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                queryable = queryable.Skip(start).Take(offset);
                 return queryable.ToList();
             }
         }

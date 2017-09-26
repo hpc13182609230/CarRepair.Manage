@@ -18,6 +18,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityF
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.xml
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb

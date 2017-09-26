@@ -1,7 +1,11 @@
-﻿
+﻿@using ViewModels.CarRepair;
+@using Service;
 @{
     ViewBag.Title = "PartsClassifyCompany";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BaseOptionsModel> options = ViewBag.options as List<BaseOptionsModel>;
+    List<PartsCompanyModel> partsCompanys = ViewBag.partsCompanys as List<PartsCompanyModel>;
+
 }
 
 @section header{
@@ -9,6 +13,36 @@
     @Html.Raw("<link type=\"text/css\" href=\"/media/css/jquery.fancybox.css\" rel=\"stylesheet\" />")
     @Html.Raw("<link type=\"text/css\" href=\"/media/css/search.css\" rel=\"stylesheet\" />")
 }
+
+<div id="ChangeTypeModel" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>设置分类</h3>
+    </div>
+    <div class="control-group">
+        @foreach (var option in options)
+        {
+            <label class="control-label" optionID="@option.ID">@(option.Content)</label>
+            <div class="controls">
+                <div class="row-fluid">
+                    @{
+                        PartsClassifyService service = new PartsClassifyService();
+                        List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentID(option.ID);
+                    }
+                    @foreach (var item in _PartsClassifyModels)
+                    {
+                        <div class="span3">
+                            <label class="checkbox line">
+                                <input type="checkbox" value="@item.ID" name="PartsClassify" txt="@item.Content" />@item.Content
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        <button name="save" class="btn blue" style="text-align:center;margin:0 auto" PartsClassifyCompanyID="" PartsCompanyID="">保存</button>
+    </div>
+</div>
 
 <!-- BEGIN PAGE CONTAINER-->
 <div class="container-fluid">
@@ -70,23 +104,25 @@
                                 <th>归属地</th>
                                 <th class="hidden-phone">到期时间</th>
                                 <th class="hidden-phone">创建时间</th>
-                                <th>状态</th>
-                                <th></th>
+                                <th>所属分类</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            @for (int i = 0; i < 10; i++)
+                                  
+                            @foreach (var item in partsCompanys)
                             {
-                                <tr id="@i">
+                                <tr PartsCompanyID="@(item.ID)">
                                     <td><img src="/media/image/avatar1.jpg" alt="" /></td>
-                                    <td class="hidden-phone">Mark Nilson</td>
-
-                                    <td>makr124</td>
-                                    <td class="hidden-phone">19 Jan 2012</td>
-                                    <td class="hidden-phone">1245</td>
+                                    <td class="hidden-phone">@(item.Name)</td>
+                                    <td>@(item.Address)</td>
+                                    <td class="hidden-phone">@(item.ExpireTime)</td>
+                                    <td class="hidden-phone">@(item.CreateTime)</td>
                                     <td><span class="label label-success">Approved</span></td>
-                                    <td><a class="btn mini red-stripe" href="#">View</a></td>
+                                    <td>
+                                        <div name="ChangeType" class="btn mini red-stripe">修改分类</div>
+                                        @*<div name="ChangeExpireTime" class="btn mini red-stripe" href="#">修改时间</div>*@
+                                    </td>
                                 </tr>
                             }
                         </tbody>

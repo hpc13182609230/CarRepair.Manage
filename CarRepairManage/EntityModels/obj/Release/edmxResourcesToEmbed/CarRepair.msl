@@ -84,6 +84,7 @@
     <EntitySetMapping Name="PartsClassify">
       <EntityTypeMapping TypeName="CarRepairModel.PartsClassify">
         <MappingFragment StoreEntitySet="PartsClassify">
+          <ScalarProperty Name="Order" ColumnName="Order" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -98,6 +99,10 @@
     <EntitySetMapping Name="PartsCompany">
       <EntityTypeMapping TypeName="CarRepairModel.PartsCompany">
         <MappingFragment StoreEntitySet="PartsCompany">
+          <ScalarProperty Name="WechatID" ColumnName="WechatID" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="PartsClassifyID" ColumnName="PartsClassifyID" />
+          <ScalarProperty Name="PartsClassifyIDNote" ColumnName="PartsClassifyIDNote" />
           <ScalarProperty Name="Tel" ColumnName="Tel" />
           <ScalarProperty Name="Contract" ColumnName="Contract" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />

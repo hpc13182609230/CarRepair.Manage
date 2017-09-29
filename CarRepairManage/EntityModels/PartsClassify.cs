@@ -12,13 +12,13 @@ namespace EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class PartsClassify:BaseEntity
+    public partial class PartsClassify : BaseEntity
     {
 
         public long OptionID { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }
         public string PicURL { get; set; }
-
+        public int Order { get; set; }
     }
 }

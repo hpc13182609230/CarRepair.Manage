@@ -8,3 +8,8 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\bin\Release\LogLi
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\LogLib\obj\Release\LogLib.pdb
+E:\Project\CarRepair\code1\CarRepairManage\LogLib\bin\Release\LogLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\LogLib\bin\Release\LogLib.pdb
+E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Release\LogLib.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Release\LogLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Release\LogLib.pdb

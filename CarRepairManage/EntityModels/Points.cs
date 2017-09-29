@@ -14,6 +14,7 @@ namespace EntityModels
     
     public partial class Points : BaseEntity
     {
+
         public long WechatUserID { get; set; }
         public int PointType { get; set; }
         public int point { get; set; }

@@ -55,6 +55,7 @@
     <Property Name="OptionID" Type="bigint" Nullable="false" />
     <Property Name="Content" Type="varchar" MaxLength="500" />
     <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="Order" Type="int" Nullable="false" />
     <Property Name="PicURL" Type="varchar" MaxLength="500" />
     <Property Name="DelTF" Type="int" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
@@ -84,6 +85,10 @@
     <Property Name="PicURL" Type="varchar" MaxLength="500" />
     <Property Name="Mobile" Type="varchar" MaxLength="50" />
     <Property Name="Tel" Type="varchar" MaxLength="50" />
+    <Property Name="PartsClassifyIDNote" Type="varchar" MaxLength="50" />
+    <Property Name="PartsClassifyID" Type="bigint" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="WechatID" Type="bigint" Nullable="false" />
     <Property Name="PV" Type="int" Nullable="false" />
     <Property Name="Latitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />
     <Property Name="Longitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />

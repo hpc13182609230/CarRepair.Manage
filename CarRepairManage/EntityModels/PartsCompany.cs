@@ -26,5 +26,9 @@ namespace EntityModels
         public int IP { get; set; }
         public string Contract { get; set; }
         public string Tel { get; set; }
+        public string PartsClassifyIDNote { get; set; }
+        public long PartsClassifyID { get; set; }
+        public int Order { get; set; }
+        public long WechatID { get; set; }
     }
 }

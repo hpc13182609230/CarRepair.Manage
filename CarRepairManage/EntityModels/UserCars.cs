@@ -23,5 +23,6 @@ namespace EntityModels
         public string CarOwnerTel { get; set; }
         public Nullable<System.DateTime> InsuranceTime { get; set; }
         public string Note { get; set; }
+
     }
 }

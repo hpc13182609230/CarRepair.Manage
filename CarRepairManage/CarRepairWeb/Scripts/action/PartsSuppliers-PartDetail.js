@@ -15,13 +15,21 @@ $('#save').click(function () {
     var Contract = $('#Contract').val();
     var Mobile = $('#Mobile').val();
     var Tel = $('#Tel').val();
-    var Content = $('#Content').val();
+    //var Content = $('#Content').val();
+    var editor = CKEDITOR.instances.content_CKEditor;
+    var Content = editor.getData();
+    Content = encodeURIComponent(Content);
+
+    var radio =  $('[type="radio"]:checked');
+    var PartsClassifyID = radio.val();
+    var PartsClassifyIDNote = radio.attr('txt');
+
     var PicURL = $('#PicURL').val();
 
     $.ajax({
         type: 'POST',
         url: '/PartsSuppliers/PartsCompanySave',
-        data: { ID: ID, Name: Name, Contract: Contract, Mobile: Mobile, Tel: Tel, Content: Content, PicURL: PicURL },
+        data: { ID: ID, Name: Name, Contract: Contract, Mobile: Mobile, Tel: Tel, Content: Content, PicURL: PicURL, PartsClassifyID: PartsClassifyID, PartsClassifyIDNote: PartsClassifyIDNote },
         success: function (data) {
             if (data > 0) {
                 //$('#form').attr('partsID', data);

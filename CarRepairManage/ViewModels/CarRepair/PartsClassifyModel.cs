@@ -13,6 +13,7 @@ namespace ViewModels.CarRepair
         public string Content { get; set; }
         public string Remark { get; set; }
         public string PicURL { get; set; }
+        public int Order { get; set; }
         public Nullable<int> DelTF { get; set; }
         public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }

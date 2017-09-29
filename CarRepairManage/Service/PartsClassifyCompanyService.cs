@@ -27,7 +27,10 @@ namespace Service
             PartsClassifyCompanyModel model = new PartsClassifyCompanyModel();
             PartsClassifyCompanyRepository repository = new PartsClassifyCompanyRepository();
             var res = repository.GetEntities(p=>p.PartsCompanyID==PartsCompanyID).FirstOrDefault();
-            model = AutoMapperClient.MapTo<PartsClassifyCompany, PartsClassifyCompanyModel>(res);
+            if (res != null)
+            {
+                model = AutoMapperClient.MapTo<PartsClassifyCompany, PartsClassifyCompanyModel>(res);
+            }
             return model;
         }
 

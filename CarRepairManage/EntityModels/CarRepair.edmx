@@ -60,6 +60,7 @@
           <Property Name="OptionID" Type="bigint" Nullable="false" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="Order" Type="int" Nullable="false" />
           <Property Name="PicURL" Type="varchar" MaxLength="500" />
           <Property Name="DelTF" Type="int" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
@@ -89,6 +90,10 @@
           <Property Name="PicURL" Type="varchar" MaxLength="500" />
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
           <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="PartsClassifyIDNote" Type="varchar" MaxLength="50" />
+          <Property Name="PartsClassifyID" Type="bigint" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="WechatID" Type="bigint" Nullable="false" />
           <Property Name="PV" Type="int" Nullable="false" />
           <Property Name="Latitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />
           <Property Name="Longitude" Type="decimal" Precision="16" Scale="3" Nullable="false" />
@@ -310,6 +315,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PartsCompany">
           <Key>
@@ -330,6 +336,10 @@
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartsClassifyIDNote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartsClassifyID" Type="Int64" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="WechatID" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="Points">
           <Key>
@@ -498,6 +508,7 @@
           <EntitySetMapping Name="PartsClassify">
             <EntityTypeMapping TypeName="CarRepairModel.PartsClassify">
               <MappingFragment StoreEntitySet="PartsClassify">
+                <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -512,6 +523,10 @@
           <EntitySetMapping Name="PartsCompany">
             <EntityTypeMapping TypeName="CarRepairModel.PartsCompany">
               <MappingFragment StoreEntitySet="PartsCompany">
+                <ScalarProperty Name="WechatID" ColumnName="WechatID" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="PartsClassifyID" ColumnName="PartsClassifyID" />
+                <ScalarProperty Name="PartsClassifyIDNote" ColumnName="PartsClassifyIDNote" />
                 <ScalarProperty Name="Tel" ColumnName="Tel" />
                 <ScalarProperty Name="Contract" ColumnName="Contract" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />

@@ -39,6 +39,16 @@ namespace CarRepairWeb.Controllers
         {
             PartsCompanyService service = new PartsCompanyService();
             PartsCompanyModel model =id==0?new PartsCompanyModel() : service.GetByID(id);
+
+            //分类相关
+            BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+            PartsClassifyCompanyService _PartsClassifyCompanyService = new PartsClassifyCompanyService();
+            PartsClassifyCompanyModel PartsClassifyCompany = _PartsClassifyCompanyService.GetByPartsCompanyID(id);
+
+            ViewBag.options = options;
+            ViewBag.PartsClassifyCompany = PartsClassifyCompany;
+
             ViewBag.PartsCompany = model;
             return View();
         }
@@ -46,8 +56,12 @@ namespace CarRepairWeb.Controllers
         //配件商 单个保存
         public ActionResult PartsCompanySave(PartsCompanyModel model)
         {
+            model.Content = EncryptHelper.UrlDecode(model.Content);
+
             PartsCompanyService service = new PartsCompanyService();
             var id =  service.SavePartsCompany(model);
+
+
             return Json(id,JsonRequestBehavior.AllowGet);
         }
 

@@ -23,5 +23,6 @@ namespace EntityModels
         public int Statu { get; set; }
         public System.DateTime OrderTime { get; set; }
         public string PicURL { get; set; }
+
     }
 }

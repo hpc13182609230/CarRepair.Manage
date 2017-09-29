@@ -21,3 +21,14 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll.config
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityModels.pdb
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityFramework.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityFramework.xml
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
+E:\Project\CarRepair\code1\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb

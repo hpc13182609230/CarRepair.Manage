@@ -10,3 +10,9 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\He
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\bin\Release\HelperLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\bin\Release\HelperLib.pdb
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\bin\Release\Newtonsoft.Json.dll
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\obj\Release\HelperLib.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb

@@ -34,6 +34,7 @@ namespace EntityModels
         public string TgID { get; set; }
         public int Statu { get; set; }
         public System.DateTime LastActiveTime { get; set; }
+
         public string ShareID { get; set; }
     }
 }

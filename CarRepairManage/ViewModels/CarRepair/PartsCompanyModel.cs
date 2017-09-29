@@ -25,10 +25,16 @@ namespace ViewModels.CarRepair
         public string Contract { get; set; }
         public string Tel { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }//配件商 有效期
-        public int order { get; set; }//配件商显示的顺序
+       
 
         //额外字段
         public string Address { get; set; }//ip对应的地址
+
+
+        public int Order { get; set; }//配件商显示的顺序
+        public long PartsClassifyID { get; set; }
+        public long WechatID { get; set; }
+        public string PartsClassifyIDNote { get; set; }//ip对应的地址
 
 
     }

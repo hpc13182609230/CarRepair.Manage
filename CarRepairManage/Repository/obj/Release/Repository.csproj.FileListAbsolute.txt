@@ -12,3 +12,17 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Release\zh-Hans
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\obj\Release\Repository.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\obj\Release\Repository.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\obj\Release\Repository.pdb
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\Repository.dll.config
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\Repository.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\Repository.pdb
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityFramework.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityFramework.SqlServer.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityModels.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityModels.pdb
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityFramework.xml
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\EntityFramework.SqlServer.xml
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\zh-Hans\EntityFramework.resources.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\obj\Release\Repository.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\Repository\obj\Release\Repository.dll
+E:\Project\CarRepair\code1\CarRepairManage\Repository\obj\Release\Repository.pdb

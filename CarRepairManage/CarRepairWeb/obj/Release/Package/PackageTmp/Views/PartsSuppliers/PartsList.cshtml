@@ -131,10 +131,10 @@
                                     <td class="hidden-phone">@(item.ExpireTime)</td>
                                     <td class="hidden-phone">@(item.CreateTime)</td>
                                     <td>
-                                        <span class="label label-success">Approved</span>
+                                        <span class="label label-success">@item.PartsClassifyIDNote</span>
                                     </td>
                                     <td>
-                                        <div name="ChangeType" class="btn mini red-stripe" PartsCompanyID="@item.ID">修改分类</div>
+                                        @*<div name="ChangeType" class="btn mini red-stripe" PartsCompanyID="@item.ID">修改分类</div>*@
                                         <a target="_blank" href="/PartsSuppliers/PartDetail?id=@item.ID">
                                             <div name="goDetail" class="btn mini red-stripe">查看详情</div>
                                         </a>

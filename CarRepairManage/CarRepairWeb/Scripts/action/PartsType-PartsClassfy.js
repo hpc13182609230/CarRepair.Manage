@@ -50,11 +50,12 @@ $('#save').click(function () {
     var OptionID = $(this).attr("OptionID");
     var Content = $('#Content').val();
     var PicURL = $('#PicURL').val();
+    var Order = $('#Order').val();
 
     $.ajax({
         type: 'POST',
         url: '/PartsType/AddPartsClassify',
-        data: { ID: ID, Content: Content, PicURL: PicURL, OptionID: OptionID },
+        data: { ID: ID, Content: Content, PicURL: PicURL, OptionID: OptionID, Order: Order },
         success: function (data) {
             if (data > 0) {
                 //$('#form').attr('partsID', data);

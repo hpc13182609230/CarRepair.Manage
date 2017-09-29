@@ -101,6 +101,7 @@
     <Property Name="DelTF" Type="Int32" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="PartsCompany">
     <Key>
@@ -121,6 +122,10 @@
     <Property Name="UpdateTime" Type="DateTime" Precision="3" />
     <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartsClassifyIDNote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartsClassifyID" Type="Int64" Nullable="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="WechatID" Type="Int64" Nullable="false" />
   </EntityType>
   <EntityType Name="Points">
     <Key>

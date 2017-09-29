@@ -27,3 +27,16 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Debug\zh-Han
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.csprojResolveAssemblyReference.cache
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.pdb
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapperLib.pdb
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\AutoMapper.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\EntityModels.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\EntityFramework.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\EntityModels.pdb
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\ViewModels.pdb
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\EntityFramework.xml
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.csprojResolveAssemblyReference.cache
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.dll
+E:\Project\CarRepair\code1\CarRepairManage\AutoMapperLib\obj\Debug\AutoMapperLib.pdb

@@ -14,7 +14,7 @@ namespace EntityModels
     
     public partial class RepairOrder : BaseEntity
     {
-
+  
         public long WechatUserID { get; set; }
         public long PurchaseOrderID { get; set; }
         public long UserCarID { get; set; }

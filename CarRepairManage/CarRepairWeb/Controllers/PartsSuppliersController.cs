@@ -7,22 +7,30 @@ using Service;
 using ViewModels;
 using ViewModels.CarRepair;
 using System.IO;
+using HelperLib;
 
 namespace CarRepairWeb.Controllers
 {
     //配件商 
-    public class PartsSuppliersController : Controller
+    public class PartsSuppliersController : BaseController
     {
         //配件商 列表
-        public ActionResult PartsList()
+        public ActionResult PartsList(string keyword,DateTime startTime,DateTime endTime, int pageIndex = 1, int pageSize = 5)
         {
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+
             BaseOptionsService _BaseOptionsService = new BaseOptionsService();
             List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
             PartsCompanyService service = new PartsCompanyService();
-            PageInfoModel page = new PageInfoModel();
-            List<PartsCompanyModel> partsCompanys = service.GetListByPage(page);
+            List<PartsCompanyModel> partsCompanys = service.GetListByPage(keyword,startTime, endTime.AddDays(1), ref page);
+
+            ViewBag.page = page;
+            ViewBag.keyword = keyword;
+            ViewBag.startTime = startTime;
+            ViewBag.endTime = endTime;
             ViewBag.options = options;
             ViewBag.partsCompanys = partsCompanys;
+
             return View();
         }
 
@@ -64,8 +72,9 @@ namespace CarRepairWeb.Controllers
         public ActionResult Upload(HttpPostedFileBase upImg)
         {
             string fileName = System.IO.Path.GetFileName(upImg.FileName);
-            string Url_Show = UpLoad_Image(upImg);
-            return Json(Url_Show, JsonRequestBehavior.AllowGet);
+            string Url_Path = UpLoad_Image(upImg);
+            string Url_Show = ConfigureHelper.Get("ImageShowURL") + Url_Path;
+            return Json(new { Url_Show = Url_Show, Url_Path= Url_Path }, JsonRequestBehavior.AllowGet);
         }
 
         //将File文件保存到本地，返回物理的相对地址

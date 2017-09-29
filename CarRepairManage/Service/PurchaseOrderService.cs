@@ -68,6 +68,11 @@ namespace Service
         }
 
 
-
+        public int CountByUserID(long id)
+        {
+            RepairOrderRepository repository = new RepairOrderRepository();
+            var res = repository.GetEntitiesCount(p => p.WechatUserID == id);
+            return res;
+        }
     }
 }

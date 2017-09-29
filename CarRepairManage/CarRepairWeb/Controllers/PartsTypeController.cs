@@ -5,21 +5,44 @@ using System.Web;
 using System.Web.Mvc;
 using ViewModels.CarRepair;
 using Service;
+using ViewModels;
 
 namespace CarRepairWeb.Controllers
 {
     public class PartsTypeController : Controller
     {
         // GET: PartsType
-        public ActionResult PartsClassify(long OptionID,string name)
+        //子分类列表
+        public ActionResult PartsClassify(long OptionID,string name, string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 5)
         {
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+
             PartsClassifyService service = new PartsClassifyService();
-            List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentID(OptionID);
+            List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentIDPage(OptionID,keyword,startTime, endTime.AddDays(1), ref page);
+
             ViewBag.PartsClassify = _PartsClassifyModels;
             ViewBag.name = name;
             ViewBag.OptionID = OptionID;
+
+            ViewBag.page = page;
+            ViewBag.keyword = keyword;
+            ViewBag.startTime = startTime;
+            ViewBag.endTime = endTime;
+
             return View();
         }
+
+        //子分类 详情
+        //public ActionResult PartsClassify(long PartsClassify)
+        //{
+        //    PartsClassifyService service = new PartsClassifyService();
+        //    List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentID(OptionID);
+        //    ViewBag.PartsClassify = _PartsClassifyModels;
+        //    ViewBag.name = name;
+        //    ViewBag.OptionID = OptionID;
+        //    return View();
+        //}
+
 
         public ActionResult AddPartsClassify(PartsClassifyModel model)
         {
@@ -31,6 +54,7 @@ namespace CarRepairWeb.Controllers
 
         public ActionResult PartsClassifyCompany(long PartsClassifyID,string Content)
         {
+
             PartsClassifyCompanyService service = new PartsClassifyCompanyService();
    
             List<PartsCompanyModel> partsCompanys = service.GetForAPI(PartsClassifyID);

@@ -7,11 +7,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ViewModels;
+using ViewModels.CarRepair;
 namespace CarRepairAPI.Controllers
 {
     [RoutePrefix("api/Login")]
     public class LoginController : ApiController
     {
+        #region 微信登录相关
         /// <summary>
         /// 根据code 获取 thirdSession
         /// </summary>
@@ -61,5 +63,36 @@ namespace CarRepairAPI.Controllers
             }
             return result;
         }
+        #endregion
+
+        #region 个人中心
+        [Route("UserInfoCenter")]
+        [HttpGet]
+        public DataResultModel UserInfoCenter(long id)
+        {
+            DataResultModel result = new DataResultModel();
+            WechatUserService _WechatUserService = new WechatUserService();
+            UserCarsService _UserCarsService = new UserCarsService();
+            PurchaseOrderService _PurchaseOrderService = new PurchaseOrderService();
+            RepairOrderService _RepairOrderService = new RepairOrderService();
+            PointsService _PointsService = new PointsService();
+            try
+            {
+                var userinfo = _WechatUserService.GetByID(id);
+                int carCount = _UserCarsService.CountByUserID(id);
+                int purchaseOrderCount = _PurchaseOrderService.CountByUserID(id);
+                int repairOrderCount = _RepairOrderService.CountByUserID(id);
+                PointsModel point = _PointsService.GetLastByUserID(id);
+                result.data = new { userinfo = userinfo, carCount= carCount, purchaseOrderCount= purchaseOrderCount, repairOrderCount = repairOrderCount , point= point.PointSum};
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return result;
+        }
+        #endregion
+
     }
 }

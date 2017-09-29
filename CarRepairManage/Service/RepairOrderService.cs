@@ -74,7 +74,12 @@ namespace Service
             return models;
         }
 
-
+        public int CountByUserID(long id)
+        {
+            PurchaseOrderRepository repository = new PurchaseOrderRepository();
+            var res = repository.GetEntitiesCount(p => p.WechatUserID == id);
+            return res;
+        }
 
     }
 }

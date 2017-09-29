@@ -24,7 +24,7 @@ namespace Repository
         int GetEntitiesCount(Expression<Func<T, bool>> query = null);
 
         //分页查询
-        IEnumerable<T> GetEntitiesForPaging(ref long totalCount, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, string>> order = null, bool isAsc = false);
+        IEnumerable<T> GetEntitiesForPaging(ref int totalCount, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false);
 
         #endregion
 

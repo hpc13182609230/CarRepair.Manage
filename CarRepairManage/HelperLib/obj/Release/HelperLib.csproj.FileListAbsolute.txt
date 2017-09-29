@@ -9,3 +9,4 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\bin\Release\Ne
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\HelperLib\obj\Release\HelperLib.csprojResolveAssemblyReference.cache

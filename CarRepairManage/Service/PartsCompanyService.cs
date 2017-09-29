@@ -52,11 +52,13 @@ namespace Service
             return id;
         }
 
-        public  List<PartsCompanyModel> GetListByPage(PageInfoModel page)
+        public  List<PartsCompanyModel> GetListByPage(string keyword, DateTime startTime, DateTime endTime,ref PageInfoModel page)
         {
+            int total = 0;
             List<PartsCompanyModel> models = new List<PartsCompanyModel>();
             PartsCompanyRepository repository = new PartsCompanyRepository();
-            var entities = repository.GetEntities();
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.Name.Contains(keyword)&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID);
+            page.TotalCount = total;
             foreach (var item in entities)
             {
                 PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);

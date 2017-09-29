@@ -68,10 +68,10 @@ namespace CarRepairAPI.Controllers
         /// <returns></returns>
         [Route("SavePurchaseOrder")]
         [HttpGet]
-        public DataResultModel GetPurchaseOrderList(long id, string keyword, int start = 0, int offset = 10)
+        public DataResultModel GetPurchaseOrderList(long id, string keyword, int pageIndex = 1, int pageSize = 10)
         {
             DataResultModel result = new DataResultModel();
-            PageInfoModel page = new PageInfoModel() { Start = start, Offset = offset };
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
             UserCarsService service = new UserCarsService();
             try
             {

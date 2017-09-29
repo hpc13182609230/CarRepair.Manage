@@ -22,6 +22,13 @@ namespace Service
             return model;
         }
 
+        public int CountByUserID(long id)
+        {
+            UserCarsRepository repository = new UserCarsRepository();
+            var res = repository.GetEntitiesCount(p=>p.WechatUserID==id);
+            return res;
+        }
+
         public int DeleteByID(long id)
         {
             UserCarsRepository repository = new UserCarsRepository();
@@ -64,12 +71,10 @@ namespace Service
         /// <returns></returns>
         public  List<UserCarsModel> GetListByPage(long WechatUserID,string keyword , ref PageInfoModel page)
         {
-            int start = page.Start;
-            int offset = page.Offset;
-            long total = 0;
+            int total = 0;
             List<UserCarsModel> models = new List<UserCarsModel>();
             UserCarsRepository repository = new UserCarsRepository();
-            var entities = repository.GetEntitiesForPaging(ref total, start,offset,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword));
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword));
             foreach (var item in entities)
             {
                 UserCarsModel model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(item);

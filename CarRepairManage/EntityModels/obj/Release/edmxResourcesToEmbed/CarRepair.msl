@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarRepairModelStoreContainer" CdmEntityContainer="CarRepairEntities">
+    <EntitySetMapping Name="ManageMenu">
+      <EntityTypeMapping TypeName="CarRepairModel.ManageMenu">
+        <MappingFragment StoreEntitySet="ManageMenu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManageUser">
+      <EntityTypeMapping TypeName="CarRepairModel.ManageUser">
+        <MappingFragment StoreEntitySet="ManageUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="EncryptKey" ColumnName="EncryptKey" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="LastActiveTime" ColumnName="LastActiveTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WechatUser">
+      <EntityTypeMapping TypeName="CarRepairModel.WechatUser">
+        <MappingFragment StoreEntitySet="WechatUser">
+          <ScalarProperty Name="ShareID" ColumnName="ShareID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Openid" ColumnName="Openid" />
+          <ScalarProperty Name="Unionid" ColumnName="Unionid" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EncryptKey" ColumnName="EncryptKey" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HeadImgUrl" ColumnName="HeadImgUrl" />
+          <ScalarProperty Name="SubScribeTime" ColumnName="SubScribeTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="LoginToken" ColumnName="LoginToken" />
+          <ScalarProperty Name="LoginTokenExpire" ColumnName="LoginTokenExpire" />
+          <ScalarProperty Name="TgID" ColumnName="TgID" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="LastActiveTime" ColumnName="LastActiveTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaseOptions">
+      <EntityTypeMapping TypeName="CarRepairModel.BaseOptions">
+        <MappingFragment StoreEntitySet="BaseOptions">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartsClassify">
+      <EntityTypeMapping TypeName="CarRepairModel.PartsClassify">
+        <MappingFragment StoreEntitySet="PartsClassify">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="PicURL" ColumnName="PicURL" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartsCompany">
+      <EntityTypeMapping TypeName="CarRepairModel.PartsCompany">
+        <MappingFragment StoreEntitySet="PartsCompany">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Contract" ColumnName="Contract" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="PV" ColumnName="PV" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="PicURL" ColumnName="PicURL" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="CarRepairModel.Points">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="PointSum" ColumnName="PointSum" />
+          <ScalarProperty Name="point" ColumnName="point" />
+          <ScalarProperty Name="PointType" ColumnName="PointType" />
+          <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrder">
+      <EntityTypeMapping TypeName="CarRepairModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="PicURL" ColumnName="PicURL" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
+          <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RepairOrder">
+      <EntityTypeMapping TypeName="CarRepairModel.RepairOrder">
+        <MappingFragment StoreEntitySet="RepairOrder">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="CarNo" ColumnName="CarNo" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="RepairTime" ColumnName="RepairTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="UserCarID" ColumnName="UserCarID" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCars">
+      <EntityTypeMapping TypeName="CarRepairModel.UserCars">
+        <MappingFragment StoreEntitySet="UserCars">
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="InsuranceTime" ColumnName="InsuranceTime" />
+          <ScalarProperty Name="CarOwnerTel" ColumnName="CarOwnerTel" />
+          <ScalarProperty Name="CarOwnerName" ColumnName="CarOwnerName" />
+          <ScalarProperty Name="CarNO" ColumnName="CarNO" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="Attribution" ColumnName="Attribution" />
+          <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartsClassifyCompany">
+      <EntityTypeMapping TypeName="CarRepairModel.PartsClassifyCompany">
+        <MappingFragment StoreEntitySet="PartsClassifyCompany">
+          <ScalarProperty Name="PartsClassifyIDs" ColumnName="PartsClassifyIDs" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

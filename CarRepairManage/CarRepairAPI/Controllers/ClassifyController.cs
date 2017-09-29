@@ -23,7 +23,7 @@ namespace CarRepairAPI.Controllers
             PartsClassifyService service = new PartsClassifyService();
             try
             {
-                result.data = service.GetByParentID(OptionID);
+                result.data = service.GetAllByParentID(OptionID);
             }
             catch (Exception ex)
             {

@@ -7,6 +7,7 @@ jQuery(document).ready(function () {
     App.initFancybox();
 });
 
+
 //分类 打开 分类 层 并初始化
 $('[name="ChangeType"]').click(function () {
     var $this = $(this);//修改分类 按钮
@@ -18,17 +19,19 @@ $('[name="ChangeType"]').click(function () {
         type: 'Get',
         url: '/PartsSuppliers/PartsCompanyClassifyGets?PartsCompanyID=' + PartsCompanyID,
         success: function (data) {
-            if (data > 0) {
+            if (data) {
+                debugger;
                 //var model = $('#ChangeTypeModel');
                 model.find('[name = "save"]').attr("PartsClassifyCompanyID", data.ID);//赋值id
 
                 var PartsClassifyIDs = data.PartsClassifyIDs.split(',');
-                PartsClassifyIDs = data.PartsClassifyIDs.split;
+
                 for (var i = 0; i < PartsClassifyIDs.length; i++) {
                     model.find("input[name=PartsClassify]").each(function () {
+                        debugger;
                         if ($(this).val() == PartsClassifyIDs[i]) {
-                            PartsClassifyIDs += "," + $(this).val();
-                            $(this).attr("checked","checked")
+                            $(this).attr("checked", true);
+                            $(this).parent().addClass('checked');
                         }
                     });
                 }
@@ -38,49 +41,52 @@ $('[name="ChangeType"]').click(function () {
     });
 
     model.removeClass('hide');
-})
+});
 //关闭分类层
-$('#ChangeTypeModel .close').click(function () {
-     var model = $('#ChangeTypeModel');
-     model.addClass('hide'); 
-})
+    $('#ChangeTypeModel .close').click(function () {
+        var model = $('#ChangeTypeModel');
+        model.addClass('hide'); 
+    });
 
 //保存分类层
-$('#ChangeTypeModel [name="save"]').click(function () {
-    //调用ajax 保存 商户的  分类信息
-    debugger
-    var $this = $(this);//保存按钮
-    var model = $('#ChangeTypeModel');//分类层 隐藏
+    $('#ChangeTypeModel [name="save"]').click(function () {
+        //调用ajax 保存 商户的  分类信息
+        debugger
+        var $this = $(this);//保存按钮
+        var model = $('#ChangeTypeModel');//分类层 隐藏
 
-    var ID = $this.attr("PartsClassifyCompanyID");
-    var PartsCompanyID = $this.attr("PartsCompanyID");
-    var PartsClassifyIDs = "";
-    var Note = "";
+        var ID = $this.attr("PartsClassifyCompanyID") == "" ? 0 : $this.attr("PartsClassifyCompanyID");
+        var PartsCompanyID = $this.attr("PartsCompanyID");
+        var PartsClassifyIDs = "";
+        var Note = "";
 
-
-    model.find("input[name=PartsClassify]").each(function () {
-        if ($(this).attr("checked")) {
-            PartsClassifyIDs += "," + $(this).val();
-            Note += "," + $(this).attr('txt');
+        var checkboxs=model.find('input:checkbox:checked');
+        if (checkboxs.length > 0) {
+            checkboxs.each(function () {
+                if ($(this).attr("checked")) {
+                    PartsClassifyIDs += "," + $(this).val();
+                    Note += "," + $(this).attr('txt');
+                }
+            });
+            PartsClassifyIDs =PartsClassifyIDs.substr(1, PartsClassifyIDs.length - 1);
+            Note= Note.substr(1, Note.length - 1);
+            $.ajax({
+                type: 'POST',
+                url: '/PartsSuppliers/PartsCompanyClassifySave',
+                data: { ID: ID, PartsCompanyID: PartsCompanyID, Note: Note, PartsClassifyIDs: PartsClassifyIDs },
+                success: function (data) {
+                    if (data > 0) {
+                        //$('#form').attr('partsID', data);
+                        alert('保存成功');
+                        location.reload();
+                    }
+                }
+            });
+        }
+        else {
+            alert("请先选择分类!!!");
         }
     });
-    alert(PartsClassifyIDs);
-    alert(Note);
-    
-
-    //$.ajax({
-    //    type: 'POST',
-    //    url: '/PartsSuppliers/PartsCompanyClassifySave',
-    //    data: { ID: ID, PartsCompanyID: PartsCompanyID, Note: Note, PartsClassifyIDs: PartsClassifyIDs },
-    //    success: function (data) {
-    //        if (data > 0) {
-    //            //$('#form').attr('partsID', data);
-    //            alert('保存成功');
-    //            location.reload();
-    //        }
-    //    }
-    //});
-})
 
 
 //过期时间暂时不写

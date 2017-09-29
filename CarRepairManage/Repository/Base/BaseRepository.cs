@@ -12,6 +12,7 @@ namespace Repository
     public abstract class BaseRepository<T, DB> : IBaseRepository<T> where T : BaseEntity,new() where DB : DbContext, new()
     {
         #region 查询普通实现方案 （基于lambda的where查询）
+        //根据条件查出第一个符合条件的 对象
         public T GetEntity(Expression<Func<T, bool>> query=null)
         {
             using (DB db = new DB())
@@ -24,8 +25,8 @@ namespace Repository
             }
         }
 
-
-        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, DateTime>> order = null, bool isAsc = false)
+        //根据条件查出第一个符合条件的 对象 [可以根据条件排序]
+        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, object>> order = null, bool isAsc = false)
         {
             using (DB db = new DB())
             {
@@ -48,28 +49,6 @@ namespace Repository
             }
         }
 
-        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query != null)
-                    queryable = dbSet.Where(query);
-                if (order != null)
-                {
-                    if (isAsc)
-                    {
-                        queryable = queryable.OrderBy(order);
-                    }
-                    else
-                    {
-                        queryable = queryable.OrderByDescending(order);
-                    }
-                }
-                return queryable.FirstOrDefault();
-            }
-        }
 
         public T GetEntityByID(long id)
         {
@@ -82,6 +61,7 @@ namespace Repository
             }
         }
 
+        //根据条件查出所有数据 适合数据量 小
         public IEnumerable<T> GetEntities(Expression<Func<T, bool>> query =null)
         {
             using (DB db = new DB())
@@ -106,7 +86,7 @@ namespace Repository
             }
         }
 
-        public IEnumerable<T> GetEntitiesForPaging(ref long total, int start = 0, int offset = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, string>> order = null, bool isAsc = false)
+        public IEnumerable<T> GetEntitiesForPaging(ref int total, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
         {
             using (DB db = new DB())
             {
@@ -126,7 +106,7 @@ namespace Repository
                         queryable = queryable.OrderByDescending(order);
                     }
                 }
-                queryable = queryable.Skip(start).Take(offset);
+                queryable = queryable.Skip(pageSize*(pageIndex-1)).Take(pageSize);
                 return queryable.ToList();
             }
         }

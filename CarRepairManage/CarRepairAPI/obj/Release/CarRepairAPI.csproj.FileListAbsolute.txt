@@ -1,16 +1,4 @@
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\ApplicationInsights.config
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\csc.exe
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.Collections.Immutable.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\System.Reflection.Metadata.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\vbc.exe
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\VBCSCompiler.exe
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\roslyn\VBCSCompiler.exe.config
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.dll.config
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\CarRepairAPI.pdb
@@ -30,7 +18,6 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.App
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AspNet.Identity.Core.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AspNet.Identity.Owin.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.Owin.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.Owin.Security.Cookies.dll
@@ -72,8 +59,6 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AI.
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AI.Web.xml
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.AI.WindowsServer.xml
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.ApplicationInsights.xml
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Newtonsoft.Json.xml
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Swagger.Net.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Swagger.Net.xml
 E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\System.Net.Http.Formatting.xml
@@ -258,3 +243,9 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\zh-Hans
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Release\CarRepairAPI.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Release\CarRepairAPI.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\CarRepairAPI\obj\Release\CarRepairAPI.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Repository.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Service.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\CarRepairAPI\bin\Repository.pdb

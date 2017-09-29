@@ -22,6 +22,16 @@ namespace Service
             return model;
         }
 
+        public PointsModel GetLastByUserID(long userid)
+        {
+            PointsModel model = new PointsModel();
+            PointsRepository repository = new PointsRepository();
+            var res = repository.GetEntityOrder(p=>p.WechatUserID==userid,p=>p.ID,false);
+            model = AutoMapperClient.MapTo<Points, PointsModel>(res);
+            return model;
+        }
+
+
         public int DeleteByID(long id)
         {
             PointsRepository repository = new PointsRepository();

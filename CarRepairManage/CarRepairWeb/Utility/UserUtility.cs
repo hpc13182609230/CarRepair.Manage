@@ -27,7 +27,7 @@ namespace CarRepairWeb.Utility
         {
             get
             {
-                try { return (int)HttpContext.Current.Session["AccountID"]; }
+                try { return (long)HttpContext.Current.Session["AccountID"]; }
                 catch { return 0; }
             }
             private set

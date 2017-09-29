@@ -613,6 +613,7 @@
     <Content Include="media\image\glyphiconshalflings-regular.ttf" />
     <Content Include="media\image\glyphiconshalflings-regular.woff" />
     <Content Include="media\image\js" />
+    <None Include="Properties\PublishProfiles\CarRepair.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -660,6 +661,7 @@
     <Content Include="Views\PartsSuppliers\PartDetail.cshtml" />
     <Content Include="Views\PartsType\PartsClassify.cshtml" />
     <Content Include="Views\PartsType\PartsClassifyCompany.cshtml" />
+    <Content Include="Views\Shared\_pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

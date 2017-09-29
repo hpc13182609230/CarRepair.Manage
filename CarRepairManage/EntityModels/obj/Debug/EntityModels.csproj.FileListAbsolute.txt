@@ -20,3 +20,4 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.csprojResolveAssemblyReference.cache

@@ -14,3 +14,8 @@ F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Releas
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.csprojResolveAssemblyReference.cache
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.dll
 F:\SmallAPP\CSharpCode\CarRepair.Manage\CarRepairManage\AutoMapperLib\obj\Release\AutoMapperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\EntityModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\EntityFramework.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\EntityFramework.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\AutoMapperLib\bin\Release\zh-Hans\EntityFramework.resources.dll

@@ -28,5 +28,6 @@ namespace EntityModels
         public Nullable<int> DelTF { get; set; }
         public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+        public string Remark { get; set; }
     }
 }

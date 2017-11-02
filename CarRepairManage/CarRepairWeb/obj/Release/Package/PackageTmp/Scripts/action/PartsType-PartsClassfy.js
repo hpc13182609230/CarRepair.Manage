@@ -17,8 +17,7 @@ $('#portlet-config .close').click(function () {
 })
 
 //获取信息 初始化 配件商隐藏层
-$('.label.label-success.update').click(function () {
-    debugger;
+$('[name="UpdateInfo"]').click(function () {
     //初始化，获取 分类的信息
     var $this = $(this);
     var parentTR = $this.parents('tr').eq(0);
@@ -26,6 +25,7 @@ $('.label.label-success.update').click(function () {
     var PartsClassifyID = parentTR.attr('id');
     //var OptionID = $(this).attr("OptionID"); 无需初始化
     var Content = parentTR.find('td').eq(2).text();
+    var Order = parentTR.find('td').eq(3).text();
     var Url_Show = parentTR.find('img').eq(0).attr('src');
     var Url_Path = parentTR.find('img').eq(0).attr('Url_Path');
     
@@ -35,11 +35,33 @@ $('.label.label-success.update').click(function () {
     $('#save').attr("PartsClassifyID", PartsClassifyID);
     //var OptionID = $(this).attr("OptionID");
     $('#Content').val(Content);
-
+    $('#Order').val(Order);
     model.find('#PicURL').val(Url_Path);
     model.find('img').eq(0).attr('src',Url_Show);
 
     model.removeClass('hide')
+})
+
+//删除分类
+$('[name="Delete"]').click(function () {
+    //初始化，获取 分类的信息
+
+    var $this = $(this);
+    var parentTR = $this.parents('tr').eq(0);
+    var PartsClassifyID = parentTR.attr('id');
+
+    if (confirm("确定要删除该数据吗？删除后无法恢复！")) {
+        $.ajax({
+            type: 'Get',
+            url: '/PartsType/DeletePartsClassify?PartsClassifyID=' + PartsClassifyID,
+            success: function (data) {
+                if (data) {
+                    alert("删除成功");
+                    location.reload();
+                }
+            }
+        });
+    }
 })
 
 

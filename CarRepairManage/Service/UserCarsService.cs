@@ -18,7 +18,10 @@ namespace Service
             UserCarsModel model = new UserCarsModel();
             UserCarsRepository repository = new UserCarsRepository();
             var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(res);
+            if (res!=null)
+            {
+                model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(res);
+            }
             return model;
         }
 
@@ -72,9 +75,11 @@ namespace Service
         public  List<UserCarsModel> GetListByPage(long WechatUserID,string keyword , ref PageInfoModel page)
         {
             int total = 0;
+            keyword = keyword ?? "";
             List<UserCarsModel> models = new List<UserCarsModel>();
             UserCarsRepository repository = new UserCarsRepository();
-            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword));
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword),p=>p.ID);
+            page.TotalCount = total;
             foreach (var item in entities)
             {
                 UserCarsModel model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(item);
@@ -83,6 +88,32 @@ namespace Service
             return models;
         }
 
+        /// <summary>
+        /// 获取 保险销售 的 列表
+        /// </summary>
+        /// <param name="WechatUserID"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public List<UserCarsModel> GetListByPage(long WechatUserID, string keyword, DateTime insurance, ref PageInfoModel page)
+        {
+            int total = 0;
+            keyword = keyword ?? "";
+            insurance = insurance.AddDays((insurance.Day-1) *(-1)) ;
+            DateTime insuranceStart = insurance.AddMonths(-1);
+
+            List<UserCarsModel> models = new List<UserCarsModel>();
+            UserCarsRepository repository = new UserCarsRepository();
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize,
+                p => p.WechatUserID == WechatUserID && p.CarNO.Contains(keyword) && p.InsuranceTime >= insuranceStart && p.InsuranceTime < insurance
+                , p => p.ID);
+            page.TotalCount = total;
+            foreach (var item in entities)
+            {
+                UserCarsModel model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
 
 
     }

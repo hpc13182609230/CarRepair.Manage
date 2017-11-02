@@ -18,7 +18,9 @@ namespace Service
             RepairOrderModel model = new RepairOrderModel();
             RepairOrderRepository repository = new RepairOrderRepository();
             var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(res);
+            if (res!=null)
+                model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(res);
+
             return model;
         }
 
@@ -54,11 +56,13 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<RepairOrderModel> GetListByPage(long WechatUserID, PageInfoModel page)
+        public  List<RepairOrderModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
         {
+            int total = 0;
             List<RepairOrderModel> models = new List<RepairOrderModel>();
             RepairOrderRepository repository = new RepairOrderRepository();
-            var entities = repository.GetEntities(p=>p.WechatUserID ==WechatUserID);
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID , p => p.ID);
+            page.TotalCount = total;
             foreach (var item in entities)
             {
                 RepairOrderModel model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(item);

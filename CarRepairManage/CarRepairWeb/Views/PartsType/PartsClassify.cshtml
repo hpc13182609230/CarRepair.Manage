@@ -139,6 +139,7 @@
                                 <th class="hidden-phone">ID</th>
                                 <th class="hidden-phone">Photo</th>
                                 <th class="hidden-phone">名称</th>
+                                <th class="hidden-phone">排序</th>
                                 <th class="hidden-phone">创建时间</th>
                                 <th>功能</th>
                             </tr>
@@ -147,19 +148,21 @@
 
                             @foreach (var item in _PartsClassifyModels)
                             {
-                                <tr id="@item.ID">
-                                    <td class="hidden-phone">@item.ID</td>
-                                    <td><img src="@(item.PicURL)" alt="" Url_Path="@item.PicURL" style="width:30px;height:30px" /></td>
+                                <tr id="@item.ID" >
+                                    <td class="hidden-phone" >@item.ID</td>
+                                    <td><img src="@(item.PicURLShow)" alt="" Url_Path="@item.PicURL" style="width:30px;height:30px" /></td>
                                     <td class="hidden-phone">@item.Content</td>
+                                    <td class="hidden-phone">@item.Order</td>
                                     <td class="hidden-phone">@((item.CreateTime).ToString("yyyy-MM-dd HH:mm"))</td>
                                     <td>
-                                        <a href="/PartsType/PartsClassifyCompany?PartsClassifyID=@(item.ID)&Content=@(item.Content)">
-                                            <span class="label label-success">查看配件商</span>
-                                        </a>
-                                        <div>
-                                            <span class="label label-success update">修改信息</span>
-                                        </div>
+                                        @*<a href="/PartsType/PartsClassifyCompany?PartsClassifyID=@(item.ID)&Content=@(item.Content)" target="_blank">
+                                            <div class="btn mini red-stripe">查看配件商</div>
+                                        </a>*@
+                                        <div name="UpdateInfo" class="btn mini red-stripe">修改</div>
+                                        <div name="Delete" class="btn mini red-stripe">删除</div>
                                     </td>
+
+
                                 </tr>
                             }
 

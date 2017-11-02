@@ -18,5 +18,14 @@ namespace ViewModels.CarRepair
         public Nullable<int> DelTF { get; set; }
         public System.DateTime CreateTime { get; set; }
         public Nullable<System.DateTime> UpdateTime { get; set; }
+
+
+        private string createTimeFormat;
+        public string CreateTimeFormat
+        {
+
+            get { return CreateTime.ToString("yyyy-MM-dd HH:mm:ss"); }
+            set { createTimeFormat = value; }
+        }
     }
 }

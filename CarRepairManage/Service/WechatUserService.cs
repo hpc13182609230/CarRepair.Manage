@@ -8,16 +8,36 @@ using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
 using ViewModels;
+using DapperLib;
 
 namespace Service
 {
     public class WechatUserService
     {
+        private static WechatUserRepository repository = new WechatUserRepository();
+
         public WechatUserModel GetByID(long id)
+        {
+            //WechatUserModel model = repository.GetEntityByID(id);
+            WechatUserModel model = DapperContribClient.GetById<WechatUserModel>(2);
+            return model;
+        }
+
+
+        public WechatUserModel GetByLoginToken(string LoginToken)
         {
             WechatUserModel model = new WechatUserModel();
             WechatUserRepository repository = new WechatUserRepository();
-            var res = repository.GetEntityByID(id);
+            var res = repository.GetEntity(p=>p.LoginToken== LoginToken);
+            model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
+            return model;
+        }
+
+        public WechatUserModel GetByOpenid(string Openid)
+        {
+            WechatUserModel model = new WechatUserModel();
+            WechatUserRepository repository = new WechatUserRepository();
+            var res = repository.GetEntity(p => p.Openid == Openid);
             model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
             return model;
         }
@@ -54,12 +74,7 @@ namespace Service
             return id;
         }
 
-        /// <summary>
-        /// 获取用户 的车库列表
-        /// </summary>
-        /// <param name="WechatUserID"></param>
-        /// <param name="page"></param>
-        /// <returns></returns>
+
         public  List<WechatUserModel> GetListByPage(PageInfoModel page)
         {
             List<WechatUserModel> models = new List<WechatUserModel>();

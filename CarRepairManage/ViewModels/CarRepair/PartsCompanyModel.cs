@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,14 @@ namespace ViewModels.CarRepair
         public long WechatID { get; set; }
         public string PartsClassifyIDNote { get; set; }//ip对应的地址
 
+
+        private string picURLShow;
+        public string PicURLShow
+        {
+
+            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\","/"); }
+            set { picURLShow = value; }
+        }
 
     }
 }

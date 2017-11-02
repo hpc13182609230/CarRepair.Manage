@@ -64,6 +64,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DapperLib\DapperLib.csproj">
+      <Project>{8963f493-690e-46e6-b58c-cb370173a907}</Project>
+      <Name>DapperLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntityModels\EntityModels.csproj">
       <Project>{add76bce-0f70-4840-9980-3351e2733733}</Project>
       <Name>EntityModels</Name>

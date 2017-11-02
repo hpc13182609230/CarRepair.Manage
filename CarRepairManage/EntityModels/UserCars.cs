@@ -14,8 +14,7 @@ namespace EntityModels
     
     public partial class UserCars : BaseEntity
     {
-
-        public long WechatUserID { get; set; }
+         public long WechatUserID { get; set; }
         public string Attribution { get; set; }
         public string CarType { get; set; }
         public string CarNO { get; set; }
@@ -23,6 +22,6 @@ namespace EntityModels
         public string CarOwnerTel { get; set; }
         public Nullable<System.DateTime> InsuranceTime { get; set; }
         public string Note { get; set; }
-
+        public string Remark { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace Repository
         }
 
         //根据条件查出第一个符合条件的 对象 [可以根据条件排序]
-        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, object>> order = null, bool isAsc = false)
+        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
         {
             using (DB db = new DB())
             {

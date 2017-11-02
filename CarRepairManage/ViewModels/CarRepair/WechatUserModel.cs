@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper.Contrib.Extensions;
 
 namespace ViewModels.CarRepair
 {
-    public class WechatUserModel
+    [Table("WechatUser")]
+    public class WechatUserModel:BaseModel
     {
-        public long ID { get; set; }
         public string Openid { get; set; }
         public string Unionid { get; set; }
         public string Password { get; set; }
@@ -28,9 +29,6 @@ namespace ViewModels.CarRepair
         public string TgID { get; set; }
         public int Statu { get; set; }
         public System.DateTime LastActiveTime { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
         public string ShareID { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace CarRepairWeb.Controllers
     {
         // GET: PartsType
         //子分类列表
-        public ActionResult PartsClassify(long OptionID,string name, string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 5)
+        public ActionResult PartsClassify(long OptionID,string name, string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
 
@@ -51,22 +51,29 @@ namespace CarRepairWeb.Controllers
             return Json(id,JsonRequestBehavior.AllowGet);
         }
 
-
-        public ActionResult PartsClassifyCompany(long PartsClassifyID,string Content)
+        public ActionResult DeletePartsClassify(long PartsClassifyID)
         {
-
-            PartsClassifyCompanyService service = new PartsClassifyCompanyService();
-   
-            List<PartsCompanyModel> partsCompanys = service.GetForAPI(PartsClassifyID);
-            ViewBag.partsCompanys = partsCompanys;
-            ViewBag.PartsClassifyID = PartsClassifyID;
-            ViewBag.Content = Content;
-
-            BaseOptionsService _BaseOptionsService = new BaseOptionsService();
-            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
-            ViewBag.options = options;
-
-            return View();
+            PartsClassifyService service = new PartsClassifyService();
+            int flag = service.DeleteByID(PartsClassifyID);
+            return Json(PartsClassifyID, JsonRequestBehavior.AllowGet);
         }
+
+
+        //public ActionResult PartsClassifyCompany(long PartsClassifyID,string Content)
+        //{
+
+        //    PartsClassifyCompanyService service = new PartsClassifyCompanyService();
+   
+        //    List<PartsCompanyModel> partsCompanys = service.GetForAPI(PartsClassifyID);
+        //    ViewBag.partsCompanys = partsCompanys;
+        //    ViewBag.PartsClassifyID = PartsClassifyID;
+        //    ViewBag.Content = Content;
+
+        //    BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+        //    List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+        //    ViewBag.options = options;
+
+        //    return View();
+        //}
     }
 }

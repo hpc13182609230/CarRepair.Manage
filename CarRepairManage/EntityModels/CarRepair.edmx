@@ -27,6 +27,7 @@
           <Property Name="Url" Type="varchar" MaxLength="100" />
           <Property Name="Info" Type="varchar" MaxLength="100" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="Icon" Type="varchar" MaxLength="100" />
           <Property Name="Permission" Type="varchar" MaxLength="100" />
           <Property Name="DelTF" Type="int" />
@@ -44,6 +45,7 @@
           <Property Name="Url" Type="varchar" MaxLength="100" />
           <Property Name="Info" Type="varchar" MaxLength="100" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="Avatar" Type="varchar" MaxLength="100" />
           <Property Name="EncryptKey" Type="varchar" MaxLength="100" />
           <Property Name="Statu" Type="int" Nullable="false" />
@@ -66,18 +68,6 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
-        <EntityType Name="PartsClassifyCompany">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PartsClassifyIDs" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
-          <Property Name="Note" Type="varchar" MaxLength="500" />
-          <Property Name="DelTF" Type="int" />
-          <Property Name="CreateTime" Type="datetime" Nullable="false" />
-          <Property Name="UpdateTime" Type="datetime" />
-        </EntityType>
         <EntityType Name="PartsCompany">
           <Key>
             <PropertyRef Name="ID" />
@@ -85,7 +75,7 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
           <Property Name="Contract" Type="varchar" MaxLength="50" />
-          <Property Name="Content" Type="varchar" MaxLength="500" />
+          <Property Name="Content" Type="text" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="PicURL" Type="varchar" MaxLength="500" />
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
@@ -111,8 +101,8 @@
           <Property Name="PointType" Type="bigint" Nullable="false" />
           <Property Name="point" Type="int" Nullable="false" />
           <Property Name="PointSum" Type="int" Nullable="false" />
-          <Property Name="Remark" Type="varchar" MaxLength="100" />
           <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
           <Property Name="DelTF" Type="int" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
@@ -125,6 +115,7 @@
           <Property Name="WechatUserID" Type="bigint" Nullable="false" />
           <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
           <Property Name="Name" Type="varchar" MaxLength="500" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
@@ -141,9 +132,16 @@
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WechatUserID" Type="bigint" Nullable="false" />
-          <Property Name="PurchaseOrderID" Type="bigint" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="varchar" MaxLength="500" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
           <Property Name="UserCarID" Type="bigint" Nullable="false" />
+          <Property Name="Contract" Type="varchar" MaxLength="100" />
           <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Debt" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CostEvaluation" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="RepairTime" Type="datetime" Nullable="false" />
           <Property Name="Tel" Type="varchar" MaxLength="50" />
           <Property Name="CarNo" Type="varchar" MaxLength="50" />
@@ -163,6 +161,7 @@
           <Property Name="CarOwnerName" Type="varchar" MaxLength="500" />
           <Property Name="CarOwnerTel" Type="varchar" MaxLength="50" />
           <Property Name="InsuranceTime" Type="datetime" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="Note" Type="varchar" MaxLength="500" />
           <Property Name="DelTF" Type="int" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
@@ -183,10 +182,10 @@
           <Property Name="City" Type="varchar" MaxLength="100" />
           <Property Name="Province" Type="varchar" MaxLength="100" />
           <Property Name="Country" Type="varchar" MaxLength="100" />
-          <Property Name="HeadImgUrl" Type="varchar" MaxLength="100" />
+          <Property Name="HeadImgUrl" Type="varchar" MaxLength="1000" />
           <Property Name="SubScribeTime" Type="datetime" Nullable="false" />
-          <Property Name="Remark" Type="varchar" MaxLength="100" />
-          <Property Name="Content" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="Content" Type="varchar" MaxLength="1000" />
           <Property Name="LoginToken" Type="varchar" MaxLength="500" />
           <Property Name="LoginTokenExpire" Type="varchar" MaxLength="500" />
           <Property Name="ShareID" Type="varchar" MaxLength="50" />
@@ -202,7 +201,6 @@
           <EntitySet Name="ManageMenu" EntityType="Self.ManageMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ManageUser" EntityType="Self.ManageUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsClassify" EntityType="Self.PartsClassify" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PartsClassifyCompany" EntityType="Self.PartsClassifyCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsCompany" EntityType="Self.PartsCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Points" EntityType="Self.Points" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrder" EntityType="Self.PurchaseOrder" Schema="dbo" store:Type="Tables" />
@@ -229,6 +227,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ManageUser">
           <Key>
@@ -248,6 +247,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="WechatUser">
           <Key>
@@ -264,10 +264,10 @@
           <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="HeadImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HeadImgUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="SubScribeTime" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="LoginToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="LoginTokenExpire" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="TgID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -289,7 +289,6 @@
           <EntitySet Name="PurchaseOrder" EntityType="CarRepairModel.PurchaseOrder" />
           <EntitySet Name="RepairOrder" EntityType="CarRepairModel.RepairOrder" />
           <EntitySet Name="UserCars" EntityType="CarRepairModel.UserCars" />
-          <EntitySet Name="PartsClassifyCompany" EntityType="CarRepairModel.PartsClassifyCompany" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -323,7 +322,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="PicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -373,6 +372,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RepairOrder">
           <Key>
@@ -380,7 +380,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WechatUserID" Type="Int64" Nullable="false" />
-          <Property Name="PurchaseOrderID" Type="Int64" Nullable="false" />
+          <Property Name="PurchaseOrderID" Type="String" />
           <Property Name="UserCarID" Type="Int64" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="RepairTime" Type="DateTime" Precision="3" Nullable="false" />
@@ -389,6 +389,13 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Contract" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Debt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="CostEvaluation" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="UserCars">
           <Key>
@@ -406,18 +413,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="PartsClassifyCompany">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="DelTF" Type="Int32" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-          <Property Name="PartsClassifyIDs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -428,6 +424,7 @@
           <EntitySetMapping Name="ManageMenu">
             <EntityTypeMapping TypeName="CarRepairModel.ManageMenu">
               <MappingFragment StoreEntitySet="ManageMenu">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -445,6 +442,7 @@
           <EntitySetMapping Name="ManageUser">
             <EntityTypeMapping TypeName="CarRepairModel.ManageUser">
               <MappingFragment StoreEntitySet="ManageUser">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -564,6 +562,7 @@
           <EntitySetMapping Name="PurchaseOrder">
             <EntityTypeMapping TypeName="CarRepairModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrder">
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -583,6 +582,13 @@
           <EntitySetMapping Name="RepairOrder">
             <EntityTypeMapping TypeName="CarRepairModel.RepairOrder">
               <MappingFragment StoreEntitySet="RepairOrder">
+                <ScalarProperty Name="CostEvaluation" ColumnName="CostEvaluation" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -600,6 +606,7 @@
           <EntitySetMapping Name="UserCars">
             <EntityTypeMapping TypeName="CarRepairModel.UserCars">
               <MappingFragment StoreEntitySet="UserCars">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -611,19 +618,6 @@
                 <ScalarProperty Name="CarType" ColumnName="CarType" />
                 <ScalarProperty Name="Attribution" ColumnName="Attribution" />
                 <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PartsClassifyCompany">
-            <EntityTypeMapping TypeName="CarRepairModel.PartsClassifyCompany">
-              <MappingFragment StoreEntitySet="PartsClassifyCompany">
-                <ScalarProperty Name="PartsClassifyIDs" ColumnName="PartsClassifyIDs" />
-                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

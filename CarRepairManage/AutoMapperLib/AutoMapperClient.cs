@@ -39,7 +39,6 @@ namespace AutoMapperLib
             var config = new MapperConfiguration(cfg => {
                 //注册 需要转换的对象
                 cfg.CreateMap<BaseOptions, BaseOptionsModel>();
-                cfg.CreateMap<PartsClassifyCompany, PartsClassifyCompanyModel>();
                 cfg.CreateMap<PartsClassify, PartsClassifyModel>();
                 cfg.CreateMap<PartsCompany, PartsCompanyModel>();
                 cfg.CreateMap<Points, PointsModel>();

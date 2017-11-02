@@ -27,7 +27,7 @@
                 <div class="row-fluid">
                     @{
                         PartsClassifyService service = new PartsClassifyService();
-                        List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentID(option.ID);
+                        List<PartsClassifyModel> _PartsClassifyModels = service.GetAllByParentID(option.ID);
                     }
                     @foreach (var item in _PartsClassifyModels)
                     {

@@ -1,4 +1,5 @@
 ﻿using Em.Future._2017.Common;
+using HelperLib;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,21 @@ namespace CarRepairAPI.Controllers
         /// <returns></returns>
         [Route("GetThirdSession")]
         [HttpGet]
-        public DataResultModel GetThirdSession(string code="")
+        public DataResultModel GetThirdSession(string code,string ShareID)
         {
+            LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetThirdSession", "code = " + code+ "\r\n" + "ShareID = " + ShareID + "\r\n");
             DataResultModel result = new DataResultModel();
             try
             {
-                result.data = WechatService.GetThirdSession(code);
+                if (string.IsNullOrWhiteSpace(ShareID))
+                {
+                    ShareID = "0";
+                }
+                else
+                {
+                    ShareID =EncryptHelper.UrlDecode(ShareID);
+                }
+                result.data = WechatService.GetThirdSession(code, ShareID);
             }
             catch (Exception ex)
             {
@@ -53,8 +63,8 @@ namespace CarRepairAPI.Controllers
             DataResultModel result = new DataResultModel();
             try
             {
-                WechatUserInfo _WechatUserInfo = WechatService.GetUserInfo(encryptedData,iv,thirdSession);
-                result.data = _WechatUserInfo;
+                WechatUserModel model = WechatService.GetUserInfo(encryptedData,iv,thirdSession);
+                result.data = model;
             }
             catch (Exception ex)
             {
@@ -63,6 +73,27 @@ namespace CarRepairAPI.Controllers
             }
             return result;
         }
+
+        [Route("UserInfo")]
+        [HttpGet]
+        public DataResultModel UserInfo(string thirdSession)
+        {
+            thirdSession = thirdSession.Replace(" ", "+");
+            DataResultModel result = new DataResultModel();
+            WechatUserService _WechatUserService = new WechatUserService();
+            try
+            {
+                var userinfo = _WechatUserService.GetByLoginToken(thirdSession);
+                result.data = userinfo;
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return result;
+        }
+
         #endregion
 
         #region 个人中心

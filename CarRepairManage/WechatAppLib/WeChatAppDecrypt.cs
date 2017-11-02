@@ -21,8 +21,8 @@ namespace Em.Future._2017.Common
         /// <param name="appSecret">应用程序的AppSecret</param>  
         public WeChatAppDecrypt()
         {
-            this.appId = "wx543ed0026ff5b5eb";
-            this.appSecret = "b55ce83698c65f98469e32bd813e1fec";
+            this.appId = "wxf96f40f9151cef57";
+            this.appSecret = "ff90e9dcd1271925ea87e886fe25d124";
             return;
         }
         /// <summary>  
@@ -134,6 +134,8 @@ namespace Em.Future._2017.Common
             string result = Encoding.UTF8.GetString(final);
             //反序列化结果，生成用户信息实例  
             userInfo = JsonConvert.DeserializeObject<WechatUserInfo>(result);
+            //保存 thirdSession
+            userInfo.thirdSession = sessionKey;
             return userInfo;
         }
         /// <summary>  
@@ -200,6 +202,8 @@ namespace Em.Future._2017.Common
         public string country { get; set; }
         public string avatarUrl { get; set; }
         public string unionId { get; set; }
+        public string thirdSession { get; set; }
+
         public Watermark watermark { get; set; }
         public class Watermark
         {

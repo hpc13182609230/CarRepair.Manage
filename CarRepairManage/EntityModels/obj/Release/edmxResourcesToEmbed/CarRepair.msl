@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ManageMenu">
       <EntityTypeMapping TypeName="CarRepairModel.ManageMenu">
         <MappingFragment StoreEntitySet="ManageMenu">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ParentID" ColumnName="ParentID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -21,6 +22,7 @@
     <EntitySetMapping Name="ManageUser">
       <EntityTypeMapping TypeName="CarRepairModel.ManageUser">
         <MappingFragment StoreEntitySet="ManageUser">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="LoginName" ColumnName="LoginName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -140,6 +142,7 @@
     <EntitySetMapping Name="PurchaseOrder">
       <EntityTypeMapping TypeName="CarRepairModel.PurchaseOrder">
         <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -159,6 +162,13 @@
     <EntitySetMapping Name="RepairOrder">
       <EntityTypeMapping TypeName="CarRepairModel.RepairOrder">
         <MappingFragment StoreEntitySet="RepairOrder">
+          <ScalarProperty Name="CostEvaluation" ColumnName="CostEvaluation" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Debt" ColumnName="Debt" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Contract" ColumnName="Contract" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -176,6 +186,7 @@
     <EntitySetMapping Name="UserCars">
       <EntityTypeMapping TypeName="CarRepairModel.UserCars">
         <MappingFragment StoreEntitySet="UserCars">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
           <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="DelTF" ColumnName="DelTF" />
@@ -187,19 +198,6 @@
           <ScalarProperty Name="CarType" ColumnName="CarType" />
           <ScalarProperty Name="Attribution" ColumnName="Attribution" />
           <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PartsClassifyCompany">
-      <EntityTypeMapping TypeName="CarRepairModel.PartsClassifyCompany">
-        <MappingFragment StoreEntitySet="PartsClassifyCompany">
-          <ScalarProperty Name="PartsClassifyIDs" ColumnName="PartsClassifyIDs" />
-          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="DelTF" ColumnName="DelTF" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="CarRepairModel.PurchaseOrder" Width="1.5" PointX="4.75" PointY="7.75" />
         <EntityTypeShape EntityType="CarRepairModel.RepairOrder" Width="1.5" PointX="6.75" PointY="8.75" />
         <EntityTypeShape EntityType="CarRepairModel.UserCars" Width="1.5" PointX="8.75" PointY="8.75" />
-        <EntityTypeShape EntityType="CarRepairModel.PartsClassifyCompany" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

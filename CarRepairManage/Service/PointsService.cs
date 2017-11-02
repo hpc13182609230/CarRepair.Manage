@@ -27,7 +27,10 @@ namespace Service
             PointsModel model = new PointsModel();
             PointsRepository repository = new PointsRepository();
             var res = repository.GetEntityOrder(p=>p.WechatUserID==userid,p=>p.ID,false);
-            model = AutoMapperClient.MapTo<Points, PointsModel>(res);
+            if (res!=null)
+            {
+                model = AutoMapperClient.MapTo<Points, PointsModel>(res);
+            }
             return model;
         }
 
@@ -48,20 +51,16 @@ namespace Service
             long id = 0;
             if (model.ID==0)
             {
-                //用户 车牌号 唯一 不能重复
                 Points e = repository.GetEntityOrder(p=>p.WechatUserID==model.WechatUserID,p=>p.ID,false);
                 if (e==null)
                 {
-                    //首次 插入 数据库
-                    entity.Remark = "首次获得积分";
-                    entity.PointSum = entity.point;
-                    id = repository.Insert(entity);
+                    entity.PointSum = entity.point;                 
                 }
                 else
                 {
-                    entity.PointSum = entity.point+e.PointSum;
-                    id = repository.Insert(entity);
+                    entity.PointSum = entity.point + e.PointSum;
                 }
+                id = repository.Insert(entity);
             }
             else
             {
@@ -71,16 +70,18 @@ namespace Service
         }
 
         /// <summary>
-        /// 获取用户 的车库列表
+        /// 获取用户 积分列表
         /// </summary>
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<PointsModel> GetListByPage(long WechatUserID, PageInfoModel page)
+        public  List<PointsModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
         {
+            int total = 0;
             List<PointsModel> models = new List<PointsModel>();
             PointsRepository repository = new PointsRepository();
-            var entities = repository.GetEntities(p=>p.WechatUserID ==WechatUserID);
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID, p => p.ID);
+            page.TotalCount = total;
             foreach (var item in entities)
             {
                 PointsModel model = AutoMapperClient.MapTo<Points, PointsModel>(item);
@@ -89,7 +90,16 @@ namespace Service
             return models;
         }
 
-
+        //获取 今天 活动获得的 几次的次数
+        public int GetTodayShareCount(long userid,long options)
+        {
+            DateTime start = DateTime.Now.Date;
+            DateTime end = DateTime.Now.Date.AddDays(1);
+            PointsModel model = new PointsModel();
+            PointsRepository repository = new PointsRepository();
+            var res = repository.GetEntitiesCount(p => p.WechatUserID == userid&&p.PointType==options&&p.CreateTime>=start&&p.CreateTime<end);
+            return res;
+        }
 
     }
 }

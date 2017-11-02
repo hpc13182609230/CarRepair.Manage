@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class PartsClassifyCompanyRepository : BaseRepository<PartsClassifyCompany, CarRepairEntities>
+    public class PartsClassifyCompanyRepository //: BaseRepository<PartsClassifyCompany, CarRepairEntities>
     {
     }
 }

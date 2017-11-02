@@ -18,7 +18,10 @@ namespace Service
             PurchaseOrderModel model = new PurchaseOrderModel();
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(res);
+            if (res!=null)
+            {
+                model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(res);
+            }
             return model;
         }
 
@@ -34,6 +37,8 @@ namespace Service
         { 
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var entity = repository.GetEntityByID(id);
+            if (string.IsNullOrWhiteSpace(entity.PicURL))
+                return -1;
             entity.Statu = statu;
             return repository.Update(entity);
         }
@@ -61,11 +66,30 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<PurchaseOrderModel> GetListByPage(long WechatUserID, PageInfoModel page)
+        public  List<PurchaseOrderModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
         {
+            int total = 0;
             List<PurchaseOrderModel> models = new List<PurchaseOrderModel>();
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
-            var entities = repository.GetEntities(p=>p.WechatUserID ==WechatUserID);
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID, p => p.ID);
+            page.TotalCount = total;
+            foreach (var item in entities)
+            {
+                PurchaseOrderModel model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
+
+        public List<PurchaseOrderModel> GetListByPage(long WechatUserID, string keyword,ref PageInfoModel page)
+        {
+            keyword = string.IsNullOrWhiteSpace(keyword) ?"": keyword.Trim();
+            int total = 0;
+            List<PurchaseOrderModel> models = new List<PurchaseOrderModel>();
+            PurchaseOrderRepository repository = new PurchaseOrderRepository();
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID&&p.Remark.Contains(keyword), p => p.ID);
+            page.TotalCount = total;
             foreach (var item in entities)
             {
                 PurchaseOrderModel model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(item);

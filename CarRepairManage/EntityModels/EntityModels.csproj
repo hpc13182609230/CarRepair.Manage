@@ -79,9 +79,6 @@
     <Compile Include="PartsClassify.cs">
       <DependentUpon>CarRepair.tt</DependentUpon>
     </Compile>
-    <Compile Include="PartsClassifyCompany.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
     <Compile Include="PartsCompany.cs">
       <DependentUpon>CarRepair.tt</DependentUpon>
     </Compile>

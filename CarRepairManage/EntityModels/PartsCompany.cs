@@ -24,6 +24,7 @@ namespace EntityModels
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
         public int IP { get; set; }
+
         public string Contract { get; set; }
         public string Tel { get; set; }
         public string PartsClassifyIDNote { get; set; }

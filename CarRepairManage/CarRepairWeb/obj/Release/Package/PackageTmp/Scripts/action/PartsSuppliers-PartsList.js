@@ -89,4 +89,25 @@ $('[name="ChangeType"]').click(function () {
     });
 
 
+//删除 配件商
+    $('[name="Delete"]').click(function () {
+        //初始化，获取 分类的信息
+        var $this = $(this);
+        var parentTR = $this.parents('tr').eq(0);
+        var ID = parentTR.attr('PartsCompanyID');
+
+        if (confirm("确定要删除该数据吗？删除后无法恢复！")) {
+            $.ajax({
+                type: 'Get',
+                url: '/PartsSuppliers/DeletePartsCompany?ID=' + ID,
+                success: function (data) {
+                    if (data) {
+                        alert("删除成功");
+                        location.reload();
+                    }
+                }
+            });
+        }
+    })
+
 //过期时间暂时不写

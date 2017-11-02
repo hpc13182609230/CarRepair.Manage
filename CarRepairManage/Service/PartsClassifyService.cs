@@ -8,6 +8,7 @@ using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
 using ViewModels;
+using HelperLib;
 
 namespace Service
 {
@@ -20,6 +21,21 @@ namespace Service
             var res = repository.GetEntityByID(id);
             model = AutoMapperClient.MapTo<PartsClassify, PartsClassifyModel>(res);
             return model;
+        }
+
+        public int DeleteByID(long id)
+        {
+            PartsClassifyRepository repository = new PartsClassifyRepository();
+            var res = repository.GetEntityByID(id);
+            if (res!=null)
+            {
+                var flag = repository.Delete(res);
+                return flag;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public long Save(PartsClassifyModel model)
@@ -52,6 +68,40 @@ namespace Service
             }
             return models;
         }
+
+
+        public List<PartsClassifyModel> GetAllByParentIDThenOrder(long parentid)
+        {
+            List<PartsClassifyModel> models = new List<PartsClassifyModel>();
+            PartsClassifyRepository repository = new PartsClassifyRepository();
+            int total = 0;
+            var res = repository.GetEntitiesForPaging(ref total,1,1000,p=>p.OptionID==parentid,p=>p.Order,false);
+            foreach (var item in res)
+            {
+                PartsClassifyModel model = new PartsClassifyModel();
+                model = AutoMapperClient.MapTo<PartsClassify, PartsClassifyModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
+        public List<PartsClassifyModel> SearchAllByParentIDThenOrder(long parentid,string  keyword)
+        {
+            keyword = string.IsNullOrWhiteSpace(keyword) ? "" : keyword;
+            List<PartsClassifyModel> models = new List<PartsClassifyModel>();
+            PartsClassifyRepository repository = new PartsClassifyRepository();
+            int total = 0;
+            var res = repository.GetEntitiesForPaging(ref total, 1, 1000, p => p.OptionID == parentid &&p.Content.Contains(keyword), p => p.Order, false);
+            foreach (var item in res)
+            {
+                PartsClassifyModel model = new PartsClassifyModel();
+                model = AutoMapperClient.MapTo<PartsClassify, PartsClassifyModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
+
 
         public List<PartsClassifyModel> GetByParentIDPage(long parentid, string keyword, DateTime startTime, DateTime endTime, ref PageInfoModel page)
         {

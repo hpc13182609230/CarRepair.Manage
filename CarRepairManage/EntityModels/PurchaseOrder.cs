@@ -14,6 +14,7 @@ namespace EntityModels
     
     public partial class PurchaseOrder : BaseEntity
     {
+
         public long WechatUserID { get; set; }
         public long PartsCompanyID { get; set; }
         public decimal Price { get; set; }
@@ -24,5 +25,6 @@ namespace EntityModels
         public System.DateTime OrderTime { get; set; }
         public string PicURL { get; set; }
 
+        public string Tel { get; set; }
     }
 }

@@ -219,7 +219,7 @@
                     </a>
                 </li>*@
                 <li class="">
-                    <a href="/PartsSuppliers/PartsList?keyword=&startTime=@(nowTime.Date.ToString())&endTime=@(nowTime.Date.ToString())">
+                    <a href="/PartsSuppliers/PartsList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">
                         <i class="icon-cogs"></i>
                         <span class="title">配件商</span>
                         <span class="arrow "></span>
@@ -239,7 +239,7 @@
                         @foreach (var item in partTypes)
                         {
                             <li>
-                                <a href="/PartsType/PartsClassify?OptionID=@(item.ID)&name=@(item.Content)&keyword=&startTime=@(nowTime.Date.ToString())&endTime=@(nowTime.Date.ToString())">
+                                <a href="/PartsType/PartsClassify?OptionID=@(item.ID)&name=@(item.Content)&keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">
                                     @item.Content
                                 </a>
                             </li>

@@ -29,6 +29,8 @@ namespace CarRepairAPI.Controllers
             UserCarsService service = new UserCarsService();
             try
             {
+                //model.InsuranceTime = Convert.ToDateTime(model.InsuranceTimeFormat);
+                model.CarNO = model.CarNO.ToUpper();
                 result.data = service.Save(model);
             }
             catch (Exception ex)
@@ -41,14 +43,26 @@ namespace CarRepairAPI.Controllers
 
         [Route("GetCarList")]
         [HttpGet]
-        public DataResultModel GetCarList(long id,string keyword  ,int pageIndex = 1, int pageSize = 10)
+        public DataResultModel GetCarList(long id, string keyword, int pageIndex = 1, int pageSize = 10, bool insurance = false)
         {
             DataResultModel result = new DataResultModel();
             PageInfoModel page = new PageInfoModel() { PageIndex=pageIndex,PageSize=pageSize};
             UserCarsService service = new UserCarsService();
+            List<UserCarsModel> cars = new List<UserCarsModel>();
+
+            WechatUserService _WechatUserService = new WechatUserService();
+            //var user = _WechatUserService.GetByLoginToken(thirdSession);
             try
             {
-                result.data = service.GetListByPage(id, keyword, ref page);
+                if (!insurance)//车辆档案
+                {
+                    cars= service.GetListByPage(id, keyword, ref page);
+                }
+                else//保险销售
+                {
+                    cars = service.GetListByPage(id, keyword,DateTime.Now.Date ,ref page);
+                }
+                result.data = cars;
             }
             catch (Exception ex)
             {
@@ -85,7 +99,14 @@ namespace CarRepairAPI.Controllers
             UserCarsService service = new UserCarsService();
             try
             {
-                result.data = service.GetByID(id);
+                UserCarsModel car = service.GetByID(id);
+                if (car.ID==0)
+                {
+                    car.Attribution = "鲁";
+                    car.InsuranceTime = DateTime.Now;
+                }
+                result.data = car;
+
             }
             catch (Exception ex)
             {

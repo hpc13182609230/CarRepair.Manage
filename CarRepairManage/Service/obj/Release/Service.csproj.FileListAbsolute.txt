@@ -48,3 +48,5 @@ E:\Project\CarRepair\code1\CarRepairManage\Service\bin\Release\zh-Hans\EntityFra
 E:\Project\CarRepair\code1\CarRepairManage\Service\obj\Release\Service.csprojResolveAssemblyReference.cache
 E:\Project\CarRepair\code1\CarRepairManage\Service\obj\Release\Service.dll
 E:\Project\CarRepair\code1\CarRepairManage\Service\obj\Release\Service.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Release\LogLib.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Release\LogLib.pdb

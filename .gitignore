@@ -1,6 +1,7 @@
 # Build and Object Folders
 bin/
 obj/
+log/
 
 # Nuget packages directory
 packages/

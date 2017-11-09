@@ -3,101 +3,124 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityModels;
 using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
 using ViewModels;
 using HelperLib;
+using DapperLib;
+using DapperExtensions;
 
 namespace Service
 {
     public class PartsCompanyService
     {
-        public PartsCompanyModel GetByID(long id)
+        private static PartsCompanyRepository repository = new PartsCompanyRepository();
+
+        public PartsCompany GetByID(long id)
         {
-            PartsCompanyModel model = new PartsCompanyModel();
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<PartsCompany,PartsCompanyModel>(res);
-            return model;
+            return repository.GetByID(id);
         }
 
-        public List<PartsCompanyModel> GetByIDs(List<long> ids)
-        {
-            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            var res = repository.GetEntities(p=>ids.Contains(p.ID));
-            foreach (var item in res)
-            {
-                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
-                models.Add(model);
-            }          
-            return models;
-        }
+        //public List<PartsCompany> GetByIDs(List<long> ids)
+        //{
+        //    List<ViewModels.CarRepair.PartsCompany> models = new List<ViewModels.CarRepair.PartsCompany>();
+        //    PartsCompanyRepository repository = new PartsCompanyRepository();
+        //    var res = repository.GetEntities(p=>ids.Contains(p.ID));
+        //    foreach (var item in res)
+        //    {
+        //        ViewModels.CarRepair.PartsCompany model = AutoMapperClient.MapTo<EntityModels.PartsCompany, ViewModels.CarRepair.PartsCompany>(item);
+        //        models.Add(model);
+        //    }          
+        //    return models;
+        //}
 
-        public long SavePartsCompany(PartsCompanyModel model)
+        public long SavePartsCompany(PartsCompany model)
         {
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            PartsCompany entity = new PartsCompany();
-            entity= AutoMapperClient.MapTo< PartsCompanyModel,PartsCompany > (model);
             long id = 0;
             if (model.ID==0)
             {
-                id = repository.Insert(entity);
+                id = repository.Insert(model);
             }
             else
             {
-                id = repository.Update(entity);
+                id = repository.Update(model)? model.ID: 0;
             }
             return id;
         }
 
-        public int DeleteByID(long id)
+        public bool DeleteByID(long id)
         {
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            var res = repository.GetEntityByID(id);
-            if (res != null)
-            {
-                var flag = repository.Delete(res);
-                return flag;
-            }
-            else
-            {
-                return 0;
-            }
+            return repository.DeleteByID(id);
         }
 
-        public  List<PartsCompanyModel> GetListByPage(string keyword, DateTime startTime, DateTime endTime,ref PageInfoModel page)
+        public  List<PartsCompany> GetListByPage(string keyword, DateTime startTime, DateTime endTime,ref PageInfoModel page)
         {
             int total = 0;
-            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.Name.Contains(keyword)&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID,false);
-            page.TotalCount = total;
-            foreach (var item in entities)
+            List<PartsCompany> models = new List<PartsCompany>();
+            using (var coon = DapperExtensionClient.Conn)
             {
-                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
-                model.PicURL = ConfigureHelper.Get("ImageShowURL") + model.PicURL;
-                models.Add(model);
-            }
-            return models;
-        }
+                coon.Open();
+                IList<IPredicate> predList = new List<IPredicate>();
+                predList.Add(Predicates.Field<PartsCompany>(p => p.Name, Operator.Like, "%"+keyword+"%"));
+                predList.Add(Predicates.Field<PartsCompany>(p => p.CreateTime, Operator.Ge, startTime));
+                predList.Add(Predicates.Field<PartsCompany>(p => p.CreateTime, Operator.Le, endTime));
+                IPredicateGroup predGroup = Predicates.Group(GroupOperator.And, predList.ToArray());
 
-        public List<PartsCompanyModel> GetListByPage(string keyword,long partsClassifyID, DateTime startTime, DateTime endTime, ref PageInfoModel page)
-        {
-            keyword = string.IsNullOrWhiteSpace(keyword)?"":keyword;
-            int total = 0;
-            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
-            PartsCompanyRepository repository = new PartsCompanyRepository();
-            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => (p.Name.Contains(keyword)||p.Content.Contains(keyword)) && p.CreateTime >= startTime && p.CreateTime <= endTime&&p.PartsClassifyID==partsClassifyID, o => o.ID, false);
-            page.TotalCount = total;
-            foreach (var item in entities)
-            {
-                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
-                models.Add(model);
+                IList<ISort> sort = new List<ISort>();
+                sort.Add(new Sort { PropertyName = "ID", Ascending = false });
+
+                total = coon.Count<PartsCompany>(predGroup);
+                page.TotalCount = total;
+                models = coon.GetPage<PartsCompany>(predGroup,sort,page.PageIndex,page.PageSize).OrderByDescending(p => p.ID).ToList();
+
+                foreach (var model in models)
+                {
+                    model.PicURL = ConfigureHelper.Get("ImageShowURL") + model.PicURL;
+                }
+                coon.Close();
             }
             return models;
+        } 
+
+        public List<PartsCompany> GetListByPage(string keyword,long partsClassifyID, DateTime startTime, DateTime endTime, ref PageInfoModel page)
+        {
+
+
+            int total = 0;
+            List<PartsCompany> models = new List<PartsCompany>();
+            using (var coon = DapperExtensionClient.Conn)
+            {
+                coon.Open();
+
+                IList<IPredicate> predList1 = new List<IPredicate>();
+                predList1.Add(Predicates.Field<PartsCompany>(p => p.PartsClassifyID, Operator.Eq, partsClassifyID));
+                predList1.Add(Predicates.Field<PartsCompany>(p => p.CreateTime, Operator.Ge, startTime));
+                predList1.Add(Predicates.Field<PartsCompany>(p => p.CreateTime, Operator.Le, endTime));
+                IPredicateGroup predGroup1 = Predicates.Group(GroupOperator.And, predList1.ToArray());
+
+                IList<IPredicate> predList2 = new List<IPredicate>();
+                predList2.Add(Predicates.Field<PartsCompany>(p => p.Name, Operator.Like, "%" + keyword + "%"));
+                IPredicateGroup predGroup2 = Predicates.Group(GroupOperator.Or, predList2.ToArray());
+
+                var predGroup = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
+                predGroup.Predicates.Add(predGroup1);
+                predGroup.Predicates.Add(predGroup2);
+
+                IList<ISort> sort = new List<ISort>();
+                sort.Add(new Sort { PropertyName = "ID", Ascending = false });
+
+                total = coon.Count<PartsCompany>(predGroup);
+                page.TotalCount = total;
+                models = coon.GetPage<PartsCompany>(predGroup, sort, page.PageIndex, page.PageSize).OrderByDescending(p => p.ID).ToList();
+
+                foreach (var model in models)
+                {
+                    model.PicURL = ConfigureHelper.Get("ImageShowURL") + model.PicURL;
+                }
+                coon.Close();
+            }
+            return model;
         }
 
     }

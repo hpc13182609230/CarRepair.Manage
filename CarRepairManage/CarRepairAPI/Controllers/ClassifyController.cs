@@ -23,7 +23,7 @@ namespace CarRepairAPI.Controllers
             PartsClassifyService service = new PartsClassifyService();
             try
             {
-                List<PartsClassifyModel> models = service.SearchAllByParentIDThenOrder(OptionID,keyword);
+                List<PartsClassify> models = service.SearchAllByParentIDThenOrder(OptionID,keyword);
                 result.data = models;
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace CarRepairAPI.Controllers
             PartsCompanyService service = new PartsCompanyService();
             try
             {
-                List<PartsCompanyModel> data = service.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, ref page);
+                List<PartsCompany> data = service.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, ref page);
                 foreach (var item in data)
                 {
                     item.Content = xxHTML(item.Content);
@@ -70,7 +70,7 @@ namespace CarRepairAPI.Controllers
             PartsCompanyService service = new PartsCompanyService();
             try
             {
-                PartsCompanyModel model = service.GetByID(id);
+                PartsCompany model = service.GetByID(id);
                 result.data = model;
             }
             catch (Exception ex)

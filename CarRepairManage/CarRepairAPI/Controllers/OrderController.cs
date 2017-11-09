@@ -25,7 +25,7 @@ namespace CarRepairAPI.Controllers
         /// <returns></returns>
         [Route("SavePurchaseOrder")]
         [HttpPost]
-        public DataResultModel SavePurchaseOrder(PurchaseOrderModel model)
+        public DataResultModel SavePurchaseOrder(PurchaseOrder model)
         {
             DataResultModel result = new DataResultModel();
             PurchaseOrderService service = new PurchaseOrderService();
@@ -86,7 +86,7 @@ namespace CarRepairAPI.Controllers
             PurchaseOrderService service = new PurchaseOrderService();
             try
             {
-                PurchaseOrderModel model = service.GetByID(id);
+                PurchaseOrder model = service.GetByID(id);
                 if (model.ID == 0)
                 {
                     model.OrderTime = DateTime.Now;
@@ -155,7 +155,7 @@ namespace CarRepairAPI.Controllers
             PurchaseOrderService service = new PurchaseOrderService();
             try
             {
-                List<PurchaseOrderModel> models = service.GetListByPage(userid, keyword, ref page);
+                List<PurchaseOrder> models = service.GetListByPage(userid, keyword, ref page);
                 result.data = models.Select(p=>new{
                     ID=p.ID,
                     Remark = p.Remark
@@ -176,7 +176,7 @@ namespace CarRepairAPI.Controllers
 
         [Route("SaveRepairOrder")]
         [HttpPost]
-        public DataResultModel SaveRepairOrder(RepairOrderModel model)
+        public DataResultModel SaveRepairOrder(RepairOrder model)
         {
             DataResultModel result = new DataResultModel();
             RepairOrderService service = new RepairOrderService();
@@ -203,7 +203,7 @@ namespace CarRepairAPI.Controllers
             PurchaseOrderService _PurchaseOrderService = new PurchaseOrderService();
             try
             {
-                RepairOrderModel model = service.GetByID(id);
+                RepairOrder model = service.GetByID(id);
                 if (model.ID == 0)
                 {
                     model.RepairTime = DateTime.Now;

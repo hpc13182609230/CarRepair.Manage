@@ -13,14 +13,14 @@ namespace Service
 {
     public class PurchaseOrderService
     {
-        public PurchaseOrderModel GetByID(long id)
+        public PurchaseOrder GetByID(long id)
         {
-            PurchaseOrderModel model = new PurchaseOrderModel();
+            ViewModels.CarRepair.PurchaseOrder model = new ViewModels.CarRepair.PurchaseOrder();
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var res = repository.GetEntityByID(id);
             if (res!=null)
             {
-                model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(res);
+                model = AutoMapperClient.MapTo<EntityModels.PurchaseOrder, ViewModels.CarRepair.PurchaseOrder>(res);
             }
             return model;
         }
@@ -43,11 +43,11 @@ namespace Service
             return repository.Update(entity);
         }
 
-        public long Save(PurchaseOrderModel model)
+        public long Save(ViewModels.CarRepair.PurchaseOrder model)
         {
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
-            PurchaseOrder entity = new PurchaseOrder();
-            entity= AutoMapperClient.MapTo<PurchaseOrderModel, PurchaseOrder> (model);
+            EntityModels.PurchaseOrder entity = new EntityModels.PurchaseOrder();
+            entity= AutoMapperClient.MapTo<ViewModels.CarRepair.PurchaseOrder, EntityModels.PurchaseOrder> (model);
             long id = 0;
             if (model.ID==0)
             {
@@ -66,33 +66,33 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<PurchaseOrderModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
+        public  List<ViewModels.CarRepair.PurchaseOrder> GetListByPage(long WechatUserID,ref PageInfoModel page)
         {
             int total = 0;
-            List<PurchaseOrderModel> models = new List<PurchaseOrderModel>();
+            List<ViewModels.CarRepair.PurchaseOrder> models = new List<ViewModels.CarRepair.PurchaseOrder>();
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID, p => p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                PurchaseOrderModel model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(item);
+                ViewModels.CarRepair.PurchaseOrder model = AutoMapperClient.MapTo<EntityModels.PurchaseOrder, ViewModels.CarRepair.PurchaseOrder>(item);
                 models.Add(model);
             }
             return models;
         }
 
 
-        public List<PurchaseOrderModel> GetListByPage(long WechatUserID, string keyword,ref PageInfoModel page)
+        public List<ViewModels.CarRepair.PurchaseOrder> GetListByPage(long WechatUserID, string keyword,ref PageInfoModel page)
         {
             keyword = string.IsNullOrWhiteSpace(keyword) ?"": keyword.Trim();
             int total = 0;
-            List<PurchaseOrderModel> models = new List<PurchaseOrderModel>();
+            List<ViewModels.CarRepair.PurchaseOrder> models = new List<ViewModels.CarRepair.PurchaseOrder>();
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID&&p.Remark.Contains(keyword), p => p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                PurchaseOrderModel model = AutoMapperClient.MapTo<PurchaseOrder, PurchaseOrderModel>(item);
+                ViewModels.CarRepair.PurchaseOrder model = AutoMapperClient.MapTo<EntityModels.PurchaseOrder, ViewModels.CarRepair.PurchaseOrder>(item);
                 models.Add(model);
             }
             return models;

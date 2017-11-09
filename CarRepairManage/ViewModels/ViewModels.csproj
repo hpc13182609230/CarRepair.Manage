@@ -48,14 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="CarRepair\BaseOptionsModel.cs" />
-    <Compile Include="CarRepair\PartsClassifyModel.cs" />
-    <Compile Include="CarRepair\PartsCompanyModel.cs" />
-    <Compile Include="CarRepair\PointsModel.cs" />
-    <Compile Include="CarRepair\PurchaseOrderModel.cs" />
-    <Compile Include="CarRepair\RepairOrderModel.cs" />
-    <Compile Include="CarRepair\UserCarsModel.cs" />
-    <Compile Include="CarRepair\WechatUserModel.cs" />
+    <Compile Include="CarRepair\BaseOptions.cs" />
+    <Compile Include="CarRepair\PartsClassify.cs" />
+    <Compile Include="CarRepair\PartsCompany.cs" />
+    <Compile Include="CarRepair\Points.cs" />
+    <Compile Include="CarRepair\PurchaseOrder.cs" />
+    <Compile Include="CarRepair\RepairOrder.cs" />
+    <Compile Include="CarRepair\UserCars.cs" />
+    <Compile Include="CarRepair\WechatUser.cs" />
+    <Compile Include="CarRepair\ZTestModel.cs" />
     <Compile Include="DataResultModel.cs" />
     <Compile Include="PageInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

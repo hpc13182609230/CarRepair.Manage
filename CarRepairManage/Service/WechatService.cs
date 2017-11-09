@@ -22,14 +22,14 @@ namespace Service
             WechatUserService service = new WechatUserService();
             PointsService _PointsService = new PointsService();
             BaseOptionsService _BaseOptionsService = new BaseOptionsService();
-            WechatUserModel _WechatUserModel = service.GetByOpenid(_OpenIdAndSessionKey.openid);
+            WechatUser _WechatUserModel = service.GetByOpenid(_OpenIdAndSessionKey.openid);
             if (_WechatUserModel == null)
             {
                 LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetThirdSession",
                     "未能在数据库根据openid获取到用户，说明是新用户" + "\r\n"
                     +"code = " + code + "\r\n"
                     + "ShareID = " + ShareID + "\r\n");
-                _WechatUserModel = new WechatUserModel();
+                _WechatUserModel = new WechatUser();
                 _WechatUserModel.Openid = _OpenIdAndSessionKey.openid;
                 _WechatUserModel.SubScribeTime = DateTime.Now;
                 _WechatUserModel.LastActiveTime = DateTime.Now;
@@ -44,7 +44,7 @@ namespace Service
                     try
                     {
                         //获取来源 用户 
-                        WechatUserModel sourceWechatUser = service.GetByOpenid(ShareID);
+                        WechatUser sourceWechatUser = service.GetByOpenid(ShareID);
                         long shareOptionID = 7;
                         int todayShareCount = _PointsService.GetTodayShareCount(sourceWechatUser.ID, shareOptionID);
                         LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetThirdSession",
@@ -52,10 +52,10 @@ namespace Service
                                  + "todayShareCount = " + todayShareCount + "\r\n");
                         if (todayShareCount < 30)
                         {
-                            BaseOptionsModel shareOption = _BaseOptionsService.GetByID(shareOptionID);
+                            BaseOptions shareOption = _BaseOptionsService.GetByID(shareOptionID);
                             LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetThirdSession",
                                   "shareOption = " + TransformHelper.SerializeObject(shareOption) + "\r\n");
-                            PointsModel _PointsModel = new PointsModel() { WechatUserID = sourceWechatUser.ID, PointType = Convert.ToInt32(shareOptionID), point = Convert.ToInt32(shareOption.Remark), Note = shareOption.Content, Remark = id.ToString() };
+                            Points _PointsModel = new Points() { WechatUserID = sourceWechatUser.ID, PointType = Convert.ToInt32(shareOptionID), point = Convert.ToInt32(shareOption.Remark), Note = shareOption.Content, Remark = id.ToString() };
                             long pointid = _PointsService.Save(_PointsModel);
                             LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetThirdSession",
                                 "pointid = " + pointid + "\r\n");
@@ -82,7 +82,7 @@ namespace Service
             return thirdSession;
         }
 
-        public static WechatUserModel GetUserInfo(string encryptedData, string iv, string thirdSession)
+        public static WechatUser GetUserInfo(string encryptedData, string iv, string thirdSession)
         {
             WeChatAppDecrypt _WeChatAppDecrypt = new WeChatAppDecrypt();
 
@@ -93,7 +93,7 @@ namespace Service
 
 
             WechatUserService service = new WechatUserService();
-            WechatUserModel _WechatUserModel = service.GetByOpenid(_WechatUserInfo.openId);
+            WechatUser _WechatUserModel = service.GetByOpenid(_WechatUserInfo.openId);
             _WechatUserModel.Unionid = _WechatUserInfo.unionId;
             _WechatUserModel.NickName = _WechatUserInfo.nickName;
             _WechatUserModel.Sex =string.IsNullOrWhiteSpace(_WechatUserInfo.gender)?0:Convert.ToInt32(_WechatUserInfo.gender);

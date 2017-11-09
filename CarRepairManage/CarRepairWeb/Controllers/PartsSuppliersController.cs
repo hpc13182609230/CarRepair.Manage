@@ -21,9 +21,9 @@ namespace CarRepairWeb.Controllers
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
 
             BaseOptionsService _BaseOptionsService = new BaseOptionsService();
-            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+            List<BaseOptions> options = _BaseOptionsService.GetByParentID(1);
             PartsCompanyService service = new PartsCompanyService();
-            List<PartsCompanyModel> partsCompanys = service.GetListByPage(keyword,startTime, endTime.AddDays(1), ref page);
+            List<PartsCompany> partsCompanys = service.GetListByPage(keyword,startTime, endTime.AddDays(1), ref page);
 
             ViewBag.page = page;
             ViewBag.keyword = keyword;
@@ -39,11 +39,11 @@ namespace CarRepairWeb.Controllers
         public ActionResult PartDetail(int id=0)
         {
             PartsCompanyService service = new PartsCompanyService();
-            PartsCompanyModel model =id==0?new PartsCompanyModel() : service.GetByID(id);
+            PartsCompany model =id==0?new PartsCompany() : service.GetByID(id);
 
             //分类相关
             BaseOptionsService _BaseOptionsService = new BaseOptionsService();
-            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+            List<BaseOptions> options = _BaseOptionsService.GetByParentID(1);
             //PartsClassifyCompanyService _PartsClassifyCompanyService = new PartsClassifyCompanyService();
             //PartsClassifyCompanyModel PartsClassifyCompany = _PartsClassifyCompanyService.GetByPartsCompanyID(id);
 
@@ -55,7 +55,7 @@ namespace CarRepairWeb.Controllers
         }
 
         //配件商 单个保存
-        public ActionResult PartsCompanySave(PartsCompanyModel model)
+        public ActionResult PartsCompanySave(PartsCompany model)
         {
             model.Content = EncryptHelper.UrlDecode(model.Content);
 
@@ -70,7 +70,7 @@ namespace CarRepairWeb.Controllers
         public ActionResult DeletePartsCompany(long ID)
         {
             PartsCompanyService service = new PartsCompanyService();
-            int flag = service.DeleteByID(ID);
+            bool flag = service.DeleteByID(ID);
             return Json(flag, JsonRequestBehavior.AllowGet);
         }
 

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityModels;
 using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
 using ViewModels;
 using DapperLib;
+using System.Data.SqlClient;
+using DapperExtensions;
 
 namespace Service
 {
@@ -16,77 +17,59 @@ namespace Service
     {
         private static WechatUserRepository repository = new WechatUserRepository();
 
-        public WechatUserModel GetByID(long id)
+        public WechatUser GetByID(long id)
         {
-            //WechatUserModel model = repository.GetEntityByID(id);
-            WechatUserModel model = DapperContribClient.GetById<WechatUserModel>(2);
-            return model;
+            return repository.GetByID(id);
         }
 
-
-        public WechatUserModel GetByLoginToken(string LoginToken)
+        public WechatUser GetByLoginToken(string LoginToken)
         {
-            WechatUserModel model = new WechatUserModel();
-            WechatUserRepository repository = new WechatUserRepository();
-            var res = repository.GetEntity(p=>p.LoginToken== LoginToken);
-            model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
-            return model;
+            return repository.GetByLoginToken(LoginToken);
         }
 
-        public WechatUserModel GetByOpenid(string Openid)
+        public WechatUser GetByOpenid(string Openid)
         {
-            WechatUserModel model = new WechatUserModel();
-            WechatUserRepository repository = new WechatUserRepository();
-            var res = repository.GetEntity(p => p.Openid == Openid);
-            model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
-            return model;
+            return repository.GetByOpenid(Openid);
         }
 
-        public int DeleteByID(long id)
+        public long Save(WechatUser model)
         {
             WechatUserRepository repository = new WechatUserRepository();
-            var res = repository.GetEntityByID(id);
-            var flag = repository.Delete(res);
-            return flag;
-        }
-
-        public long Save(WechatUserModel model)
-        {
-            WechatUserRepository repository = new WechatUserRepository();
-            WechatUser entity = AutoMapperClient.MapTo<WechatUserModel, WechatUser> (model);
             long id = 0;
             if (model.ID==0)
             {
-                WechatUser e = repository.GetEntity(p=>p.Openid==model.Openid);
+                WechatUser e = repository.GetByOpenid(model.Openid);
                 if (e!=null)
                 {
-                    id = repository.Update(entity); //该数据 已存在 数据库
+                    repository.Update(model); //该数据 已存在 数据库
+                    id = model.ID;
                 }
                 else
                 {
-                    id = repository.Insert(entity);
+                    id = repository.Insert(model);
                 }
             }
             else
             {
-                id = repository.Update(entity);
+                repository.Update(model);
+                id = model.ID;
             }
             return id;
         }
 
 
-        public  List<WechatUserModel> GetListByPage(PageInfoModel page)
-        {
-            List<WechatUserModel> models = new List<WechatUserModel>();
-            WechatUserRepository repository = new WechatUserRepository();
-            var entities = repository.GetEntities();
-            foreach (var item in entities)
-            {
-                WechatUserModel model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(item);
-                models.Add(model);
-            }
-            return models;
-        }
+        //public  List<WechatUser> GetListByPage(PageInfoModel page)
+        //{
+        //    List<ViewModels.CarRepair.WechatUser> models = new List<ViewModels.CarRepair.WechatUser>();
+        //    WechatUserRepository repository = new WechatUserRepository();
+        //    var entities = repository.GetEntities();
+        //    foreach (var item in entities)
+        //    {
+        //        ViewModels.CarRepair.WechatUser model = AutoMapperClient.MapTo<EntityModels.WechatUser, ViewModels.CarRepair.WechatUser>(item);
+        //        models.Add(model);
+        //    }
+        //    return models;
+        //}
 
 
 

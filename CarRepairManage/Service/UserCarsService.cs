@@ -13,14 +13,14 @@ namespace Service
 {
     public class UserCarsService
     {
-        public UserCarsModel GetByID(long id)
+        public UserCars GetByID(long id)
         {
-            UserCarsModel model = new UserCarsModel();
+            ViewModels.CarRepair.UserCars model = new ViewModels.CarRepair.UserCars();
             UserCarsRepository repository = new UserCarsRepository();
             var res = repository.GetEntityByID(id);
             if (res!=null)
             {
-                model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(res);
+                model = AutoMapperClient.MapTo<EntityModels.UserCars, ViewModels.CarRepair.UserCars>(res);
             }
             return model;
         }
@@ -40,16 +40,16 @@ namespace Service
             return flag;
         }
 
-        public long Save(UserCarsModel model)
+        public long Save(ViewModels.CarRepair.UserCars model)
         {
             UserCarsRepository repository = new UserCarsRepository();
-            UserCars entity = new UserCars();
-            entity= AutoMapperClient.MapTo<UserCarsModel, UserCars> (model);
+            EntityModels.UserCars entity = new EntityModels.UserCars();
+            entity= AutoMapperClient.MapTo<ViewModels.CarRepair.UserCars, EntityModels.UserCars> (model);
             long id = 0;
             if (model.ID==0)
             {
                 //用户 车牌号 唯一 不能重复
-                UserCars e = repository.GetEntity(p=>p.WechatUserID==model.WechatUserID&&p.CarNO==model.CarNO&&p.Attribution==model.Attribution);
+                EntityModels.UserCars e = repository.GetEntity(p=> p.WechatUserID == model.WechatUserID && p.CarNO == model.CarNO && p.Attribution == model.Attribution);
                 if (e!=null)
                 {
                     return -1;//该数据 已存在 数据库
@@ -72,17 +72,17 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<UserCarsModel> GetListByPage(long WechatUserID,string keyword , ref PageInfoModel page)
+        public  List<ViewModels.CarRepair.UserCars> GetListByPage(long WechatUserID,string keyword , ref PageInfoModel page)
         {
             int total = 0;
             keyword = keyword ?? "";
-            List<UserCarsModel> models = new List<UserCarsModel>();
+            List<ViewModels.CarRepair.UserCars> models = new List<ViewModels.CarRepair.UserCars>();
             UserCarsRepository repository = new UserCarsRepository();
             var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword),p=>p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                UserCarsModel model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(item);
+                ViewModels.CarRepair.UserCars model = AutoMapperClient.MapTo<EntityModels.UserCars, ViewModels.CarRepair.UserCars>(item);
                 models.Add(model);
             }
             return models;
@@ -94,14 +94,14 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public List<UserCarsModel> GetListByPage(long WechatUserID, string keyword, DateTime insurance, ref PageInfoModel page)
+        public List<ViewModels.CarRepair.UserCars> GetListByPage(long WechatUserID, string keyword, DateTime insurance, ref PageInfoModel page)
         {
             int total = 0;
             keyword = keyword ?? "";
             insurance = insurance.AddDays((insurance.Day-1) *(-1)) ;
             DateTime insuranceStart = insurance.AddMonths(-1);
 
-            List<UserCarsModel> models = new List<UserCarsModel>();
+            List<ViewModels.CarRepair.UserCars> models = new List<ViewModels.CarRepair.UserCars>();
             UserCarsRepository repository = new UserCarsRepository();
             var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize,
                 p => p.WechatUserID == WechatUserID && p.CarNO.Contains(keyword) && p.InsuranceTime >= insuranceStart && p.InsuranceTime < insurance
@@ -109,7 +109,7 @@ namespace Service
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                UserCarsModel model = AutoMapperClient.MapTo<UserCars, UserCarsModel>(item);
+                ViewModels.CarRepair.UserCars model = AutoMapperClient.MapTo<EntityModels.UserCars, ViewModels.CarRepair.UserCars>(item);
                 models.Add(model);
             }
             return models;

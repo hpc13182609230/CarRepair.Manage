@@ -63,7 +63,7 @@ namespace CarRepairAPI.Controllers
             DataResultModel result = new DataResultModel();
             try
             {
-                WechatUserModel model = WechatService.GetUserInfo(encryptedData,iv,thirdSession);
+                WechatUser model = WechatService.GetUserInfo(encryptedData,iv,thirdSession);
                 result.data = model;
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace CarRepairAPI.Controllers
                 int carCount = _UserCarsService.CountByUserID(id);
                 int purchaseOrderCount = _PurchaseOrderService.CountByUserID(id);
                 int repairOrderCount = _RepairOrderService.CountByUserID(id);
-                PointsModel point = _PointsService.GetLastByUserID(id);
+                Points point = _PointsService.GetLastByUserID(id);
                 result.data = new { userinfo = userinfo, carCount= carCount, purchaseOrderCount= purchaseOrderCount, repairOrderCount = repairOrderCount , point= point.PointSum};
             }
             catch (Exception ex)

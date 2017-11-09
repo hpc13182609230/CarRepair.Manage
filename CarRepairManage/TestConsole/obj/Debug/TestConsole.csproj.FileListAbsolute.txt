@@ -28,5 +28,7 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\obj\Debug\TestCons
 E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\DapperLib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\Dapper.Contrib.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\DapperLib.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\DapperExtensions.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\DapperExtensions.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\Dapper.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\TestConsole\bin\Debug\Dapper.xml

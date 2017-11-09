@@ -4,37 +4,32 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace Repository
 {
-    public interface IBaseRepository<T> where T : new ()
+    public interface IBaseRepository<T> where T : BaseModel,new ()
     {
-        #region 查询普通实现方案 （基于lambda的where查询）
-
-        //根据条件获取第一个 entity
-        T GetEntity(Expression<Func<T, bool>> query = null);
-
-        //根据条件获取第一个 entity
-        //T GetEntityByID(long id);
-
-        //根据条件获取所有的 entity 【数据较少的时候使用】
-        IEnumerable<T> GetEntities(Expression<Func<T, bool>> query = null);
-
-        //查询 总个数【分页】
-        int GetEntitiesCount(Expression<Func<T, bool>> query = null);
-
-        //分页查询
-        IEnumerable<T> GetEntitiesForPaging(ref int totalCount, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false);
-
-        #endregion
 
         #region 基础增删改
 
-        long Insert(T entity);
+        long Insert(T model);
 
-        int Update(T entity);
+        bool Insert(IEnumerable<T> models);
 
-        int Delete(T entity);
+        bool Delete(T model);
+
+        bool Delete(IEnumerable<T> models);
+
+        bool DeleteByID(long id);
+
+        bool Update(T model);
+
+        bool Update(IEnumerable<T> models);
+
+        T GetByID(long id);
+
+        IEnumerable<T> GetAll();
 
         #endregion
     }

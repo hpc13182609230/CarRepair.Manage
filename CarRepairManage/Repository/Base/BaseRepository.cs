@@ -4,157 +4,84 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using EntityModels;
 using System.Data.Entity;
+using ViewModels.CarRepair;
+using ViewModels;
+using DapperLib;
+using LogLib;
 
 namespace Repository
 {
-    public abstract class BaseRepository<T, DB> : IBaseRepository<T> where T : BaseEntity,new() where DB : DbContext, new()
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseModel,new()
     {
-        #region 查询普通实现方案 （基于lambda的where查询）
-        //根据条件查出第一个符合条件的 对象
-        public T GetEntity(Expression<Func<T, bool>> query=null)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query != null)
-                    queryable = dbSet.Where(query);
-                return queryable.FirstOrDefault();
-            }
-        }
-
-        //根据条件查出第一个符合条件的 对象 [可以根据条件排序]
-        public T GetEntityOrder(Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query != null)
-                    queryable = dbSet.Where(query);
-                if (order != null)
-                {
-                    if (isAsc)
-                    {
-                        queryable = queryable.OrderBy(order);
-                    }
-                    else
-                    {
-                        queryable = queryable.OrderByDescending(order);
-                    }
-                }
-                return queryable.FirstOrDefault();
-            }
-        }
-
-
-        public T GetEntityByID(long id)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                queryable = dbSet.Where(p=>p.ID==id);
-                return queryable.FirstOrDefault();
-            }
-        }
-
-        //根据条件查出所有数据 适合数据量 小
-        public IEnumerable<T> GetEntities(Expression<Func<T, bool>> query =null)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query!=null)
-                    queryable = dbSet.Where(query);
-                return queryable.ToList();
-            }
-        }
-
-        public int GetEntitiesCount(Expression<Func<T, bool>> query=null)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query != null)
-                    queryable = dbSet.Where(query);
-                return queryable.Count();
-            }
-        }
-
-        public IEnumerable<T> GetEntitiesForPaging(ref int total, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false)
-        {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                IQueryable<T> queryable = dbSet.AsQueryable();
-                if (query != null)
-                    queryable = dbSet.Where(query);
-                total = queryable.Count();
-                if (order!=null)
-                {
-                    if (isAsc)
-                    {
-                        queryable = queryable.OrderBy(order);
-                    }
-                    else
-                    {
-                        queryable = queryable.OrderByDescending(order);
-                    }
-                }
-                queryable = queryable.Skip(pageSize*(pageIndex-1)).Take(pageSize);
-                return queryable.ToList();
-            }
-        }
-
-        #endregion
 
         #region 基础增删改
 
-        public long Insert(T entity)
+        public bool Insert(IEnumerable<T> models)
         {
-            using (DB db = new DB())
+            try
             {
-                DbSet<T> dbSet = db.Set<T>();
-                entity.CreateTime = DateTime.Now;
-                entity.UpdateTime =DateTime.Now;
-                dbSet.Add(entity);
-                db.SaveChanges();
-                return entity.ID;
+                DapperExtensionClient.Insert<T>(models);
+                return true;
             }
+            catch (Exception ex)
+            {
+                LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "Exception", "BaseRepository Insert" + " ex = " + ex.Message + "\r\n");
+                return false;
+            } 
         }
 
-        public int Update(T entity)
+        public long Insert(T model)
         {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                entity.UpdateTime = DateTime.Now;
-                T dbmodel = GetEntityByID(entity.ID);
-                entity.CreateTime = dbmodel.CreateTime;
-
-                dbSet.Attach(entity);
-                db.Entry(entity).State = EntityState.Modified;
-                return db.SaveChanges();
-               
-            }
+            return DapperExtensionClient.Insert<T>(model);
         }
 
-        public int Delete(T entity)
+        public bool Delete(T model)
         {
-            using (DB db = new DB())
-            {
-                DbSet<T> dbSet = db.Set<T>();
-                //dbSet.Remove(entity);
-                dbSet.Attach(entity);
-                db.Entry(entity).State = EntityState.Deleted;
-                return db.SaveChanges();
-            }
+           return  DapperExtensionClient.Delete<T>(model);
         }
+
+        public bool Delete(IEnumerable<T> models)
+        {
+            try
+            {
+                DapperExtensionClient.Delete<T>(models);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "Exception", "BaseRepository Delete" + " ex = " + ex.Message + "\r\n");
+                return false;
+            }  
+        }
+
+        public bool DeleteByID(long id)
+        {
+            return DapperExtensionClient.DeleteByID<T>(id);
+        }
+
+        public bool Update(IEnumerable<T> models)
+        {
+            return DapperExtensionClient.Update<T>(models);
+        }
+
+
+        public bool Update(T model)
+        {
+            return DapperExtensionClient.Update<T>(model);
+        }
+
+        public T GetByID(long id)
+        {
+            return DapperExtensionClient.GetByID<T>(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return DapperExtensionClient.GetAll<T>();
+        }
+
+        
 
         #endregion
     }

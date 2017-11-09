@@ -8,3 +8,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\obj\Debug\DapperLib.
 E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\obj\Debug\DapperLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\bin\Debug\Dapper.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\bin\Debug\Dapper.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\bin\Debug\DapperExtensions.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\DapperLib\bin\Debug\DapperExtensions.pdb

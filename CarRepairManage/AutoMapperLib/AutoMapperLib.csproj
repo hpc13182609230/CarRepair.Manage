@@ -47,10 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityModels\EntityModels.csproj">
-      <Project>{add76bce-0f70-4840-9980-3351e2733733}</Project>
-      <Name>EntityModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{f893bbac-f207-4f3b-8dcb-dded509ed0ac}</Project>
       <Name>ViewModels</Name>

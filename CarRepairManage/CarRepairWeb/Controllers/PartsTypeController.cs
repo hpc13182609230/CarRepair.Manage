@@ -18,7 +18,7 @@ namespace CarRepairWeb.Controllers
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
 
             PartsClassifyService service = new PartsClassifyService();
-            List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentIDPage(OptionID,keyword,startTime, endTime.AddDays(1), ref page);
+            List<PartsClassify> _PartsClassifyModels = service.GetByParentIDPage(OptionID,keyword,startTime, endTime.AddDays(1), ref page);
 
             ViewBag.PartsClassify = _PartsClassifyModels;
             ViewBag.name = name;
@@ -44,7 +44,7 @@ namespace CarRepairWeb.Controllers
         //}
 
 
-        public ActionResult AddPartsClassify(PartsClassifyModel model)
+        public ActionResult AddPartsClassify(PartsClassify model)
         {
             PartsClassifyService service = new PartsClassifyService();
             long id= service.Save(model);

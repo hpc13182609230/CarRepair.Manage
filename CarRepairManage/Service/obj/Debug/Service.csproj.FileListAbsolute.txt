@@ -75,3 +75,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Dapper.Contr
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\DapperLib.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Dapper.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\Dapper.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\DapperExtensions.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Service\bin\Debug\DapperExtensions.pdb

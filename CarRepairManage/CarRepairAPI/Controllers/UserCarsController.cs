@@ -23,7 +23,7 @@ namespace CarRepairAPI.Controllers
         /// <returns></returns>
         [Route("SaveUserCar")]
         [HttpPost]
-        public DataResultModel SaveUserCar(UserCarsModel model)
+        public DataResultModel SaveUserCar(UserCars model)
         {
             DataResultModel result = new DataResultModel();
             UserCarsService service = new UserCarsService();
@@ -48,7 +48,7 @@ namespace CarRepairAPI.Controllers
             DataResultModel result = new DataResultModel();
             PageInfoModel page = new PageInfoModel() { PageIndex=pageIndex,PageSize=pageSize};
             UserCarsService service = new UserCarsService();
-            List<UserCarsModel> cars = new List<UserCarsModel>();
+            List<UserCars> cars = new List<UserCars>();
 
             WechatUserService _WechatUserService = new WechatUserService();
             //var user = _WechatUserService.GetByLoginToken(thirdSession);
@@ -99,7 +99,7 @@ namespace CarRepairAPI.Controllers
             UserCarsService service = new UserCarsService();
             try
             {
-                UserCarsModel car = service.GetByID(id);
+                UserCars car = service.GetByID(id);
                 if (car.ID==0)
                 {
                     car.Attribution = "鲁";

@@ -38,14 +38,14 @@ namespace AutoMapperLib
         {
             var config = new MapperConfiguration(cfg => {
                 //注册 需要转换的对象
-                cfg.CreateMap<BaseOptions, BaseOptionsModel>();
-                cfg.CreateMap<PartsClassify, PartsClassifyModel>();
-                cfg.CreateMap<PartsCompany, PartsCompanyModel>();
-                cfg.CreateMap<Points, PointsModel>();
-                cfg.CreateMap<PurchaseOrder, PurchaseOrderModel>();
-                cfg.CreateMap<RepairOrder, RepairOrderModel>();
-                cfg.CreateMap<UserCars, UserCarsModel>();
-                cfg.CreateMap<WechatUser, WechatUserModel>();
+                //cfg.CreateMap<BaseOptions, BaseOptions>();
+                //cfg.CreateMap<PartsClassify, PartsClassify>();
+                //cfg.CreateMap<PartsCompany, PartsCompany>();
+                //cfg.CreateMap<Points, Points>();
+                //cfg.CreateMap<PurchaseOrder, PurchaseOrder>();
+                //cfg.CreateMap<RepairOrder, RepairOrder>();
+                //cfg.CreateMap<UserCars, UserCars>();
+                //cfg.CreateMap<WechatUser, WechatUser>();
             }); 
             return config;
         }

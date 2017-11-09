@@ -34,6 +34,7 @@ namespace DapperLib
         {
             using (var coon = Conn)
             {
+                model.CreateTime = DateTime.Now;
                 return coon.Insert(model);
             }
         }
@@ -90,7 +91,13 @@ namespace DapperLib
         /// <returns></returns>
         public static IEnumerable<T> GetAll<T>() where T : class
         {
-            return Conn.GetAll<T>();
+            Console.WriteLine( "A0 = "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"));
+            IEnumerable<T> result = Conn.GetAll<T>();
+            Console.WriteLine("A1 = " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"));
+            var data = result.ToList();
+            Console.WriteLine("A2 = " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"));
+
+            return result;
         }
 
         #endregion

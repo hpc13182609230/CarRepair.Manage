@@ -13,13 +13,13 @@ namespace Service
 {
     public class RepairOrderService
     {
-        public RepairOrderModel GetByID(long id)
+        public RepairOrder GetByID(long id)
         {
-            RepairOrderModel model = new RepairOrderModel();
+            ViewModels.CarRepair.RepairOrder model = new ViewModels.CarRepair.RepairOrder();
             RepairOrderRepository repository = new RepairOrderRepository();
             var res = repository.GetEntityByID(id);
             if (res!=null)
-                model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(res);
+                model = AutoMapperClient.MapTo<EntityModels.RepairOrder, ViewModels.CarRepair.RepairOrder>(res);
 
             return model;
         }
@@ -33,11 +33,11 @@ namespace Service
             return flag;
         }
 
-        public long Save(RepairOrderModel model)
+        public long Save(ViewModels.CarRepair.RepairOrder model)
         {
             RepairOrderRepository repository = new RepairOrderRepository();
-            RepairOrder entity = new RepairOrder();
-            entity= AutoMapperClient.MapTo<RepairOrderModel, RepairOrder> (model);
+            EntityModels.RepairOrder entity = new EntityModels.RepairOrder();
+            entity= AutoMapperClient.MapTo<ViewModels.CarRepair.RepairOrder, EntityModels.RepairOrder> (model);
             long id = 0;
             if (model.ID==0)
             {
@@ -56,16 +56,16 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<RepairOrderModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
+        public  List<ViewModels.CarRepair.RepairOrder> GetListByPage(long WechatUserID,ref PageInfoModel page)
         {
             int total = 0;
-            List<RepairOrderModel> models = new List<RepairOrderModel>();
+            List<ViewModels.CarRepair.RepairOrder> models = new List<ViewModels.CarRepair.RepairOrder>();
             RepairOrderRepository repository = new RepairOrderRepository();
             var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID , p => p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                RepairOrderModel model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(item);
+                ViewModels.CarRepair.RepairOrder model = AutoMapperClient.MapTo<EntityModels.RepairOrder, ViewModels.CarRepair.RepairOrder>(item);
                 models.Add(model);
             }
             return models;

@@ -33,3 +33,5 @@ E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\DapperLib
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\ViewModels.pdb
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\Dapper.dll
 E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\Dapper.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\DapperExtensions.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\Repository\bin\Debug\DapperExtensions.pdb

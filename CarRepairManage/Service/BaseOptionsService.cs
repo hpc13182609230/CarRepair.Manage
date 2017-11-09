@@ -12,25 +12,25 @@ namespace Service
 {
     public class BaseOptionsService
     {
-        public BaseOptionsModel GetByID(long id)
+        public BaseOptions GetByID(long id)
         {
-            BaseOptionsModel model = new BaseOptionsModel();
+            ViewModels.CarRepair.BaseOptions model = new ViewModels.CarRepair.BaseOptions();
             BaseOptionsRepository repository = new BaseOptionsRepository();
             var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<BaseOptions, BaseOptionsModel>(res);
+            model = AutoMapperClient.MapTo<EntityModels.BaseOptions, ViewModels.CarRepair.BaseOptions>(res);
             return model;
         }
 
 
-        public List<BaseOptionsModel> GetByParentID(long parentid)
+        public List<ViewModels.CarRepair.BaseOptions> GetByParentID(long parentid)
         {
-            List<BaseOptionsModel> models = new List<BaseOptionsModel>();
+            List<ViewModels.CarRepair.BaseOptions> models = new List<ViewModels.CarRepair.BaseOptions>();
             BaseOptionsRepository repository = new BaseOptionsRepository();
             var res = repository.GetEntitiesByParentID(parentid);
             foreach (var item in res)
             {
-                BaseOptionsModel model = new BaseOptionsModel();
-                model = AutoMapperClient.MapTo<BaseOptions, BaseOptionsModel>(item);
+                ViewModels.CarRepair.BaseOptions model = new ViewModels.CarRepair.BaseOptions();
+                model = AutoMapperClient.MapTo<EntityModels.BaseOptions, ViewModels.CarRepair.BaseOptions>(item);
                 models.Add(model);
             }
             return models;

@@ -20,3 +20,14 @@ E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\zh-Hans\Entity
 E:\Project\CarRepair\code1\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\Project\CarRepair\code1\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
 E:\Project\CarRepair\code1\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll.config
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityModels.pdb
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\EntityFramework.SqlServer.xml
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.dll
+E:\WechatProject\CarRepair.Manage\CarRepairManage\EntityModels\obj\Debug\EntityModels.pdb

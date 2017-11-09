@@ -15,8 +15,3 @@ E:\Project\CarRepair\code1\CarRepairManage\WechatAppLib\bin\Debug\Newtonsoft.Jso
 E:\Project\CarRepair\code1\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.csprojResolveAssemblyReference.cache
 E:\Project\CarRepair\code1\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.dll
 E:\Project\CarRepair\code1\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Debug\WechatAppLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Debug\WechatAppLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\bin\Debug\Newtonsoft.Json.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\WechatAppLib\obj\Debug\WechatAppLib.pdb

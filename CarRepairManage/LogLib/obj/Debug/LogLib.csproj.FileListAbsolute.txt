@@ -12,8 +12,3 @@ E:\Project\CarRepair\code1\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
 E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache
 E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Debug\LogLib.dll
 E:\Project\CarRepair\code1\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\bin\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\LogLib\obj\Debug\LogLib.csprojResolveAssemblyReference.cache

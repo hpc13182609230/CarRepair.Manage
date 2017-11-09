@@ -10,11 +10,3 @@ E:\Project\CarRepair\code1\CarRepairManage\ViewModels\bin\Debug\ViewModels.dll
 E:\Project\CarRepair\code1\CarRepairManage\ViewModels\bin\Debug\ViewModels.pdb
 E:\Project\CarRepair\code1\CarRepairManage\ViewModels\obj\Debug\ViewModels.dll
 E:\Project\CarRepair\code1\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\ViewModels.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\ViewModels.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.pdb
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\obj\Debug\ViewModels.csprojResolveAssemblyReference.cache
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\Dapper.Contrib.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\Dapper.dll
-E:\WechatProject\CarRepair.Manage\CarRepairManage\ViewModels\bin\Debug\Dapper.xml

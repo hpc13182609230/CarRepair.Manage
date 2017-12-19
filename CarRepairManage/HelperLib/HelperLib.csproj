@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
     <Compile Include="ConfigureHelper.cs" />
     <Compile Include="EncryptHelper.cs" />
     <Compile Include="HttpHelper.cs" />

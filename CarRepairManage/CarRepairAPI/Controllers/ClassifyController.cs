@@ -37,7 +37,7 @@ namespace CarRepairAPI.Controllers
         //获取子分类 下面的配件商 
         [Route("GetPartsClassifyCompanyList")]
         [HttpGet]
-        public DataResultModel GetPartsClassifyCompanyList(long partsClassifyID, string keyword)
+        public DataResultModel GetPartsClassifyCompanyList(long partsClassifyID, string keyword,string codeID="370000")
         {
             keyword = keyword ?? "";
             PageInfoModel page = new PageInfoModel() { PageIndex=1,PageSize=100};
@@ -46,7 +46,7 @@ namespace CarRepairAPI.Controllers
             PartsCompanyService service = new PartsCompanyService();
             try
             {
-                List<PartsCompanyModel> data = service.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, ref page);
+                List<PartsCompanyModel> data = service.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, codeID,ref page);
                 foreach (var item in data)
                 {
                     item.Content = xxHTML(item.Content);

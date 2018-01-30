@@ -22,5 +22,17 @@ namespace HelperLib
             return result;
         }
 
+        //获取json串内的指定值
+        public static string Json2String<T> (T json)
+        {
+            return JsonConvert.SerializeObject(json);
+        }
+
+        //获取json串内的指定值
+        public static T String2Json<T>(string jsonString)
+        {
+            return JsonConvert.DeserializeObject<T>(jsonString);
+        }
+
     }
 }

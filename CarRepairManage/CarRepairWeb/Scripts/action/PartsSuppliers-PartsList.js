@@ -111,3 +111,30 @@ $('[name="ChangeType"]').click(function () {
     })
 
 //过期时间暂时不写
+
+//省份切换
+    $('#provinces').find("span").click(function () {
+        debugger;
+        var $this = $(this);
+        var codeLbael = $('#provinces').find(".label");
+        codeLbael.removeClass("label-success");
+        $this.removeClass("label-default ").addClass("label-success");
+        $('#codeID').val($this.attr('id'));
+    })
+
+//重置排序
+    $('#ResetCompanyOrder').click(function () {
+        var codeID = $('#codeID').val();
+        alert(codeID);
+        if (confirm("确定要重置所选省份配件商的排序吗？重置后无法恢复！")) {
+            $.ajax({
+                type: 'Get',
+                url: '/PartsSuppliers/ResetCompanyOrder?codeID=' + codeID,
+                success: function (data) {
+                    alert(data);                    
+                }
+            });
+        }
+    })
+    
+

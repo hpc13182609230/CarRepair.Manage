@@ -14,34 +14,33 @@ namespace HelperLib
         /// 获取数据缓存
         /// </summary>  
         /// <param name="cacheKey">键</param>  
-        public static object GetCache(string cacheKey)
+        public static T GetCache<T>(string cacheKey)
         {
             var objCache = HttpRuntime.Cache.Get(cacheKey);
-            return objCache;
+            return objCache == null? default(T): TransformHelper.DeserializeObject<T>(objCache.ToString());
+
         }
         /// <summary>  
         /// 设置数据缓存  
         /// </summary>  
-        public static void SetCache(string cacheKey, object objObject)
+        public static void SetCache<T>(string cacheKey, T objObject)
         {
-            var objCache = HttpRuntime.Cache;
-            objCache.Insert(cacheKey, objObject);
+            HttpRuntime.Cache.Insert(cacheKey, TransformHelper.SerializeObject(objObject));
         }
         /// <summary>  
         /// 设置数据缓存  
         /// </summary>  
-        public static void SetCache(string cacheKey, object objObject, int timeout = 7200)
+        public static void SetCache<T>(string cacheKey, T objObject, int timeout = 7200)
         {
             try
             {
                 if (objObject == null) return;
-                var objCache = HttpRuntime.Cache;
                 //相对过期  
                 //objCache.Insert(cacheKey, objObject, null, DateTime.MaxValue, timeout, CacheItemPriority.NotRemovable, null);  
                 //绝对过期时间  
-                objCache.Insert(cacheKey, objObject, null, DateTime.Now.AddSeconds(timeout), TimeSpan.Zero, CacheItemPriority.High, null);
+                HttpRuntime.Cache.Insert(cacheKey, TransformHelper.SerializeObject(objObject), null, DateTime.Now.AddSeconds(timeout), TimeSpan.Zero, CacheItemPriority.High, null);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //throw;  
             }

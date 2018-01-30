@@ -14,7 +14,7 @@ namespace EntityModels
     
     public partial class WechatUser : BaseEntity
     {
-
+   
         public string Openid { get; set; }
         public string Unionid { get; set; }
         public string Password { get; set; }

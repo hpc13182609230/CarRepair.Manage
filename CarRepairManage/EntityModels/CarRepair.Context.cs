@@ -35,5 +35,7 @@ namespace EntityModels
         public virtual DbSet<PurchaseOrder> PurchaseOrder { get; set; }
         public virtual DbSet<RepairOrder> RepairOrder { get; set; }
         public virtual DbSet<UserCars> UserCars { get; set; }
+        public virtual DbSet<ZTest> ZTest { get; set; }
+        public virtual DbSet<Area> Area { get; set; }
     }
 }

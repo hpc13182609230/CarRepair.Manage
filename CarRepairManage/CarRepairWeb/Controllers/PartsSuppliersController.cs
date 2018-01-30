@@ -15,18 +15,23 @@ namespace CarRepairWeb.Controllers
     //配件商 
     public class PartsSuppliersController : BaseController
     {
+        BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+        PartsCompanyService service = new PartsCompanyService();
+        AreaService _AreaService = new AreaService();
+
         //配件商 列表
-        public ActionResult PartsList(string keyword,DateTime startTime,DateTime endTime, int pageIndex = 1, int pageSize = 10)
+        public ActionResult PartsList(string keyword, DateTime startTime,DateTime endTime, string codeID = "370000", int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
 
-            BaseOptionsService _BaseOptionsService = new BaseOptionsService();
             List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
-            PartsCompanyService service = new PartsCompanyService();
-            List<PartsCompanyModel> partsCompanys = service.GetListByPage(keyword,startTime, endTime.AddDays(1), ref page);
+            List<PartsCompanyModel> partsCompanys = service.GetListByPage(keyword,codeID,startTime, endTime.AddDays(1), ref page);
+            List<AreaModel> provinces = _AreaService.GetListByParentID("0");
 
+            ViewBag.provinces = provinces;
             ViewBag.page = page;
             ViewBag.keyword = keyword;
+            ViewBag.codeID = codeID;
             ViewBag.startTime = startTime;
             ViewBag.endTime = endTime;
             ViewBag.options = options;
@@ -38,15 +43,16 @@ namespace CarRepairWeb.Controllers
         //配件商 单个详情
         public ActionResult PartDetail(int id=0)
         {
-            PartsCompanyService service = new PartsCompanyService();
             PartsCompanyModel model =id==0?new PartsCompanyModel() : service.GetByID(id);
 
             //分类相关
-            BaseOptionsService _BaseOptionsService = new BaseOptionsService();
             List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
             //PartsClassifyCompanyService _PartsClassifyCompanyService = new PartsClassifyCompanyService();
             //PartsClassifyCompanyModel PartsClassifyCompany = _PartsClassifyCompanyService.GetByPartsCompanyID(id);
 
+            //获取所有省份 
+            List<AreaModel> provinces = _AreaService.GetListByParentID("0");
+            ViewBag.provinces = provinces;
             ViewBag.options = options;
             //ViewBag.PartsClassifyCompany = PartsClassifyCompany;
 
@@ -133,6 +139,11 @@ namespace CarRepairWeb.Controllers
             return Url_Show;
         }
 
-
+        //重新排序
+        public ActionResult ResetCompanyOrder(string codeID)
+        {
+            string msg= service.ResetCompanyOrder(codeID);
+            return Json(msg, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     PartsCompanyModel model = ViewBag.PartsCompany as PartsCompanyModel;
     List<BaseOptionsModel> options = ViewBag.options as List<BaseOptionsModel>;
+    List<AreaModel> provinces = ViewBag.provinces as List<AreaModel>;
 }
 
 
@@ -76,10 +77,40 @@
                         </div>
 
                         <div class="control-group">
+                            <label class="control-label">排序值</label>
+                            <div class="controls">
+                                <input id="Order" type="text" class="span6 m-wrap" value="@(model.Order)" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
                             <label class="control-label">经营范围</label>
                             <div class="controls">
                                 @*<input id="Content" type="text" class="span6 m-wrap" value="@(model.Content)"/>*@
                                 <textarea name="content_CKEditor" class="ckeditor" style="width:80% ;margin:5px 0 0 0;">@(model.Content)</textarea>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">所属省份</label>
+                            <div id="codeID" class="controls" style="width:800px">
+                                @foreach (var item in provinces)
+                                {
+                                    if (item.codeID==model.codeID)
+                                    {
+                                        <span class="label label-success" id="@item.codeID" >@item.name</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-default" id="@item.codeID" >@item.name</span>
+                                    }
+                                }
+                                @*<span class="label label-default">默认标签</span>
+                                <span class="label label-primary">主要标签</span>
+                                <span class="label label-success">成功标签</span>
+                                <span class="label label-info">信息标签</span>
+                                <span class="label label-warning">警告标签</span>
+                                <span class="label label-danger">危险标签</span>*@
                             </div>
                         </div>
 

@@ -26,7 +26,9 @@ namespace ViewModels.CarRepair
         public string Contract { get; set; }
         public string Tel { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }//配件商 有效期
-       
+        public string codeID { get; set; }//所属省份的 codeid
+
+
 
         //额外字段
         public string Address { get; set; }//ip对应的地址

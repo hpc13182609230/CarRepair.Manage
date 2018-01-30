@@ -7,7 +7,9 @@
     List<PartsCompanyModel> partsCompanys = ViewBag.partsCompanys as List<PartsCompanyModel>;
     string keyword = ViewBag.keyword as string;
     string startTime = Convert.ToDateTime(ViewBag.startTime).ToString("MM/dd/yyyy");
-    string endTime = Convert.ToDateTime(ViewBag.endTime).ToString("MM/dd/yyyy"); 
+    string endTime = Convert.ToDateTime(ViewBag.endTime).ToString("MM/dd/yyyy");
+    List<AreaModel> provinces = ViewBag.provinces as List<AreaModel>;
+
     }
 
 @section header{
@@ -77,6 +79,7 @@
             <div id="tab_1_5" class="tab-pane">
                 <div class="row-fluid search-forms search-default">
                     <form action="/PartsSuppliers/PartsList"  enctype="multipart/form-data" >
+
                         <div class="clearfix margin-bottom-20">
                             <div class="control-group pull-left margin-right-20">
                                 <label class="control-label">起始时间:</label>
@@ -100,6 +103,30 @@
                                 <a href="/PartsSuppliers/PartDetail" class="btn blue"><i class="icon-plus"></i>添加配件商</a>
                             </div>
                         </div>
+
+
+                        <div class="clearfix margin-bottom-20" style="margin-top: -20px;">
+                            <label  class="control-label">所属省份</label>
+                            <input id="codeID"  type="hidden" name="codeID" value="@ViewBag.codeID" />
+                            <div class="control-group pull-right">
+                                <a id="ResetCompanyOrder" href="javascript:;" class="btn yellow"><i class="icon-adn"></i>重置排序</a>
+                            </div>
+                            <div id="provinces" class="controls" style="width:800px">
+                                @foreach (var item in provinces)
+                                {
+                                    if (item.codeID == ViewBag.codeID)
+                                    {
+                                        <span class="label label-success" id="@item.codeID">@item.name</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-default" id="@item.codeID">@item.name</span>
+                                    }
+                                }
+                            </div>
+                          
+                        </div>
+
                         <div class="chat-form">
                             <div class="input-cont">
                                 <input type="text" placeholder="Search..." class="m-wrap" name="keyword" value="@keyword" />
@@ -116,7 +143,7 @@
                                 <th>Photo</th>
                                 <th class="hidden-phone">名称</th>
                                 <th>归属地</th>
-                                <th class="hidden-phone">到期时间</th>
+                                <th class="hidden-phone">排序值</th>
                                 <th class="hidden-phone">创建时间</th>
                                 <th>所属分类</th>
                                 <th>操作</th>
@@ -130,7 +157,7 @@
                                     <td><img src="@item.PicURL" alt="" style="width:30px;height:30px" /></td>
                                     <td class="hidden-phone">@(item.Name)</td>
                                     <td>@(item.Address)</td>
-                                    <td class="hidden-phone">@(item.ExpireTime)</td>
+                                    <td class="hidden-phone">@(item.Order)</td>
                                     <td class="hidden-phone">@(item.CreateTime)</td>
                                     <td>
                                         <span class="label label-success">@item.PartsClassifyIDNote</span>

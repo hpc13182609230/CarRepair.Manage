@@ -31,5 +31,6 @@ namespace EntityModels
         public long PartsClassifyID { get; set; }
         public int Order { get; set; }
         public long WechatID { get; set; }
+        public string codeID { get; set; }
     }
 }

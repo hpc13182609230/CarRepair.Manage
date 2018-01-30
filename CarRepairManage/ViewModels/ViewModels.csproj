@@ -51,6 +51,7 @@
     <Compile Include="CarRepair\BaseOptionsModel.cs" />
     <Compile Include="CarRepair\PartsClassifyModel.cs" />
     <Compile Include="CarRepair\PartsCompanyModel.cs" />
+    <Compile Include="CarRepair\AreaModel.cs" />
     <Compile Include="CarRepair\PointsModel.cs" />
     <Compile Include="CarRepair\PurchaseOrderModel.cs" />
     <Compile Include="CarRepair\RepairOrderModel.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="PageInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageUserModel.cs" />
+    <Compile Include="Utility\CacheModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

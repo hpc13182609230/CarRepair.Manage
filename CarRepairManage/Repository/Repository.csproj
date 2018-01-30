@@ -55,6 +55,7 @@
     <Compile Include="Base\IBaseRepository.cs" />
     <Compile Include="PartsClassifyRepository.cs" />
     <Compile Include="PartsClassifyCompanyRepository.cs" />
+    <Compile Include="AreaRepository.cs" />
     <Compile Include="PurchaseOrderRepository.cs" />
     <Compile Include="RepairOrderRepository.cs" />
     <Compile Include="PointsRepository.cs" />

@@ -46,6 +46,7 @@ namespace AutoMapperLib
                 cfg.CreateMap<RepairOrder, RepairOrderModel>();
                 cfg.CreateMap<UserCars, UserCarsModel>();
                 cfg.CreateMap<WechatUser, WechatUserModel>();
+                cfg.CreateMap<Area, AreaModel>();
             }); 
             return config;
         }

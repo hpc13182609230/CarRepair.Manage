@@ -11,21 +11,22 @@ using ViewModels.CarRepair;
 
 namespace CarRepairAPI.Controllers
 {
-    [RoutePrefix("api/User")]
-    public class UserController : ApiController
+    [RoutePrefix("api/Area")]
+    public class AreaController : ApiController
     {
-        #region points 相关
-        [Route("Log")]
+        AreaService service = new AreaService();
+
+        // GET: Area
+        [Route("GetProvinces")]
         [HttpGet]
-        public DataResultModel TestLog()
+        public DataResultModel GetProvinces(string name)
         {
             DataResultModel result = new DataResultModel();
             try
             {
-                DateTime insurance = new DateTime(2017,10,1);
-                insurance = insurance.AddDays((insurance.Day - 1) * (-1));
-                LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "log", "TestLog"  + "\r\n");
-
+                List<AreaModel> provinceList = service.GetListByParentID("0");
+                var  province  = provinceList.Where(p => p.name == name).FirstOrDefault();
+                result.data = new { provinceList=provinceList, province = province };
             }
             catch (Exception ex)
             {
@@ -35,20 +36,15 @@ namespace CarRepairAPI.Controllers
             return result;
         }
 
-        #endregion
-
-
-        #region points 相关
-        [Route("GetPointList")]
+        // GET: Area
+        [Route("MatchProvinceName")]
         [HttpGet]
-        public DataResultModel GetPointList(long userid, int pageIndex = 1, int pageSize = 10)
+        public DataResultModel MatchProvinceName(string name)
         {
             DataResultModel result = new DataResultModel();
-            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
-            PointsService service = new PointsService();
             try
-            {
-                result.data = service.GetListByPage(userid, ref page);
+            { 
+                result.data = service.MatchProvinceName(name);
             }
             catch (Exception ex)
             {
@@ -57,8 +53,6 @@ namespace CarRepairAPI.Controllers
             }
             return result;
         }
-
-        #endregion
 
     }
 }

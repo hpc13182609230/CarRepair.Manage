@@ -14,7 +14,8 @@ namespace EntityModels
     
     public partial class UserCars : BaseEntity
     {
-         public long WechatUserID { get; set; }
+
+        public long WechatUserID { get; set; }
         public string Attribution { get; set; }
         public string CarType { get; set; }
         public string CarNO { get; set; }

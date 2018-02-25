@@ -215,16 +215,46 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="WXUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Openid" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Unionid" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="NickName" Type="varchar" MaxLength="100" />
+          <Property Name="Sex" Type="int" />
+          <Property Name="Language" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Province" Type="varchar" MaxLength="100" />
+          <Property Name="Country" Type="varchar" MaxLength="100" />
+          <Property Name="Headimgurl" Type="varchar" MaxLength="1000" />
+          <Property Name="Subscribe_time" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="Content" Type="varchar" MaxLength="1000" />
+          <Property Name="Token" Type="varchar" MaxLength="500" />
+          <Property Name="TokenExpire" Type="datetime" />
+          <Property Name="Groupid" Type="int" />
+          <Property Name="Tagid_list" Type="varchar" MaxLength="500" />
+          <Property Name="ShareID" Type="varchar" MaxLength="50" />
+          <Property Name="TgID" Type="int" />
+          <Property Name="Statu" Type="int" Nullable="false" />
+          <Property Name="LastActiveTime" Type="datetime" Nullable="false" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="ZTest">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ParentID" Type="int" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentID" Type="bigint" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="DelTF" Type="int" />
-          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CarRepairModelStoreContainer">
@@ -238,6 +268,7 @@
           <EntitySet Name="RepairOrder" EntityType="Self.RepairOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserCars" EntityType="Self.UserCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WechatUser" EntityType="Self.WechatUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WXUser" EntityType="Self.WXUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZTest" EntityType="Self.ZTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -334,6 +365,7 @@
           <EntitySet Name="UserCars" EntityType="CarRepairModel.UserCars" />
           <EntitySet Name="ZTest" EntityType="CarRepairModel.ZTest" />
           <EntitySet Name="Area" EntityType="CarRepairModel.Area" />
+          <EntitySet Name="WXUser" EntityType="CarRepairModel.WXUser" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -374,7 +406,7 @@
           <Property Name="PV" Type="Int32" Nullable="false" />
           <Property Name="Latitude" Type="Decimal" Precision="16" Scale="3" Nullable="false" />
           <Property Name="Longitude" Type="Decimal" Precision="16" Scale="3" Nullable="false" />
-          <Property Name="IP" Type="Int32" Nullable="false" />
+          <Property Name="IP" Type="Int64" Nullable="false" />
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -392,7 +424,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WechatUserID" Type="Int64" Nullable="false" />
-          <Property Name="PointType" Type="Int32" Nullable="false" />
+          <Property Name="PointType" Type="Int64" Nullable="false" />
           <Property Name="point" Type="Int32" Nullable="false" />
           <Property Name="PointSum" Type="Int32" Nullable="false" />
           <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -465,12 +497,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="Int64" />
           <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="DelTF" Type="Int32" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Area">
@@ -485,6 +517,36 @@
           <Property Name="codeID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="parentID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WXUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Openid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Unionid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="Language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Headimgurl" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Subscribe_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Token" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TokenExpire" Type="DateTime" Precision="3" />
+          <Property Name="Groupid" Type="Int32" />
+          <Property Name="Tagid_list" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ShareID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TgID" Type="Int32" />
+          <Property Name="Statu" Type="Int32" Nullable="false" />
+          <Property Name="LastActiveTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -719,6 +781,37 @@
                 <ScalarProperty Name="parentID" ColumnName="parentID" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="codeID" ColumnName="codeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WXUser">
+            <EntityTypeMapping TypeName="CarRepairModel.WXUser">
+              <MappingFragment StoreEntitySet="WXUser">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="LastActiveTime" ColumnName="LastActiveTime" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="TgID" ColumnName="TgID" />
+                <ScalarProperty Name="ShareID" ColumnName="ShareID" />
+                <ScalarProperty Name="Tagid_list" ColumnName="Tagid_list" />
+                <ScalarProperty Name="Groupid" ColumnName="Groupid" />
+                <ScalarProperty Name="TokenExpire" ColumnName="TokenExpire" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Subscribe_time" ColumnName="Subscribe_time" />
+                <ScalarProperty Name="Headimgurl" ColumnName="Headimgurl" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Unionid" ColumnName="Unionid" />
+                <ScalarProperty Name="Openid" ColumnName="Openid" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

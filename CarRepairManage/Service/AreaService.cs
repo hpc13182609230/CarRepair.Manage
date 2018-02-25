@@ -65,6 +65,7 @@ namespace Service
             var entities = repository.GetEntities(p => p.parentID == ParentID);
             foreach (var item in entities)
             {
+             
                 AreaModel model = AutoMapperClient.MapTo<Area, AreaModel>(item);
                 models.Add(model);
             }

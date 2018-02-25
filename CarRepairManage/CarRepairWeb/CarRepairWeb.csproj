@@ -199,8 +199,10 @@
     <Compile Include="Controllers\MetronicController.cs" />
     <Compile Include="Controllers\PartsSuppliersController.cs" />
     <Compile Include="Controllers\PartsTypeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WechatController.cs" />
+    <Compile Include="Controllers\WX_FWH_CallBack_XCBBController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1057,10 +1059,14 @@
     <Content Include="Views\PartsType\PartsClassify.cshtml" />
     <Content Include="Views\PartsType\PartsClassifyCompany.cshtml" />
     <Content Include="Views\Shared\_pager.cshtml" />
+    <Content Include="Views\User\WXUserList.cshtml" />
+    <Content Include="Views\User\WechatUserList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Test\" />
+    <Folder Include="Views\WX_FWH_CallBack_XCBB\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

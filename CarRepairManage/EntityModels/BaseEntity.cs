@@ -9,9 +9,9 @@ namespace EntityModels
     //entity 的基类
     public abstract class BaseEntity
     {
-        public long ID { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
+        public virtual long ID { get; set; }
+        public virtual Nullable<int> DelTF { get; set; }
+        public virtual System.DateTime CreateTime { get; set; }
+        public virtual Nullable<System.DateTime> UpdateTime { get; set; }
     }
 }

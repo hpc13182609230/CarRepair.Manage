@@ -51,59 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="BaseOptions.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
     <Compile Include="CarRepair.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarRepair.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarRepair.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarRepair.tt</DependentUpon>
     </Compile>
     <Compile Include="CarRepair.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarRepair.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ManageMenu.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ManageUser.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PartsClassify.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PartsCompany.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Points.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
+    <Compile Include="PartialEntity\ManageUser.cs" />
+    <Compile Include="PartialEntity\ManageMenu.cs" />
+    <Compile Include="PartialEntity\WXUser.cs" />
+    <Compile Include="PartialEntity\WechatUser.cs" />
+    <Compile Include="PartialEntity\UserCars.cs" />
+    <Compile Include="PartialEntity\RepairOrder.cs" />
+    <Compile Include="PartialEntity\PurchaseOrder.cs" />
+    <Compile Include="PartialEntity\Points.cs" />
+    <Compile Include="PartialEntity\PartsCompany.cs" />
+    <Compile Include="PartialEntity\PartsClassify.cs" />
+    <Compile Include="PartialEntity\BaseOptions.cs" />
+    <Compile Include="PartialEntity\ZTest.cs" />
+    <Compile Include="PartialEntity\Area.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseOrder.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RepairOrder.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserCars.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WechatUser.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ZTest.cs">
-      <DependentUpon>CarRepair.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="CarRepair.edmx">
@@ -123,11 +95,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarRepair.edmx</DependentUpon>
       <LastGenOutput>CarRepair.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CarRepair.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarRepair.edmx</DependentUpon>
-      <LastGenOutput>CarRepair.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

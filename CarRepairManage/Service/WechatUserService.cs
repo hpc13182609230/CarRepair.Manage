@@ -88,6 +88,26 @@ namespace Service
             return models;
         }
 
+        /// <summary>
+        /// 获取用户
+        /// </summary>
+        /// <param name="WechatUserID"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public List<WechatUserModel> GetListByPage(string keyword, DateTime startTime, DateTime endTime, ref PageInfoModel page)
+        {
+            int total = 0;
+            keyword = keyword ?? "";
+            List<WechatUserModel> models = new List<WechatUserModel>();
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.NickName.Contains(keyword) && p.CreateTime >= startTime && p.CreateTime <= endTime, p => p.ID);
+            page.TotalCount = total;
+            foreach (var item in entities)
+            {
+                WechatUserModel model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
 
 
     }

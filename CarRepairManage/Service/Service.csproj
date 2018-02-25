@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ZTestService.cs" />
+    <Compile Include="WXUserService.cs" />
     <Compile Include="BaseOptionsService.cs" />
     <Compile Include="PartsClassifyService.cs" />
     <Compile Include="PartsClassifyCompanyService.cs" />

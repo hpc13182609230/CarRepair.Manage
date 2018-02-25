@@ -37,5 +37,6 @@ namespace EntityModels
         public virtual DbSet<UserCars> UserCars { get; set; }
         public virtual DbSet<ZTest> ZTest { get; set; }
         public virtual DbSet<Area> Area { get; set; }
+        public virtual DbSet<WXUser> WXUser { get; set; }
     }
 }

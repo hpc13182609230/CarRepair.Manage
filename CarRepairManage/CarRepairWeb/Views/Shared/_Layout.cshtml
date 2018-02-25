@@ -248,11 +248,19 @@
                     </ul>
                 </li>
                 <li class="">
-                    <a href="/User/UserList">
-                        <i class="icon-bookmark-empty"></i>
-                        <span class="title">用户</span>
+                    <a href="javascript:;">
+                        <i class="icon-cogs"></i>
+                        <span class="title">用户管理</span>
                         <span class="arrow "></span>
                     </a>
+                    <ul  class="sub-menu">
+                        <li>
+                            <a href="/user/WXUserList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">服务号用户 </a>
+                        </li>
+                        <li>
+                            <a href="/user/WechatUserList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">小程序用户 </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <!-- END SIDEBAR MENU -->

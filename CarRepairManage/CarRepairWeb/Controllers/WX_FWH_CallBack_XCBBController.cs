@@ -44,7 +44,6 @@ namespace CarRepairWeb.Controllers
             return Content("");
         }
 
-
         public ActionResult Entrance()
         {
             Stopwatch watch = new Stopwatch();
@@ -56,8 +55,9 @@ namespace CarRepairWeb.Controllers
             var request = HttpContext.ApplicationInstance.Context.Request;
             var response = HttpContext.ApplicationInstance.Context.Response;
             string httpMethod = request.HttpMethod.ToUpper();
-            long timeOutThreshold = 5;
+            long timeOutThreshold = 500;
             string logName = "log";
+            string logErrorName = "error";
 
             #endregion
             try
@@ -80,6 +80,8 @@ namespace CarRepairWeb.Controllers
                     int CreateTime = Convert.ToInt32(WeChatServiceHelper.GetJsonValue_JObject(WX_InputStream_Json, "CreateTime"));//消息创建时间 （整型）
                     string traceID = FromUserName + CreateTime;
 
+                    Tracer.RunLog(MessageType.WriteInfomation, "", logName, "InputStream = ：" + WX_InputStream_Json + "\r\n");
+
                     //MongoDBClient.InsertOneAsync(new Mongo_Log_UserTrace_Model() { TraceID = FromUserName + CreateTime, CreateTime = DateTime.Now, Content = WX_InputStream_Json, Note = "Callback start" }, EnumCollectionName.UserTrace);
 
                     string EventKey = WeChatServiceHelper.GetJsonValue_JObject(WX_InputStream_Json, "EventKey").Trim();
@@ -90,6 +92,7 @@ namespace CarRepairWeb.Controllers
 
 
                     #region 获取 微信用户信息
+                    //FromUserName = "oqtR-w-Ik-2eXjD5PVMqAccC7w-M";
                     WX_BaseModel_UserInfo userInfo = WeChatServiceHelper.WX_API_GetUserInfo_ByOpenID(FromUserName);//根据openid获取用户的基本信息
                     if (userInfo == null)
                     {
@@ -113,23 +116,21 @@ namespace CarRepairWeb.Controllers
                     TimeOutLog(traceID,  "DB  用户信息保存 SaveUserInfo", timeOutThreshold, ref watch);
                     #endregion
 
-                    ResponseEnd(response);
-
+                    AccessToCustomerSystem(response, FromUserName, ToUserName, CreateTime.ToString());
                 }
             }
             catch (Exception ex)
             {
                 //MongoDBClient.InsertOneAsync(new Mongo_Log_Error_Model() { TraceID = "", CreateTime = DateTime.Now, Type = "Exception", Note = System.Reflection.MethodBase.GetCurrentMethod().Name, Message = ex.Message }, EnumCollectionName.Error);
-                Tracer.RunLog(MessageType.WriteInfomation, "", logName, "ex = ：" + ex.Message + "\r\n");
-                ResponseEnd(response);
+                Tracer.RunLog(MessageType.WriteInfomation, "", logErrorName, "ex = ：" + ex.Message + "\r\n");
+              
             }
+
+            ResponseEnd(response);
             TimeOutLog(Guid.NewGuid().ToString(), "End TotalTime", timeOutThreshold, ref watch);
             watch.Stop();
             return Json(null);
         }
-
-
-
 
         #region 内部方法
         //在没有设置自动回复的情况下 需要默认回复success
@@ -172,7 +173,12 @@ namespace CarRepairWeb.Controllers
             return model;
         }
 
-
+         
+         private void AccessToCustomerSystem(HttpResponse response, string FromUserName, string ToUserName, string CreateTime)
+        {
+            response.ContentEncoding = Encoding.UTF8;
+            response.Write(WeChatServiceHelper.Transfer_Customer_Service(FromUserName, ToUserName, CreateTime));
+        }
         #endregion
 
     }

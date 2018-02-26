@@ -136,8 +136,8 @@
         /// <summary>
         /// TokenExpire
         /// </summary>		
-        private DateTime _tokenexpire;
-        public DateTime TokenExpire
+        private Nullable<System.DateTime> _tokenexpire;
+        public Nullable<System.DateTime> TokenExpire
         {
             get { return _tokenexpire; }
             set { _tokenexpire = value; }

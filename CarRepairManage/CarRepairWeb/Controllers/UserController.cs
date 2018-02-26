@@ -9,7 +9,7 @@ using ViewModels.CarRepair;
 
 namespace CarRepairWeb.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
 
         WXUserService _WXUserService = new WXUserService();

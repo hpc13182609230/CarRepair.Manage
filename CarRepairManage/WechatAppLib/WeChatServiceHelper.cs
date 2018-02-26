@@ -1351,6 +1351,28 @@ namespace WechatAppLib
 
         #endregion
 
+
+        #region 模版消息
+
+        public static string WX_Message_Template_Send(string touser, string template_id, string data)
+        {
+            Access_Token = CheckTokenExpired(Access_Token);
+            string request_URL = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={0}";
+            request_URL = string.Format(request_URL, Access_Token);
+            //string media_id = "NV5LxfECHIR1F0HOM_B3tU0sZFdqtblnEfRL9YINFLM";
+            // post参数格式  图文{"filter":{"is_to_all":false,"tag_id":2},"mpnews":{"media_id":"123dsdajkasd231jhksad"},"msgtype":"mpnews"}
+            //               文本{"filter":{"is_to_all":false,"tag_id":2},"text":{"content":"CONTENT"},"msgtype":"text"}
+            string postData = "{\"touser\":\""+ touser + "\",\"template_id\":\""+ template_id + "\",\"data\":"+data+"}";
+            //.......
+
+            //返回格式{"errcode":0,"errmsg":"send job submission success","msg_id":34182,"msg_data_id":206227730}
+            string rtnStr = HttpHelper.HttpPost(request_URL, postData);
+            string msgid = GetJsonValue_JObject(rtnStr, "msgid");//(jb["media_id"] ?? "").ToString();     
+            return msgid;
+        }
+
+        #endregion
+
         #region Enum
 
         // 媒体文件的类型

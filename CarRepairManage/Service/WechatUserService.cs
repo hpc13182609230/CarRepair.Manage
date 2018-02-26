@@ -18,8 +18,9 @@ namespace Service
 
         public WechatUserModel GetByID(long id)
         {
-            //WechatUserModel model = repository.GetEntityByID(id);
-            WechatUserModel model = DapperContribClient.GetById<WechatUserModel>(2);
+            WechatUserModel model = new WechatUserModel();
+            var res = repository.GetEntityByID(id);
+            model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
             return model;
         }
 
@@ -27,7 +28,6 @@ namespace Service
         public WechatUserModel GetByLoginToken(string LoginToken)
         {
             WechatUserModel model = new WechatUserModel();
-            WechatUserRepository repository = new WechatUserRepository();
             var res = repository.GetEntity(p=>p.LoginToken== LoginToken);
             model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(res);
             return model;

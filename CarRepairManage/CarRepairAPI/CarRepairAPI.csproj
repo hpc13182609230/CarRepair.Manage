@@ -250,6 +250,7 @@
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\ClassifyController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\WechatController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserCarsController.cs" />
     <Compile Include="Controllers\UserController.cs" />

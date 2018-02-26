@@ -50,6 +50,7 @@ namespace Service
             }
             else
             {
+                entity.ID = user.ID;
                 id = repository.Update(entity);
             }
             return id;

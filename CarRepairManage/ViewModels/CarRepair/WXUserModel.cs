@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public class WXUserModel
+    public class WXUserModel:BaseModel
     {
-        public long ID { get; set; }
         public string Openid { get; set; }
         public string Unionid { get; set; }
         public string NickName { get; set; }
@@ -23,8 +22,6 @@ namespace ViewModels.CarRepair
         public Nullable<System.DateTime> TokenExpire { get; set; }
         public Nullable<int> Groupid { get; set; }
         public string Tagid_list { get; set; }
-        public DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
         public DateTime LastActiveTime { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> TgID { get; set; }

@@ -22,13 +22,13 @@
       <publishTime>07/26/2017 19:14:41</publishTime>
     </File>
     <File Include="bin/AutoMapperLib.dll">
-      <publishTime>02/25/2018 18:38:34</publishTime>
+      <publishTime>02/27/2018 22:59:14</publishTime>
     </File>
     <File Include="bin/CarRepairAPI.dll">
-      <publishTime>02/25/2018 18:59:46</publishTime>
+      <publishTime>02/27/2018 22:59:17</publishTime>
     </File>
     <File Include="bin/CarRepairWeb.dll">
-      <publishTime>02/25/2018 18:43:49</publishTime>
+      <publishTime>02/27/2018 22:59:20</publishTime>
     </File>
     <File Include="bin/Dapper.Contrib.dll">
       <publishTime>07/01/2016 18:38:22</publishTime>
@@ -46,13 +46,13 @@
       <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EntityModels.dll">
-      <publishTime>02/25/2018 18:38:34</publishTime>
+      <publishTime>02/27/2018 22:59:13</publishTime>
     </File>
     <File Include="bin/HelperLib.dll">
       <publishTime>01/15/2018 15:50:58</publishTime>
     </File>
     <File Include="bin/LogLib.dll">
-      <publishTime>01/07/2018 18:27:02</publishTime>
+      <publishTime>02/27/2018 22:59:13</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>12/07/2015 19:04:38</publishTime>
@@ -121,10 +121,10 @@
       <publishTime>11/13/2012 12:19:34</publishTime>
     </File>
     <File Include="bin/Repository.dll">
-      <publishTime>02/25/2018 18:38:34</publishTime>
+      <publishTime>02/27/2018 22:59:14</publishTime>
     </File>
     <File Include="bin/Service.dll">
-      <publishTime>02/25/2018 18:59:43</publishTime>
+      <publishTime>02/27/2018 22:59:14</publishTime>
     </File>
     <File Include="bin/Swashbuckle.Core.dll">
       <publishTime>07/08/2017 01:30:56</publishTime>
@@ -163,7 +163,7 @@
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/ViewModels.dll">
-      <publishTime>02/25/2018 11:59:33</publishTime>
+      <publishTime>02/27/2018 22:59:13</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
       <publishTime>02/08/2013 16:42:28</publishTime>
@@ -172,7 +172,7 @@
       <publishTime>07/17/2013 17:03:52</publishTime>
     </File>
     <File Include="bin/WechatAppLib.dll">
-      <publishTime>02/25/2018 11:59:34</publishTime>
+      <publishTime>02/27/2018 22:59:14</publishTime>
     </File>
     <File Include="bin/zh-Hans/EntityFramework.resources.dll">
       <publishTime>03/02/2015 09:32:38</publishTime>
@@ -2719,7 +2719,7 @@
       <publishTime>01/15/2018 16:04:36</publishTime>
     </File>
     <File Include="Views/PartsSuppliers/PartsList.cshtml">
-      <publishTime>01/15/2018 15:44:14</publishTime>
+      <publishTime>02/27/2018 22:58:02</publishTime>
     </File>
     <File Include="Views/PartsType/PartsClassify.cshtml">
       <publishTime>10/10/2017 21:28:10</publishTime>

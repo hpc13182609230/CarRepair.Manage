@@ -11,6 +11,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ViewModels.CarRepair;
+using ViewModels.Utility;
 using WechatAppLib;
 using static WechatAppLib.WeChatServiceHelper;
 
@@ -56,8 +57,8 @@ namespace CarRepairWeb.Controllers
             var response = HttpContext.ApplicationInstance.Context.Response;
             string httpMethod = request.HttpMethod.ToUpper();
             long timeOutThreshold = 500;
-            string logName = "log";
-            string logErrorName = "error";
+            string logName = MessageType.Information.ToString();
+            string logErrorName = MessageType.Error.ToString();
 
             #endregion
             try

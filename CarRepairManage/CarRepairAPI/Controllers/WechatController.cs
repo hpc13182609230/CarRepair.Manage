@@ -22,22 +22,22 @@ namespace CarRepairAPI.Controllers
 
         #endregion
 
+
         #region 服务号 推送
         /// <summary>
         /// 修理厂 给 配件商 电话 推送
         /// </summary>
         /// <param name="wechatID">小程序 用户 id</param>
         /// <param name="partsCompanyID">配件商 id</param>
-        /// <param name="touser">服务号 用户 openid</param>
         /// <returns></returns>
         [Route("MessageTemplate_Tel_Push")]
-        [HttpPost]
-        public DataResultModel MessageTemplate_Tel_Push(long wechatID, long partsCompanyID, string touser)
+        [HttpGet]
+        public DataResultModel MessageTemplate_Tel_Push(long wechatID, long partsCompanyID)
         {
             DataResultModel result = new DataResultModel();
             try
             {
-                result.data = _WXMessageTemplateService.WX_MessageTemplate_Tel_Push(wechatID, partsCompanyID,touser);
+                result.data = _WXMessageTemplateService.WX_MessageTemplate_Tel_Push(wechatID, partsCompanyID);
             }
             catch (Exception ex)
             {
@@ -54,13 +54,13 @@ namespace CarRepairAPI.Controllers
         /// <param name="touser">服务号 用户 openid</param>
         /// <returns></returns>
         [Route("MessageTemplate_BindMember_Push")]
-        [HttpPost]
-        public DataResultModel MessageTemplate_BindMember_Push(long wechatID, string touser)
+        [HttpGet]
+        public DataResultModel MessageTemplate_BindMember_Push(long wechatID, long partsCompanyID)
         {
             DataResultModel result = new DataResultModel();
             try
             {
-                result.data = _WXMessageTemplateService.WX_MessageTemplate_BindMember_Push(wechatID, touser);
+                result.data = _WXMessageTemplateService.WX_MessageTemplate_BindMember_Push(wechatID, partsCompanyID);
             }
             catch (Exception ex)
             {

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WXMessageTemplateService.cs" />
+    <Compile Include="PartsCompanyBindWechatUserService.cs" />
     <Compile Include="ZTestService.cs" />
     <Compile Include="WXUserService.cs" />
     <Compile Include="BaseOptionsService.cs" />

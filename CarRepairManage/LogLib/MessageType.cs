@@ -24,5 +24,7 @@ namespace LogLib
         /// 需要记录的信息
         /// </summary>
         WriteInfomation = 4,
+
+        Fatal=5,
     }
 }

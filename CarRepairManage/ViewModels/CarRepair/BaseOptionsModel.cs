@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public class BaseOptionsModel
+    public class BaseOptionsModel:BaseModel
     {
-        public long ID { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
-
         public long ParentID { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }

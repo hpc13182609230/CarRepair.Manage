@@ -111,6 +111,31 @@ namespace Repository
             }
         }
 
+        public IEnumerable<T> GetEntitiesForPaging(ref int total, int pageIndex = 1, int pageSize = 10, Expression<Func<T, bool>> query = null, Expression<Func<T, DateTime?>> order = null, bool isAsc = false)
+        {
+            using (DB db = new DB())
+            {
+                DbSet<T> dbSet = db.Set<T>();
+                IQueryable<T> queryable = dbSet.AsQueryable();
+                if (query != null)
+                    queryable = dbSet.Where(query);
+                total = queryable.Count();
+                if (order != null)
+                {
+                    if (isAsc)
+                    {
+                        queryable = queryable.OrderBy(order);
+                    }
+                    else
+                    {
+                        queryable = queryable.OrderByDescending(order);
+                    }
+                }
+                queryable = queryable.Skip(pageSize * (pageIndex - 1)).Take(pageSize);
+                return queryable.ToList();
+            }
+        }
+
         #endregion
 
         #region 基础增删改

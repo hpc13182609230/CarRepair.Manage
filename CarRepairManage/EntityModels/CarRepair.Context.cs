@@ -38,5 +38,7 @@ namespace EntityModels
         public virtual DbSet<ZTest> ZTest { get; set; }
         public virtual DbSet<Area> Area { get; set; }
         public virtual DbSet<WXUser> WXUser { get; set; }
+        public virtual DbSet<WXMessageTemplate> WXMessageTemplate { get; set; }
+        public virtual DbSet<PartsCompanyBindWechatUser> PartsCompanyBindWechatUser { get; set; }
     }
 }

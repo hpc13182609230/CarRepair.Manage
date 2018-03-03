@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public class RepairOrderModel
+    public class RepairOrderModel:BaseModel
     {
-        public long ID { get; set; }
+
         public long WechatUserID { get; set; }
         public string PurchaseOrderID { get; set; }
         public long UserCarID { get; set; }
@@ -17,9 +17,6 @@ namespace ViewModels.CarRepair
         public System.DateTime RepairTime { get; set; }
         public string Tel { get; set; }
         public string CarNo { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
         public decimal Price { get; set; }
         public decimal Debt { get; set; }
         public decimal TotalPrice { get; set; }
@@ -31,8 +28,6 @@ namespace ViewModels.CarRepair
             get { return RepairTime.ToString("yyyy-MM-dd"); }
             set { repairTimeFormat = value; }
         }
-
-
         public PurchaseOrderModel PurchaseOrder { get; set; }
     }
 }

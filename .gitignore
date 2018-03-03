@@ -77,3 +77,4 @@ ModelManifest.xml
 #Backup file
 *.bak
 CarRepairManage/.vs/CarRepairManage/v14/.suo
+CarRepairManage/CarRepairAPI/Properties/PublishProfiles/publish.pubxml.user

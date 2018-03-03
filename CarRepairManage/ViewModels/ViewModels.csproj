@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="CarRepair\WXMessageTemplateModel.cs" />
     <Compile Include="CarRepair\BaseOptionsModel.cs" />
     <Compile Include="CarRepair\PartsClassifyModel.cs" />
     <Compile Include="CarRepair\PartsCompanyModel.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="CarRepair\PointsModel.cs" />
     <Compile Include="CarRepair\PurchaseOrderModel.cs" />
     <Compile Include="CarRepair\RepairOrderModel.cs" />
+    <Compile Include="CarRepair\PartsCompanyBindWechatUserModel.cs" />
     <Compile Include="CarRepair\ZTestModel.cs" />
     <Compile Include="CarRepair\UserCarsModel.cs" />
     <Compile Include="CarRepair\WechatUserModel.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageUserModel.cs" />
     <Compile Include="Utility\CacheModel.cs" />
+    <Compile Include="Utility\CommonUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

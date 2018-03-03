@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public  class PurchaseOrderModel
+    public  class PurchaseOrderModel:BaseModel
     {
-        public long ID { get; set; }
         public long WechatUserID { get; set; }
         public long PartsCompanyID { get; set; }
         public decimal Price { get; set; }
@@ -20,25 +19,16 @@ namespace ViewModels.CarRepair
         public int Statu { get; set; }
         public System.DateTime OrderTime { get; set; }
         public string PicURL { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
-
-
 
         private string picURLShow;
         public string PicURLShow
         {
-
             get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\", "/"); }
             set { picURLShow = value; }
         }
-
-
         private string orderTimeFormat;
         public string OrderTimeFormat
         {
-            
             get { return OrderTime.ToString("yyyy-MM-dd"); }
             set { orderTimeFormat = value; }
         }

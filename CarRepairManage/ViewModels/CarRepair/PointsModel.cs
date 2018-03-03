@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public class PointsModel
+    public class PointsModel:BaseModel
     {
-        public long ID { get; set; }
+
         public long WechatUserID { get; set; }
         public int PointType { get; set; }
         public int point { get; set; }
         public int PointSum { get; set; }
         public string Remark { get; set; }
         public string Note { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
 
 
         private string createTimeFormat;
         public string CreateTimeFormat
         {
-
             get { return CreateTime.ToString("yyyy-MM-dd HH:mm:ss"); }
             set { createTimeFormat = value; }
         }

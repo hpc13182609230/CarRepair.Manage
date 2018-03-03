@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace ViewModels.CarRepair
 {
-    public class PartsCompanyModel
+    public class PartsCompanyModel:BaseModel
     {
-        public long ID { get; set; }
-        public Nullable<int> DelTF { get; set; }
-        public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
 
         public string Name { get; set; }
         public string Content { get; set; }

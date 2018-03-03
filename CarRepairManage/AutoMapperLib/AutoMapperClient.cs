@@ -47,6 +47,8 @@ namespace AutoMapperLib
                 cfg.CreateMap<UserCars, UserCarsModel>();
                 cfg.CreateMap<WechatUser, WechatUserModel>();
                 cfg.CreateMap<Area, AreaModel>();
+                cfg.CreateMap<WXMessageTemplate, WXMessageTemplateModel>();
+                cfg.CreateMap<WXUser, WXUserModel>();
             }); 
             return config;
         }

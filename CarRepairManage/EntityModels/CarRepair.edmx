@@ -111,6 +111,19 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="PartsCompanyBindWechatUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WechatUserID" Type="bigint" Nullable="false" />
+          <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="500" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="Points">
           <Key>
             <PropertyRef Name="ID" />
@@ -215,6 +228,23 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="WXMessageTemplate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WechatUserID" Type="bigint" Nullable="false" />
+          <Property Name="PartsCompanyID" Type="bigint" Nullable="false" />
+          <Property Name="Touser" Type="varchar" MaxLength="50" />
+          <Property Name="Template_id" Type="varchar" MaxLength="100" />
+          <Property Name="Data" Type="varchar" MaxLength="1000" />
+          <Property Name="BaseOptionsID" Type="bigint" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="WXUser">
           <Key>
             <PropertyRef Name="ID" />
@@ -263,11 +293,13 @@
           <EntitySet Name="ManageUser" EntityType="Self.ManageUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsClassify" EntityType="Self.PartsClassify" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsCompany" EntityType="Self.PartsCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartsCompanyBindWechatUser" EntityType="Self.PartsCompanyBindWechatUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Points" EntityType="Self.Points" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrder" EntityType="Self.PurchaseOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RepairOrder" EntityType="Self.RepairOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserCars" EntityType="Self.UserCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WechatUser" EntityType="Self.WechatUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WXMessageTemplate" EntityType="Self.WXMessageTemplate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WXUser" EntityType="Self.WXUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZTest" EntityType="Self.ZTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" store:Type="Tables" store:Schema="dbo">
@@ -366,6 +398,8 @@
           <EntitySet Name="ZTest" EntityType="CarRepairModel.ZTest" />
           <EntitySet Name="Area" EntityType="CarRepairModel.Area" />
           <EntitySet Name="WXUser" EntityType="CarRepairModel.WXUser" />
+          <EntitySet Name="WXMessageTemplate" EntityType="CarRepairModel.WXMessageTemplate" />
+          <EntitySet Name="PartsCompanyBindWechatUser" EntityType="CarRepairModel.PartsCompanyBindWechatUser" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -547,6 +581,36 @@
           <Property Name="TgID" Type="Int32" />
           <Property Name="Statu" Type="Int32" Nullable="false" />
           <Property Name="LastActiveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WXMessageTemplate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WechatUserID" Type="Int64" Nullable="false" />
+          <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
+          <Property Name="Touser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Template_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BaseOptionsID" Type="Int64" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PartsCompanyBindWechatUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WechatUserID" Type="Int64" Nullable="false" />
+          <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -812,6 +876,38 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Unionid" ColumnName="Unionid" />
                 <ScalarProperty Name="Openid" ColumnName="Openid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WXMessageTemplate">
+            <EntityTypeMapping TypeName="CarRepairModel.WXMessageTemplate">
+              <MappingFragment StoreEntitySet="WXMessageTemplate">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="BaseOptionsID" ColumnName="BaseOptionsID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Template_id" ColumnName="Template_id" />
+                <ScalarProperty Name="Touser" ColumnName="Touser" />
+                <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
+                <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsCompanyBindWechatUser">
+            <EntityTypeMapping TypeName="CarRepairModel.PartsCompanyBindWechatUser">
+              <MappingFragment StoreEntitySet="PartsCompanyBindWechatUser">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
+                <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

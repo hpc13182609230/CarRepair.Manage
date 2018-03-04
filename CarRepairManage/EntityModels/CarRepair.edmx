@@ -228,6 +228,21 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="WXMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentID" Type="bigint" Nullable="false" />
+          <Property Name="MenuType" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="KeyForClick" Type="varchar" MaxLength="100" />
+          <Property Name="Url" Type="varchar" MaxLength="500" />
+          <Property Name="MediaID" Type="varchar" MaxLength="100" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="WXMessageTemplate">
           <Key>
             <PropertyRef Name="ID" />
@@ -299,6 +314,7 @@
           <EntitySet Name="RepairOrder" EntityType="Self.RepairOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserCars" EntityType="Self.UserCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WechatUser" EntityType="Self.WechatUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WXMenu" EntityType="Self.WXMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WXMessageTemplate" EntityType="Self.WXMessageTemplate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WXUser" EntityType="Self.WXUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZTest" EntityType="Self.ZTest" Schema="dbo" store:Type="Tables" />
@@ -400,6 +416,7 @@
           <EntitySet Name="WXUser" EntityType="CarRepairModel.WXUser" />
           <EntitySet Name="WXMessageTemplate" EntityType="CarRepairModel.WXMessageTemplate" />
           <EntitySet Name="PartsCompanyBindWechatUser" EntityType="CarRepairModel.PartsCompanyBindWechatUser" />
+          <EntitySet Name="WXMenu" EntityType="CarRepairModel.WXMenu" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -611,6 +628,21 @@
           <Property Name="PartsCompanyID" Type="Int64" Nullable="false" />
           <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WXMenu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="Int64" Nullable="false" />
+          <Property Name="MenuType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KeyForClick" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MediaID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
@@ -908,6 +940,22 @@
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="PartsCompanyID" ColumnName="PartsCompanyID" />
                 <ScalarProperty Name="WechatUserID" ColumnName="WechatUserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WXMenu">
+            <EntityTypeMapping TypeName="CarRepairModel.WXMenu">
+              <MappingFragment StoreEntitySet="WXMenu">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="KeyForClick" ColumnName="KeyForClick" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

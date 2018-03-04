@@ -57,6 +57,7 @@
     <Compile Include="CarRepair\PurchaseOrderModel.cs" />
     <Compile Include="CarRepair\RepairOrderModel.cs" />
     <Compile Include="CarRepair\PartsCompanyBindWechatUserModel.cs" />
+    <Compile Include="CarRepair\WXMenuModel.cs" />
     <Compile Include="CarRepair\ZTestModel.cs" />
     <Compile Include="CarRepair\UserCarsModel.cs" />
     <Compile Include="CarRepair\WechatUserModel.cs" />

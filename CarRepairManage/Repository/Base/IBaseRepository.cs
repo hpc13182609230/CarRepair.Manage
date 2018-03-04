@@ -18,7 +18,7 @@ namespace Repository
         //T GetEntityByID(long id);
 
         //根据条件获取所有的 entity 【数据较少的时候使用】
-        IEnumerable<T> GetEntities(Expression<Func<T, bool>> query = null);
+        IEnumerable<T> GetEntities(Expression<Func<T, bool>> query = null, Expression<Func<T, long>> order = null, bool isAsc = false);
 
         //查询 总个数【分页】
         int GetEntitiesCount(Expression<Func<T, bool>> query = null);

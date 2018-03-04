@@ -62,7 +62,7 @@ namespace Repository
         }
 
         //根据条件查出所有数据 适合数据量 小
-        public IEnumerable<T> GetEntities(Expression<Func<T, bool>> query =null)
+        public IEnumerable<T> GetEntities(Expression<Func<T, bool>> query =null, Expression<Func<T, long>> order = null, bool isAsc = false)
         {
             using (DB db = new DB())
             {
@@ -70,6 +70,17 @@ namespace Repository
                 IQueryable<T> queryable = dbSet.AsQueryable();
                 if (query!=null)
                     queryable = dbSet.Where(query);
+                if (order != null)
+                {
+                    if (isAsc)
+                    {
+                        queryable = queryable.OrderBy(order);
+                    }
+                    else
+                    {
+                        queryable = queryable.OrderByDescending(order);
+                    }
+                }
                 return queryable.ToList();
             }
         }

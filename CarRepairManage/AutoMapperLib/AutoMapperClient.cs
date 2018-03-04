@@ -49,6 +49,7 @@ namespace AutoMapperLib
                 cfg.CreateMap<Area, AreaModel>();
                 cfg.CreateMap<WXMessageTemplate, WXMessageTemplateModel>();
                 cfg.CreateMap<WXUser, WXUserModel>();
+                cfg.CreateMap<WXMenu, WXMenuModel>();
             }); 
             return config;
         }

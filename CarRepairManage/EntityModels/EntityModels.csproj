@@ -63,6 +63,7 @@
       <DependentUpon>CarRepair.edmx</DependentUpon>
     </Compile>
     <Compile Include="PartialEntity\PartsCompanyBindWechatUser.cs" />
+    <Compile Include="PartialEntity\WXMenu.cs" />
     <Compile Include="PartialEntity\WXMessageTemplate.cs" />
     <Compile Include="PartialEntity\ManageUser.cs" />
     <Compile Include="PartialEntity\ManageMenu.cs" />

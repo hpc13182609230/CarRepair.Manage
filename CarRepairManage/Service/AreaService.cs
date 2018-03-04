@@ -39,7 +39,7 @@ namespace Service
             List<AreaModel> models = CacheHelper.GetCache<List<AreaModel>>(CacheModel.CacheKey_Area_Province);
             if (models==null)
             {
-                models = GetListByParentID_DB("0");
+                models = GetListByParentID_DB("0").Where(p=>p.name.Length<4).ToList();
                 CacheHelper.SetCache<List<AreaModel>>(CacheModel.CacheKey_Area_Province, models, cacheTTL);
             }
             return models;

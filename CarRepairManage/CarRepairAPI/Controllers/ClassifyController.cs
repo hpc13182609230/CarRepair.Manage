@@ -101,6 +101,10 @@ namespace CarRepairAPI.Controllers
             try
             {
                 List<PartsCompanyModel> models = service.GetListByPage(keyword, codeID, new DateTime(2017,1,1), DateTime.Now, ref page);
+                foreach (var item in models)
+                {
+                    item.Content = HtmlHelper.HTML_RemoveTag(item.Content);
+                }
                 result.data = models;
             }
             catch (Exception ex)

@@ -25,6 +25,21 @@ namespace CarRepairAPI.Controllers
             try
             {
                 List<AreaModel> provinceList = service.GetListByParentID("0");
+                foreach (var item in provinceList)
+                {
+                    if (item.name == "广西壮族自治区")
+                    {
+                        item.name = "广西省";
+                    }
+                    else
+                    {
+                        item.name = item.name.Substring(0, 3);
+                    }
+                }
+                if (name== "广西壮族自治区")
+                {
+                    name = "广西省";
+                }
                 var  province  = provinceList.Where(p => p.name == name).FirstOrDefault();
                 result.data = new { provinceList=provinceList, province = province };
             }
@@ -43,8 +58,10 @@ namespace CarRepairAPI.Controllers
         {
             DataResultModel result = new DataResultModel();
             try
-            { 
-                result.data = service.MatchProvinceName(name);
+            {
+                AreaModel area = service.MatchProvinceName(name);
+                area.name = area.name.Substring(0,2);
+                result.data = area;
             }
             catch (Exception ex)
             {

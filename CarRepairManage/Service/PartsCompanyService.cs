@@ -74,13 +74,11 @@ namespace Service
             int total = 0;
             List<PartsCompanyModel> models = new List<PartsCompanyModel>();
             AreaModel areas = _AreaService.GetListByParentID("0").Where(p=>p.codeID==codeID).FirstOrDefault();
-            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.Name.Contains(keyword)&&p.codeID==codeID&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID,false);
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=> (p.Name.Contains(keyword) || p.Content.Contains(keyword)) && p.codeID==codeID&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID,false);
             page.TotalCount = total;
             foreach (var item in entities)
             {
                 PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
-                model.PicURL = ConfigureHelper.Get("ImageShowURL") + model.PicURL;
-                model.Address = areas.name;
                 models.Add(model);
             }
             return models;

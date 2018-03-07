@@ -73,6 +73,7 @@ namespace CarRepairWeb.Controllers
                     }
                     else if (first.MenuType == "miniprogram")
                     {
+                        WX_Menu_Json += "\"url\":\"" + "http://mp.weixin.qq.com" + "\",";
                         WX_Menu_Json += "\"appid\":\"" + first.KeyForClick + "\",";
                         WX_Menu_Json += "\"pagepath\":\"" + first.Url + "\"},";
                     }

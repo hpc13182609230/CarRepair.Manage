@@ -52,14 +52,15 @@ else
                 @*contain代表消息中含有该关键词即可，equal表示消息内容必须和关键词严格相同*@
                 菜单内容:  <input type="radio" name="@("MenuType_"+parentMenu.ID)" value="click" @(parentMenu.MenuType == "click" ? "checked" : "") />发送消息
                 <input type="radio" name="@("MenuType_"+parentMenu.ID)" value="view" @(parentMenu.MenuType == "view" ? "checked" : "") />跳转网页
+                <input type="radio" name="@("MenuType_" + parentMenu.ID)" value="miniprogram" @(parentMenu.MenuType == "miniprogram" ? "checked" : "") />跳小程序
             </div>
             <div class="mc-modal-content-replycontent" style="margin-bottom:10px">
                 @*回复:  <label class="wx-div-inline">1条（ 0条文字， 0条图片， 0条语音， 0条视频， 1条图文， 0条卡券）</label>*@
-                <div class="@(parentMenu.MenuType=="click"?"":"hide")">
-                    消息内容： <textarea class="wx-div-inline" style="width:80% ;margin:5px 0 0 0;">@parentMenu.KeyForClick </textarea>
+                <div @((parentMenu.MenuType =="click" || parentMenu.MenuType == "miniprogram") ? "" : "hide")>
+                消息内容（小程序ID）： <textarea class="wx-div-inline" style="width:80% ;margin:5px 0 0 0;">@parentMenu.KeyForClick </textarea>
                 </div>
 
-                <div class="@(parentMenu.MenuType=="view"?"":"hide")">
+                <div class="@((parentMenu.MenuType =="view" ||parentMenu.MenuType == "miniprogram") ? "" : "hide")">
                     跳转地址： <input type="text" class="wx-reply-keyword-body " value="@parentMenu.Url" placeholder="订阅者点击该子菜单会跳到以下链接" />
                 </div>
                 <div style="width:100%;">
@@ -92,11 +93,11 @@ else
                         </div>
                         菜单内容:  <input type="radio" name="@("MenuType_" + childMenus[i].ID)" value="click" @(childMenus[i].MenuType == "click" ? "checked" : "") />发送消息
                         <input type="radio" name="@("MenuType_" + childMenus[i].ID)" value="view" @(childMenus[i].MenuType == "view" ? "checked" : "") />跳转网页
-                        <input type="radio" name="@("MenuType_" + childMenus[i].ID)" value="view" @(childMenus[i].MenuType == "miniprogram" ? "checked" : "") />跳转网页
+                        <input type="radio" name="@("MenuType_" + childMenus[i].ID)" value="miniprogram" @(childMenus[i].MenuType == "miniprogram" ? "checked" : "") />跳小程序
                     </div>
                     <div class="mc-modal-content-replycontent" style="margin-bottom:10px">
                         <div class="@((childMenus[i].MenuType =="click" ||childMenus[i].MenuType == "miniprogram") ? "" : "hide")">
-                            消息内容： <textarea class="wx-div-inline" style="width:80% ;margin:5px 0 0 0;">@childMenus[i].KeyForClick </textarea>
+                            消息内容（小程序ID）： <textarea class="wx-div-inline" style="width:80% ;margin:5px 0 0 0;">@childMenus[i].KeyForClick </textarea>
                         </div>
 
                         <div class="@((childMenus[i].MenuType =="view" ||childMenus[i].MenuType == "miniprogram") ? "" : "hide")">

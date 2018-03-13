@@ -110,6 +110,7 @@ namespace CarRepairWeb.Controllers
                     //获取数据库 用户信息
                     WXUserModel _WXUserModel = GetUserinfo(userInfo);
 
+
                     Tracer.RunLog(MessageType.WriteInfomation, "", logName, "WXUserModel = ：" + TransformHelper.SerializeObject(_WXUserModel) + "\r\n");
 
                     //用户登录信息 存储和更新

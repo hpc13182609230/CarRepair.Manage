@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoMapperLib\AutoMapperLib.csproj">
+      <Project>{d124d717-5579-4252-b4fd-5af58db94c7a}</Project>
+      <Name>AutoMapperLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelperLib\HelperLib.csproj">
       <Project>{aafce7e9-ad8d-425b-aa1a-9590f85f25e9}</Project>
       <Name>HelperLib</Name>
@@ -65,6 +69,10 @@
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{f893bbac-f207-4f3b-8dcb-dded509ed0ac}</Project>
       <Name>ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WechatAppLib\WechatAppLib.csproj">
+      <Project>{66eca7f2-84de-4d91-8464-8ca1ef61f039}</Project>
+      <Name>WechatAppLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

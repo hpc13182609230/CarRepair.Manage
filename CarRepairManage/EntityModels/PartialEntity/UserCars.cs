@@ -25,6 +25,16 @@
             get { return _attribution; }
             set { _attribution = value; }
         }
+
+        /// <summary>
+        /// Attribution
+        /// </summary>		
+        private string _attributionchar;
+        public string AttributionChar
+        {
+            get { return _attributionchar; }
+            set { _attributionchar = value; }
+        }
         /// <summary>
         /// CarType
         /// </summary>		

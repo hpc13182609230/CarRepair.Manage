@@ -23,11 +23,7 @@ namespace ViewModels.CarRepair
         public string Tel { get; set; }
         public Nullable<System.DateTime> ExpireTime { get; set; }//配件商 有效期
         public string codeID { get; set; }//所属省份的 codeid
-
-
-
-        //额外字段
-        public string Address { get; set; }//ip对应的地址
+        public string Address { get; set; }
 
 
         public int Order { get; set; }//配件商显示的顺序
@@ -39,7 +35,6 @@ namespace ViewModels.CarRepair
         private string picURLShow;
         public string PicURLShow
         {
-
             get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\","/"); }
             set { picURLShow = value; }
         }

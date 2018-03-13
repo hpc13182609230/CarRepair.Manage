@@ -9,9 +9,9 @@ namespace TestConsole
 {
     class Program
     {
+       public static  WechatUserService service = new WechatUserService();
         static void Main(string[] args)
-        {
-            WechatUserService service = new WechatUserService();
+        {   
             var model =  service.GetByID(1);
         }
     }

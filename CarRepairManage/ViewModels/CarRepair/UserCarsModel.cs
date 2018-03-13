@@ -10,12 +10,14 @@ namespace ViewModels.CarRepair
     {
         public long WechatUserID { get; set; }
         public string Attribution { get; set; }
+        public string AttributionChar { get; set; }
         public string CarType { get; set; }
         public string CarNO { get; set; }
         public string CarOwnerName { get; set; }
         public string CarOwnerTel { get; set; }
         public Nullable<System.DateTime> InsuranceTime { get; set; }
         public string Note { get; set; }
+
 
         private string insuranceTimeFormat;
         public string InsuranceTimeFormat

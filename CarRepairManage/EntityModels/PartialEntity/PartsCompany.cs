@@ -35,6 +35,15 @@
             set { _contract = value; }
         }
         /// <summary>
+        /// Address
+        /// </summary>		
+        private string _address;
+        public string Address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
+        /// <summary>
         /// Content
         /// </summary>		
         private string _content;

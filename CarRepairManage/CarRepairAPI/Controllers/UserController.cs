@@ -81,7 +81,8 @@ namespace CarRepairAPI.Controllers
             DataResultModel result = new DataResultModel();
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
             try
-            {
+            
+{
                 List<PartsCompanyBindWechatUserModel> _PartsCompanyBindWechatUserList= _PartsCompanyBindWechatUserService.GetListByPage(userid, ref page);
                 var datas= _PartsCompanyService.GetByIDs(_PartsCompanyBindWechatUserList.Select(p => p.PartsCompanyID).ToList());
 

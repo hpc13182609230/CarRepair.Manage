@@ -9,13 +9,13 @@
 //保存 配件商信息
 $('#save').click(function () {
     debugger;
-
     var ID = $('#form').attr("partsID");
     var Name = $('#Name').val();
     var Contract = $('#Contract').val();
     var Mobile = $('#Mobile').val();
     var Tel = $('#Tel').val();
     var Order = $('#Order').val();
+    var Address = $('#Address').val()||'';
     //var Content = $('#Content').val();
     var editor = CKEDITOR.instances.content_CKEditor;
     var Content = editor.getData();
@@ -35,7 +35,7 @@ $('#save').click(function () {
     $.ajax({
         type: 'POST',
         url: '/PartsSuppliers/PartsCompanySave',
-        data: { ID: ID, Name: Name, Contract: Contract, Mobile: Mobile, Tel: Tel,Order:Order, Content: Content, PicURL: PicURL, codeID: codeID, PartsClassifyID: PartsClassifyID, PartsClassifyIDNote: PartsClassifyIDNote },
+        data: { ID: ID, Name: Name, Contract: Contract, Mobile: Mobile, Address: Address, Tel: Tel, Order: Order, Content: Content, PicURL: PicURL, codeID: codeID, PartsClassifyID: PartsClassifyID, PartsClassifyIDNote: PartsClassifyIDNote },
         success: function (data) {
             if (data > 0) {
                 //$('#form').attr('partsID', data);

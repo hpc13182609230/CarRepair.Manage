@@ -64,6 +64,7 @@ namespace CarRepairWeb.Controllers
         public ActionResult PartsCompanySave(PartsCompanyModel model)
         {
             model.Content = EncryptHelper.UrlDecode(model.Content);
+            model.Address = model.Address ?? "";
 
             PartsCompanyService service = new PartsCompanyService();
             var id =  service.SavePartsCompany(model);

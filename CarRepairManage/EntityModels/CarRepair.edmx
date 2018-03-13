@@ -94,6 +94,7 @@
           <Property Name="codeID" Type="char" MaxLength="6" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
           <Property Name="Contract" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="Content" Type="text" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="PicURL" Type="varchar" MaxLength="500" />
@@ -188,6 +189,7 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WechatUserID" Type="bigint" Nullable="false" />
           <Property Name="Attribution" Type="varchar" MaxLength="10" />
+          <Property Name="AttributionChar" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="CarType" Type="varchar" MaxLength="50" />
           <Property Name="CarNO" Type="varchar" MaxLength="10" />
           <Property Name="CarOwnerName" Type="varchar" MaxLength="500" />
@@ -468,6 +470,7 @@
           <Property Name="Order" Type="Int32" Nullable="false" />
           <Property Name="WechatID" Type="Int64" Nullable="false" />
           <Property Name="codeID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Points">
           <Key>
@@ -543,6 +546,7 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AttributionChar" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ZTest">
           <Key>
@@ -753,6 +757,7 @@
           <EntitySetMapping Name="PartsCompany">
             <EntityTypeMapping TypeName="CarRepairModel.PartsCompany">
               <MappingFragment StoreEntitySet="PartsCompany">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="codeID" ColumnName="codeID" />
                 <ScalarProperty Name="WechatID" ColumnName="WechatID" />
                 <ScalarProperty Name="Order" ColumnName="Order" />
@@ -839,6 +844,7 @@
           <EntitySetMapping Name="UserCars">
             <EntityTypeMapping TypeName="CarRepairModel.UserCars">
               <MappingFragment StoreEntitySet="UserCars">
+                <ScalarProperty Name="AttributionChar" ColumnName="AttributionChar" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />

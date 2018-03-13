@@ -31,6 +31,7 @@ namespace CarRepairAPI.Controllers
             {
                 //model.InsuranceTime = Convert.ToDateTime(model.InsuranceTimeFormat);
                 model.CarNO = model.CarNO.ToUpper();
+                model.AttributionChar = model.AttributionChar.ToUpper();
                 result.data = service.Save(model);
             }
             catch (Exception ex)

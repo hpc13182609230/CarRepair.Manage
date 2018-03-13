@@ -78,3 +78,6 @@ ModelManifest.xml
 *.bak
 CarRepairManage/.vs/CarRepairManage/v14/.suo
 CarRepairManage/CarRepairAPI/Properties/PublishProfiles/publish.pubxml.user
+CarRepairManage/CarRepairAPI/Properties/PublishProfiles/publish.pubxml.user
+CarRepairManage/CarRepairAPI/Properties/PublishProfiles/publish.pubxml.user
+CarRepairManage/CarRepairWeb/Properties/PublishProfiles/CarRepair.pubxml.user

@@ -41,5 +41,7 @@ namespace EntityModels
         public virtual DbSet<WXMessageTemplate> WXMessageTemplate { get; set; }
         public virtual DbSet<PartsCompanyBindWechatUser> PartsCompanyBindWechatUser { get; set; }
         public virtual DbSet<WXMenu> WXMenu { get; set; }
+        public virtual DbSet<Garage> Garage { get; set; }
+        public virtual DbSet<PartsCallRecord> PartsCallRecord { get; set; }
     }
 }

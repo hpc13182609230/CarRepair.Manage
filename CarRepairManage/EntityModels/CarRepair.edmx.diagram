@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f2b05dda550f417fa22cce15b90b9564" Name="Diagram1">
+      <Diagram DiagramId="f2b05dda550f417fa22cce15b90b9564" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="CarRepairModel.ManageMenu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarRepairModel.ManageUser" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CarRepairModel.WechatUser" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -21,6 +21,8 @@
         <EntityTypeShape EntityType="CarRepairModel.WXMessageTemplate" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="CarRepairModel.PartsCompanyBindWechatUser" Width="1.5" PointX="0.75" PointY="13.75" />
         <EntityTypeShape EntityType="CarRepairModel.WXMenu" Width="1.5" PointX="3.375" PointY="13.75" />
+        <EntityTypeShape EntityType="CarRepairModel.Garage" Width="1.5" PointX="13.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CarRepairModel.PartsCallRecord" Width="1.5" PointX="13.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -206,5 +207,42 @@ namespace HelperLib
 
             return m_result;
         }
+
+        #region Oauth 验证
+        /// <summary>
+        /// ECOS.md5算法是否成功
+        /// </summary>
+        /// <param name="request">请求信息</param>
+        /// <param name="secret">密钥</param>
+        /// <returns>是否成功</returns>
+        public static bool ECOSmd5IsSuccess(NameValueCollection request, string secret)
+        {
+            if (request.Count < 3 || string.IsNullOrWhiteSpace(secret))
+                return false;
+            string sign = "";
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            foreach (string key in request.Keys)
+            {
+                if (key.Equals("sign"))
+                    sign = request[key];
+                else
+                    dictionary.Add(key, request[key]);
+            }
+            if (string.IsNullOrWhiteSpace(sign) || sign.Length != 32)
+                return false;
+            // 第一步：把字典按Key的字母顺序排序
+            IDictionary<string, string> sortedParams = new SortedDictionary<string, string>(dictionary);
+            StringBuilder signString = new StringBuilder();
+            foreach (string key in sortedParams.Keys)
+            {
+                signString.Append(key).Append(sortedParams[key]);
+            }
+            string md5 = MD5_UTF8(signString.ToString(),null).ToUpper();
+            string sign1 = MD5_UTF8(md5 + secret,null).ToUpper();
+            return sign.Equals(sign1);
+        }
+
+        #endregion
+
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="CacheHelper.cs" />
     <Compile Include="ConfigureHelper.cs" />
     <Compile Include="EncryptHelper.cs" />
+    <Compile Include="FileHelper.cs" />
     <Compile Include="HtmlHelper.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="JsonHelper.cs" />

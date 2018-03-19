@@ -35,6 +35,23 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Openid" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="BossName" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="IsCheck" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="Note" Type="varchar" MaxLength="1000" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="ManageMenu">
           <Key>
             <PropertyRef Name="ID" />
@@ -72,6 +89,21 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="PartsCallRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CallID" Type="bigint" Nullable="false" />
+          <Property Name="CallTime" Type="bigint" Nullable="false" />
+          <Property Name="Openid" Type="varchar" MaxLength="100" />
+          <Property Name="GarageID" Type="bigint" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="Note" Type="varchar" MaxLength="1000" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="PartsClassify">
           <Key>
             <PropertyRef Name="ID" />
@@ -100,6 +132,8 @@
           <Property Name="PicURL" Type="varchar" MaxLength="500" />
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
           <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="LoginToken" Type="varchar" MaxLength="50" />
           <Property Name="PartsClassifyIDNote" Type="varchar" MaxLength="50" />
           <Property Name="PartsClassifyID" Type="bigint" Nullable="false" />
           <Property Name="Order" Type="int" Nullable="false" />
@@ -306,8 +340,10 @@
         </EntityType>
         <EntityContainer Name="CarRepairModelStoreContainer">
           <EntitySet Name="BaseOptions" EntityType="Self.BaseOptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garage" EntityType="Self.Garage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ManageMenu" EntityType="Self.ManageMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ManageUser" EntityType="Self.ManageUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartsCallRecord" EntityType="Self.PartsCallRecord" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsClassify" EntityType="Self.PartsClassify" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsCompany" EntityType="Self.PartsCompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PartsCompanyBindWechatUser" EntityType="Self.PartsCompanyBindWechatUser" Schema="dbo" store:Type="Tables" />
@@ -419,6 +455,8 @@
           <EntitySet Name="WXMessageTemplate" EntityType="CarRepairModel.WXMessageTemplate" />
           <EntitySet Name="PartsCompanyBindWechatUser" EntityType="CarRepairModel.PartsCompanyBindWechatUser" />
           <EntitySet Name="WXMenu" EntityType="CarRepairModel.WXMenu" />
+          <EntitySet Name="Garage" EntityType="CarRepairModel.Garage" />
+          <EntitySet Name="PartsCallRecord" EntityType="CarRepairModel.PartsCallRecord" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -471,6 +509,8 @@
           <Property Name="WechatID" Type="Int64" Nullable="false" />
           <Property Name="codeID" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LoginToken" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Points">
           <Key>
@@ -651,6 +691,38 @@
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BossName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsCheck" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PartsCallRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CallID" Type="Int64" Nullable="false" />
+          <Property Name="CallTime" Type="Int64" Nullable="false" />
+          <Property Name="Openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GarageID" Type="Int64" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -757,6 +829,8 @@
           <EntitySetMapping Name="PartsCompany">
             <EntityTypeMapping TypeName="CarRepairModel.PartsCompany">
               <MappingFragment StoreEntitySet="PartsCompany">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LoginToken" ColumnName="LoginToken" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="codeID" ColumnName="codeID" />
                 <ScalarProperty Name="WechatID" ColumnName="WechatID" />
@@ -962,6 +1036,40 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MenuType" ColumnName="MenuType" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garage">
+            <EntityTypeMapping TypeName="CarRepairModel.Garage">
+              <MappingFragment StoreEntitySet="Garage">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsCheck" ColumnName="IsCheck" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="BossName" ColumnName="BossName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Openid" ColumnName="Openid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsCallRecord">
+            <EntityTypeMapping TypeName="CarRepairModel.PartsCallRecord">
+              <MappingFragment StoreEntitySet="PartsCallRecord">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GarageID" ColumnName="GarageID" />
+                <ScalarProperty Name="Openid" ColumnName="Openid" />
+                <ScalarProperty Name="CallTime" ColumnName="CallTime" />
+                <ScalarProperty Name="CallID" ColumnName="CallID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

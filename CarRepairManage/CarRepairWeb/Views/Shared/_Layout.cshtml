@@ -211,19 +211,32 @@
                         <span class="selected"></span>
                     </a>
                 </li>
-                @*<li class="">
-                    <a href="/Wechat/Menu">
-                        <i class="icon-bookmark-empty"></i>
-                        <span class="title">小程序</span>
-                        <span class="arrow "></span>
-                    </a>
-                </li>*@
                 <li class="">
-                    <a href="/PartsSuppliers/PartsList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">
+                    <a href="">
                         <i class="icon-cogs"></i>
-                        <span class="title">配件商</span>
+                        <span class="title">配件商管理</span>
                         <span class="arrow "></span>
                     </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/PartsSuppliers/PartsList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">配件商列表</a>
+                        </li>
+                        <li>
+                            <a href="/PartsSuppliers/CallRecordList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">通话记录</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="">
+                        <i class="icon-cogs"></i>
+                        <span class="title">修理厂管理</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/Garage/GarageList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">修理厂列表</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="">
                     <a href="javascript:;">

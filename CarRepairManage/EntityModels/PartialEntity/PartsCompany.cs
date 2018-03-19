@@ -88,6 +88,27 @@
             get { return _tel; }
             set { _tel = value; }
         }
+
+        /// <summary>
+        /// Phone 用户 唯一标识 手机号 
+        /// </summary>		
+        private string _phone;
+        public string Phone
+        {
+            get { return _phone; }
+            set { _phone = value; }
+        }
+
+        /// <summary>
+        /// LoginToken
+        /// </summary>		
+        private string _logintoken;
+        public string LoginToken
+        {
+            get { return _logintoken; }
+            set { _logintoken = value; }
+        }
+
         /// <summary>
         /// PartsClassifyIDNote
         /// </summary>		

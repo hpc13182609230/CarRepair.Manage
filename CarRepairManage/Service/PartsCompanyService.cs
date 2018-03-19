@@ -17,12 +17,36 @@ namespace Service
         PartsCompanyRepository repository = new PartsCompanyRepository();
         AreaService _AreaService = new AreaService();
 
-
         public PartsCompanyModel GetByID(long id)
         {
             PartsCompanyModel model = new PartsCompanyModel();
             var res = repository.GetEntityByID(id);
-            model = AutoMapperClient.MapTo<PartsCompany,PartsCompanyModel>(res);
+            if (res!=null)
+            {
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(res);
+            }
+            return model;
+        }
+
+        public PartsCompanyModel GetByLoginToken(string LoginToken)
+        {
+            PartsCompanyModel model = new PartsCompanyModel();
+            var res = repository.GetEntity(p=>p.LoginToken == LoginToken);
+            if (res != null)
+            {
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(res);
+            }
+            return model;
+        }
+
+        public PartsCompanyModel GetByPhone(string Phone)
+        {
+            PartsCompanyModel model = new PartsCompanyModel();
+            var res = repository.GetEntity(p => p.Phone == Phone);
+            if (res!=null)
+            {
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(res);
+            }
             return model;
         }
 
@@ -38,7 +62,7 @@ namespace Service
             return models;
         }
 
-        public long SavePartsCompany(PartsCompanyModel model)
+        public long Save(PartsCompanyModel model)
         {
             PartsCompany entity = new PartsCompany();
             entity= AutoMapperClient.MapTo< PartsCompanyModel,PartsCompany > (model);
@@ -74,7 +98,7 @@ namespace Service
             int total = 0;
             List<PartsCompanyModel> models = new List<PartsCompanyModel>();
             AreaModel areas = _AreaService.GetListByParentID("0").Where(p=>p.codeID==codeID).FirstOrDefault();
-            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=> (p.Name.Contains(keyword) || p.Content.Contains(keyword)) && p.codeID==codeID&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID,false);
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=> (p.Name.Contains(keyword) || p.Content.Contains(keyword)||p.Phone.Contains(keyword)) && p.codeID==codeID&&p.CreateTime>=startTime&&p.CreateTime<=endTime,o=>o.ID,false);
             page.TotalCount = total;
             foreach (var item in entities)
             {
@@ -125,7 +149,7 @@ namespace Service
                         {
                             PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(entities[i]);
                             model.Order = rands[i];
-                            SavePartsCompany(model);
+                            Save(model);
                         }
                     }
                 }
@@ -139,7 +163,11 @@ namespace Service
             
         }
 
-
+        public string CreateLoginToken(PartsCompanyModel model,string password)
+        {
+            string LoginToken = EncryptHelper.MD5Encrypt(model.Phone + password);
+            return LoginToken;
+        }
 
 
     }

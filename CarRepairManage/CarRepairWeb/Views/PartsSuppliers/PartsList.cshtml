@@ -1,7 +1,7 @@
 ﻿@using ViewModels.CarRepair;
 @using Service;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "配件商列表";
     Layout = "~/Views/Shared/_Layout.cshtml"; ;
     List<BaseOptionsModel> options = ViewBag.options as List<BaseOptionsModel>;
     List<PartsCompanyModel> partsCompanys = ViewBag.partsCompanys as List<PartsCompanyModel>;
@@ -10,7 +10,7 @@
     string endTime = Convert.ToDateTime(ViewBag.endTime).ToString("MM/dd/yyyy");
     List<AreaModel> provinces = ViewBag.provinces as List<AreaModel>;
 
-    }
+  }
 
 @section header{
     @Html.Raw("<link type=\"text/css\" href=\"/media/css/datepicker.css\" rel=\"stylesheet\" />")

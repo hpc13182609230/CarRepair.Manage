@@ -76,6 +76,8 @@
     <Compile Include="PartialEntity\PartsCompany.cs" />
     <Compile Include="PartialEntity\PartsClassify.cs" />
     <Compile Include="PartialEntity\BaseOptions.cs" />
+    <Compile Include="PartialEntity\Garage.cs" />
+    <Compile Include="PartialEntity\PartsCallRecord.cs" />
     <Compile Include="PartialEntity\ZTest.cs" />
     <Compile Include="PartialEntity\Area.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

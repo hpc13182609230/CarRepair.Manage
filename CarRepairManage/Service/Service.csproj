@@ -49,6 +49,8 @@
     <Compile Include="WXMessageTemplateService.cs" />
     <Compile Include="PartsCompanyBindWechatUserService.cs" />
     <Compile Include="WXMenuService.cs" />
+    <Compile Include="GarageService.cs" />
+    <Compile Include="PartsCallRecordService.cs" />
     <Compile Include="ZTestService.cs" />
     <Compile Include="WXUserService.cs" />
     <Compile Include="BaseOptionsService.cs" />

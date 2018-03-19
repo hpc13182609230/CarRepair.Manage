@@ -17,6 +17,7 @@ namespace CarRepairWeb.Controllers
     {
         BaseOptionsService _BaseOptionsService = new BaseOptionsService();
         PartsCompanyService service = new PartsCompanyService();
+        PartsCallRecordService _PartsCallRecordService = new PartsCallRecordService();
         AreaService _AreaService = new AreaService();
 
         //配件商 列表
@@ -67,7 +68,7 @@ namespace CarRepairWeb.Controllers
             model.Address = model.Address ?? "";
 
             PartsCompanyService service = new PartsCompanyService();
-            var id =  service.SavePartsCompany(model);
+            var id =  service.Save(model);
            
 
             return Json(id,JsonRequestBehavior.AllowGet);
@@ -81,22 +82,11 @@ namespace CarRepairWeb.Controllers
             return Json(flag, JsonRequestBehavior.AllowGet);
         }
 
-        //配件商的分类 获取 初始化
-        //public ActionResult PartsCompanyClassifyGets(long PartsCompanyID)
-        //{
-        //    PartsClassifyCompanyService service = new PartsClassifyCompanyService();
-        //    var model = service.GetByPartsCompanyID(PartsCompanyID);
-        //    return Json(model, JsonRequestBehavior.AllowGet);
-        //}
-
-        //配件商的分类  保存
-        //public ActionResult PartsCompanyClassifySave(PartsClassifyCompanyModel model)
-        //{
-        //    PartsClassifyCompanyService service = new PartsClassifyCompanyService();
-        //    var id = service.Save(model);
-        //    return Json(id, JsonRequestBehavior.AllowGet);
-        //}
-
+        /// <summary>
+        /// 上次 图片
+        /// </summary>
+        /// <param name="upImg"></param>
+        /// <returns></returns>
         public ActionResult Upload(HttpPostedFileBase upImg)
         {
             string Url_Path = "";
@@ -105,6 +95,7 @@ namespace CarRepairWeb.Controllers
             return Json(new { Url_Path = Url_Path }, JsonRequestBehavior.AllowGet);
         }
 
+       
 
         //[HttpPost]
         //public ActionResult Upload(HttpPostedFileBase upImg)
@@ -146,5 +137,21 @@ namespace CarRepairWeb.Controllers
             string msg= service.ResetCompanyOrder(codeID);
             return Json(msg, JsonRequestBehavior.AllowGet);
         }
+
+        //配件商的 通话记录
+        public ActionResult CallRecordList(string keyword, DateTime startTime, DateTime endTime,  int pageIndex = 1, int pageSize = 10)
+        {
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+
+            List<PartsCallRecordModel> models = _PartsCallRecordService.GetListByPage(keyword, startTime, endTime.AddDays(1), ref page);
+
+            ViewBag.page = page;
+            ViewBag.keyword = keyword;
+            ViewBag.startTime = startTime;
+            ViewBag.endTime = endTime;
+            ViewBag.models = models;
+            return View();
+        }
+
     }
 }

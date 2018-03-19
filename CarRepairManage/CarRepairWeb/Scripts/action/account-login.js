@@ -8,7 +8,8 @@
         data: { username: username, password: password },
         success: function (data) {
             debugger;
-            if (data.result==1) {
+            if (data.result == 1) {
+                debugger;
                 window.location.href = "/Home/Index";
             }
             else {

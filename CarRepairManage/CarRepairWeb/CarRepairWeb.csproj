@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GarageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetronicController.cs" />
     <Compile Include="Controllers\PartsSuppliersController.cs" />
@@ -964,7 +965,9 @@
     <Content Include="Scripts\action\account-login.js" />
     <Content Include="Scripts\action\menu.js" />
     <Content Include="Scripts\action\home-index.js" />
+    <Content Include="Scripts\action\Garage-GarageList.js" />
     <Content Include="Scripts\action\PartsSuppliers-PartDetail.js" />
+    <Content Include="Scripts\action\PartsSuppliers-CallRecordList.js" />
     <Content Include="Scripts\action\PartsSuppliers-PartsList.js" />
     <Content Include="Scripts\action\User-WechatUserList.js" />
     <Content Include="Scripts\action\User-WXUserList.js" />
@@ -1065,6 +1068,8 @@
     <Content Include="Views\Shared\_pager.cshtml" />
     <Content Include="Views\User\WXUserList.cshtml" />
     <Content Include="Views\User\WechatUserList.cshtml" />
+    <Content Include="Views\PartsSuppliers\CallRecordList.cshtml" />
+    <Content Include="Views\Garage\GarageList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

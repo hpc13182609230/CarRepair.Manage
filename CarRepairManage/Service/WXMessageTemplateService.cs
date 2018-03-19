@@ -201,10 +201,69 @@ namespace Service
             }
             
         }
+
+        /// <summary>
+        /// 配件商 登录 获取验证码
+        /// </summary>
+        /// <param name="WechatUserID">小程序 用户 id</param>
+        /// <param name="template_id">推送的模版消息id</param>
+        /// <returns></returns>
+        public bool WX_MessageTemplate_PartsClient_GetLoginCode(PartsCompanyModel _PartsCompanyModel, ref int code, string template_id = "AcVAnRbbuKfMIbobAAMfqy7Oz-hL5o_iYbonaXSTbd4")
+        {
+            DateTime current = DateTime.Now;
+            try
+            {
+                code = new Random().Next(100000,1000000);
+                object dataObj = new
+                {
+                    first = new { value = "【修车必备】提醒您收到一条来电宝的单点登录验证码，5分钟内有效，请勿泄露！", color = "#1C86EE" },
+                    keyword1 = new { value = code, color = "#173177" },
+                    keyword2 = new { value = current.ToString("yyyy-MM-dd HH:mm:ss"), color = "#173177" },
+                    remark = new { value = "快速识别修理厂来电信息，降低不良采购的风险！提升业务成交效率！【修车必备@青岛火力科技】", color = "#173177" }
+                };
+                string data = TransformHelper.SerializeObject(dataObj);
+                string msgid = WeChatServiceHelper.WX_Message_Template_Send(_PartsCompanyModel.Contract, template_id, data);
+                if (!string.IsNullOrWhiteSpace(msgid))
+                {
+                    WXMessageTemplateModel model = new WXMessageTemplateModel();
+                    //model.WechatUserID = WechatUserID;
+                    model.PartsCompanyID = _PartsCompanyModel.ID;
+                    model.Touser = _PartsCompanyModel.Contract;
+                    model.Template_id = template_id;
+                    model.BaseOptionsID = 12;
+                    model.Data = data;
+                    model.Remark = "msgid =" + msgid;
+                    model.Note = code.ToString() ;
+                    long id = Save(model);
+                }
+                else
+                {
+                    Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " 推送失败 = ：" + _PartsCompanyModel.Contract + "\r\n");
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Fatal.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " ex = ：" + ex.Message + "\r\n");
+                return false;
+            }
+
+        }
+
         #endregion
 
 
+        public WXMessageTemplateModel GetByPartsCompanyIDAndOptionID(long PartsCompanyID,long BaseOptionsID)
+        {
+            WXMessageTemplateModel model = new WXMessageTemplateModel();
 
+            var res = repository.GetEntityOrder(p=>p.PartsCompanyID==PartsCompanyID&&p.BaseOptionsID== BaseOptionsID,p=>p.ID);
+            if (res != null)
+            {
+                model = AutoMapperClient.MapTo<WXMessageTemplate, WXMessageTemplateModel>(res);
+            }
+            return model;
+        }
 
     }
 }

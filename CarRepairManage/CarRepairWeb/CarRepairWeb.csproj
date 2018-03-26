@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -963,6 +964,7 @@
     <Content Include="resources\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="resources\ckeditor\styles.js" />
     <Content Include="Scripts\action\account-login.js" />
+    <Content Include="Scripts\action\Wechat-WXNews.js" />
     <Content Include="Scripts\action\menu.js" />
     <Content Include="Scripts\action\home-index.js" />
     <Content Include="Scripts\action\Garage-GarageList.js" />
@@ -1070,6 +1072,7 @@
     <Content Include="Views\User\WechatUserList.cshtml" />
     <Content Include="Views\PartsSuppliers\CallRecordList.cshtml" />
     <Content Include="Views\Garage\GarageList.cshtml" />
+    <Content Include="Views\Wechat\WXNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

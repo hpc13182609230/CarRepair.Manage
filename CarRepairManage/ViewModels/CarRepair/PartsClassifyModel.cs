@@ -9,7 +9,7 @@ namespace ViewModels.CarRepair
 {
     public class PartsClassifyModel:BaseModel
     {
-
+        private string baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
         public long OptionID { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }
@@ -20,7 +20,7 @@ namespace ViewModels.CarRepair
         public string PicURLShow
         {
 
-            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\","/"); }
+            get { return string.IsNullOrWhiteSpace(PicURL) ? "" :string.Format(baseImageURL, PicURL.Replace("\\", "/")); }
             set { picURLShow = value; }
         }
     }

@@ -223,7 +223,7 @@ namespace HelperLib
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             foreach (string key in request.Keys)
             {
-                if (key.Equals("sign"))
+                if (key.Equals("Sign"))
                     sign = request[key];
                 else
                     dictionary.Add(key, request[key]);

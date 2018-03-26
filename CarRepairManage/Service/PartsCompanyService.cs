@@ -56,7 +56,8 @@ namespace Service
             var res = repository.GetEntities(p=>ids.Contains(p.ID));
             foreach (var item in res)
             {
-                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                PartsCompanyModel model = new PartsCompanyModel();
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
                 models.Add(model);
             }          
             return models;
@@ -117,7 +118,8 @@ namespace Service
             page.TotalCount = total;
             foreach (var item in entities)
             {
-                PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                PartsCompanyModel model = new PartsCompanyModel();
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
                 models.Add(model);
             }
             return models;

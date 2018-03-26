@@ -10,6 +10,22 @@ namespace ViewModels.CarRepair
     public class PartsCompanyModel:BaseModel
     {
 
+        private string baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
+
+        //public PartsCompanyModel(bool showMiniImage=false)
+        //{
+        //    if (showMiniImage)//显示小图
+        //    {
+        //        baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
+        //    }
+        //    else
+        //    {
+        //        baseImageURL = ConfigurationManager.AppSettings["ImageShowURL"];
+        //    }
+        //}
+
+
+
         public string Name { get; set; }
         public string Content { get; set; }
         public string Remark { get; set; }
@@ -37,7 +53,7 @@ namespace ViewModels.CarRepair
         private string picURLShow;
         public string PicURLShow
         {
-            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\","/"); }
+            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : string.Format(baseImageURL, PicURL.Replace("\\", "/")); }
             set { picURLShow = value; }
         }
 

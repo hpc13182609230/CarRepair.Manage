@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="CarRepair\WXArticleModel.cs" />
     <Compile Include="CarRepair\WXMessageTemplateModel.cs" />
     <Compile Include="CarRepair\BaseOptionsModel.cs" />
     <Compile Include="CarRepair\PartsClassifyModel.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="CarRepair\WXMenuModel.cs" />
     <Compile Include="CarRepair\GarageModel.cs" />
     <Compile Include="CarRepair\PartsCallRecordModel.cs" />
+    <Compile Include="CarRepair\WXNewsModel.cs" />
     <Compile Include="CarRepair\ZTestModel.cs" />
     <Compile Include="CarRepair\UserCarsModel.cs" />
     <Compile Include="CarRepair\WechatUserModel.cs" />

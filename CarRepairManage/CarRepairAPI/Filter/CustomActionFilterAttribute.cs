@@ -1,4 +1,5 @@
 ﻿using HelperLib;
+using LogLib;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -15,12 +16,13 @@ namespace CarRepairAPI.Filter
     public class CustomActionFilterAttribute : ActionFilterAttribute
     {
 
-        private static string ApiKey = "ApiKey";
-        private static string ApiSecret = "ApiSecret";
+        private static string ApiKey = "laidianbao";
+        private static string ApiSecret = "b7936f29-465c-4ffc-b3a3-88711ae16636";
 
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             NameValueCollection request = HttpContext.Current.Request.Form;
+            Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.WriteInfomation.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + "ex = ：" + TransformHelper.SerializeObject(request)+ "\r\n");
             string msg = CheckRequest(request);
             if (!string.IsNullOrWhiteSpace(msg))//验证不通过
             {
@@ -54,17 +56,17 @@ namespace CarRepairAPI.Filter
             #endregion
 
             #region 验证date参数
-            //if (string.IsNullOrWhiteSpace(request["Date"]))
-            //{
-            //    return "Date not null";
-            //}
-            //DateTime date = DateTime.MinValue;
-            //date = TransformHelper.Convert_TimeStamp2DateTime(request["Date"]);
-            //TimeSpan ts = DateTime.Now.Subtract(date);
-            //if (ts.TotalSeconds > 600 || ts.TotalSeconds < -600)
-            //{
-            //    return "Date 不能超过 10分钟 ";
-            //}
+            if (string.IsNullOrWhiteSpace(request["Date"]))
+            {
+                return "Date not null";
+            }
+            DateTime date = DateTime.MinValue;
+            date = TransformHelper.Convert_TimeStamp2DateTime(request["Date"]);
+            TimeSpan ts = DateTime.Now.Subtract(date);
+            if (ts.TotalSeconds > 600 || ts.TotalSeconds < -600)
+            {
+                return "Date 不能超过 10分钟 ";
+            }
             #endregion
 
             #region 验证签名
@@ -73,11 +75,11 @@ namespace CarRepairAPI.Filter
             {
                 return "Sign not null";
             }
-            bool IsSignaturePass = EncryptHelper.ECOSmd5IsSuccess(request, request["Sign"].ToString());
-            //if (!IsSignaturePass)
-            //{
-            //    return "Sign 不合法";
-            //}
+            bool IsSignaturePass = EncryptHelper.ECOSmd5IsSuccess(request, ApiSecret);
+            if (!IsSignaturePass)
+            {
+                return "Sign 不合法";
+            }
             #endregion
 
             return "";

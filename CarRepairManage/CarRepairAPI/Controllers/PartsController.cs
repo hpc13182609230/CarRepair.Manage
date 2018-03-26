@@ -38,6 +38,7 @@ namespace CarRepairAPI.Controllers
             long currentUnix = TransformHelper.Convert_DateTime2Int64(current);
 
             NameValueCollection request = HttpContext.Current.Request.Form;
+
             string msg = "";
             #region  执行业务逻辑
             if (string.IsNullOrWhiteSpace(loginModel.LoginToken))//首次登录
@@ -89,7 +90,7 @@ namespace CarRepairAPI.Controllers
                     result.result = -1;
                     result.message = "登录凭证已过期,请重新登录";
                 }
-                result.data = loginModel.LoginToken;
+                result.data = new { PicURLShow=_PartsCompanyModel.PicURLShow, Name = _PartsCompanyModel.Name, Phone = _PartsCompanyModel.Phone };
             }
             #endregion
             return result;
@@ -125,11 +126,14 @@ namespace CarRepairAPI.Controllers
                     result.result = 0;
                     result.message = "验证码发送失败";
                 }
+                else
+                {
+                    result.data = code;
+                }
             }
             #endregion
             return result;
         }
-
 
         #endregion
 
@@ -168,6 +172,8 @@ namespace CarRepairAPI.Controllers
                 _PartsCallRecordModel.GarageID = _GarageModel.ID;
                 _PartsCallRecordModel.Remark = requestData.Number;
                 _PartsCallRecordService.Save(_PartsCallRecordModel);
+
+                result.data = _GarageModel;
             }
             #endregion
 
@@ -208,9 +214,11 @@ namespace CarRepairAPI.Controllers
 
             return result;
         }
+
+
+
+
         #endregion
-
-
 
 
         #region 

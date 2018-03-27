@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ViewModels
 {
-    public class ManageUserModel
+    public class ManageUserModel:BaseModel
     {
         public long id { get; set; }
         public string LoginName { get; set; }

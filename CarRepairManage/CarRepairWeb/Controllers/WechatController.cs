@@ -205,8 +205,8 @@ namespace CarRepairWeb.Controllers
 
         public ActionResult WXNewsPush(string NewsID)
         {
-            List<string> OpenIDs = new List<string>() { "oqtR-w5-J7_sSDGuB9KTOHxwLuuQ", "oqtR-w03IY8eE1Nym5QtTaDQ--bs" };
-            //List<string> OpenIDs = WeChatServiceHelper.WX_API_User_GetAll();
+            //List<string> OpenIDs = new List<string>() { "oqtR-w5-J7_sSDGuB9KTOHxwLuuQ", "oqtR-w03IY8eE1Nym5QtTaDQ--bs" };
+            List<string> OpenIDs = WeChatServiceHelper.WX_API_User_GetAll();
             WeChatServiceHelper.WX_SendMSG_OpenID(OpenIDs,WeChatServiceHelper.WX_MessageType.mpnews, NewsID);
             return Json(null,JsonRequestBehavior.AllowGet);
         }

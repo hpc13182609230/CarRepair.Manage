@@ -62,6 +62,7 @@
     <Compile Include="CarRepair\GarageModel.cs" />
     <Compile Include="CarRepair\PartsCallRecordModel.cs" />
     <Compile Include="CarRepair\WXNewsModel.cs" />
+    <Compile Include="CarRepair\ManageMenuModel.cs" />
     <Compile Include="CarRepair\ZTestModel.cs" />
     <Compile Include="CarRepair\UserCarsModel.cs" />
     <Compile Include="CarRepair\WechatUserModel.cs" />

@@ -15,6 +15,8 @@ namespace CarRepairWeb.Controllers
         {
             //验证session
             CheckLogin(filterContext);
+
+
             base.OnActionExecuting(filterContext);
         }
 

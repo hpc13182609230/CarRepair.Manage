@@ -2,20 +2,25 @@
 $("[name=WXNewsPush]").click(function () {
     var that = $(this);
     var NewsID = that.attr("NewsID");
-    debugger;
-    $.ajax({
-        type: 'GET',
-        url: '/Wechat/WXNewsPush',
-        data: { NewsID: NewsID },
-        success: function (data) {
-            //alert(data);
-            if (data) {
-                alert("推送成功");
+    var r=confirm("你确定推送图文吗，确认之后无法撤销");
+    if (r==true)
+    {
+        $.ajax({
+            type: 'GET',
+            url: '/Wechat/WXNewsPush',
+            data: { NewsID: NewsID },
+            success: function (data) {
+                if (data) {
+                    alert("推送成功");
+                }
+                else {
+                    alert('推送失败');
+                }
             }
-            else {
-                alert('推送失败');
-            }
-
-        }
-    });
+        });
+     }
+    else
+    {
+      alert("You pressed Cancel!");
+    }
 });

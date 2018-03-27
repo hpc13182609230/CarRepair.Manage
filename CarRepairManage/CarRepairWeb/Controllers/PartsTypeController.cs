@@ -9,16 +9,17 @@ using ViewModels;
 
 namespace CarRepairWeb.Controllers
 {
-    public class PartsTypeController : Controller
+    public class PartsTypeController : BaseController
     {
         // GET: PartsType
         //子分类列表
-        public ActionResult PartsClassify(long OptionID,string name, string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 10)
+        public ActionResult PartsClassify(long OptionID,string name, string keyword, DateTime startTime, DateTime? endTime, int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+            endTime = endTime ?? DateTime.Now.Date;
 
             PartsClassifyService service = new PartsClassifyService();
-            List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentIDPage(OptionID,keyword,startTime, endTime.AddDays(1), ref page);
+            List<PartsClassifyModel> _PartsClassifyModels = service.GetByParentIDPage(OptionID,keyword??"",startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
 
             ViewBag.PartsClassify = _PartsClassifyModels;
             ViewBag.name = name;

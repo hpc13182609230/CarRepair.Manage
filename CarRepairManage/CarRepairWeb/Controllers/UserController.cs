@@ -19,11 +19,12 @@ namespace CarRepairWeb.Controllers
 
         // GET: User
         #region 小程序 用户
-        public ActionResult WechatUserList(string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 10)
+        public ActionResult WechatUserList(string keyword, DateTime startTime, DateTime? endTime, int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+            endTime = endTime ?? DateTime.Now.Date;
 
-            List<WechatUserModel> models = _WechatUserService.GetListByPage(keyword, startTime, endTime.AddDays(1), ref page);
+            List<WechatUserModel> models = _WechatUserService.GetListByPage(keyword, startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
             ViewBag.models = models;
 
             ViewBag.keyword = keyword;
@@ -37,11 +38,12 @@ namespace CarRepairWeb.Controllers
 
 
         #region 服务号 用户
-        public ActionResult WXUserList(string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 10)
+        public ActionResult WXUserList(string keyword, DateTime startTime, DateTime? endTime, int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+            endTime = endTime ?? DateTime.Now.Date;
 
-            List<WXUserModel> models = _WXUserService.GetListByPage(keyword, startTime, endTime.AddDays(1), ref page);
+            List<WXUserModel> models = _WXUserService.GetListByPage(keyword, startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
             ViewBag.models = models;
 
             ViewBag.keyword = keyword;

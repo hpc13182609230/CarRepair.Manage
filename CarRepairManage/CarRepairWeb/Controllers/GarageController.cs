@@ -20,10 +20,11 @@ namespace CarRepairWeb.Controllers
 
         // GET: Garage
         //配件商 列表
-        public ActionResult GarageList(string keyword, DateTime startTime, DateTime endTime, int pageIndex = 1, int pageSize = 10)
+        public ActionResult GarageList(string keyword, DateTime startTime, DateTime? endTime, int pageIndex = 1, int pageSize = 10)
         {
+            endTime = endTime ?? DateTime.Now.Date;
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
-            List<GarageModel> models = _GarageService.GetListByPage(keyword, startTime, endTime.AddDays(1), ref page);
+            List<GarageModel> models = _GarageService.GetListByPage(keyword, startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
 
             ViewBag.page = page;
             ViewBag.keyword = keyword;

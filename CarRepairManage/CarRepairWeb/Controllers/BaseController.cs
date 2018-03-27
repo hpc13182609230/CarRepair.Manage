@@ -1,8 +1,15 @@
-﻿using System;
+﻿using HelperLib;
+using Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using System.Web.Mvc;
+using ViewModels;
+using ViewModels.CarRepair;
+
 
 namespace CarRepairWeb.Controllers
 {
@@ -10,13 +17,15 @@ namespace CarRepairWeb.Controllers
     {
         //
         // GET: /Base/
+        ManageMenuService _ManageMenuService = new ManageMenuService();
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             //验证session
             CheckLogin(filterContext);
-
-
+            //获取  用户的菜单 权限
+            List<ManageMenuModel> menus = _ManageMenuService.GetAlll();
+            ViewBag.menus = menus;
             base.OnActionExecuting(filterContext);
         }
 

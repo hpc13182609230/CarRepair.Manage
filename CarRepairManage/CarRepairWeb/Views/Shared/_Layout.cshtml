@@ -2,6 +2,14 @@
 @using ViewModels.CarRepair;
 @{
     DateTime nowTime = DateTime.Now;
+    List<ManageMenuModel> menus = ViewBag.menus as List<ManageMenuModel>;
+    List<ManageMenuModel> menus_Parent = menus.Where(p => p.ParentID == 0).ToList();
+    //if (permissions != null)
+    //{
+    //    menus_Parent = menus_Parent.Where(p => permissions.Contains(p.id)).ToList();
+    //}
+    List<ManageMenuModel> menus_Child = new List<ManageMenuModel>();
+    ManageMenuModel menu = new ManageMenuModel();
 }
 <!DOCTYPE html>
 <html>
@@ -204,92 +212,27 @@
                     <div class="sidebar-toggler hidden-phone"></div>
                     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                 </li>
+                @foreach (var item in menus_Parent)
+                 {
                 <li class="start active ">
-                    <a href="/">
+                    <a href="@item.Url">
                         <i class="icon-home"></i>
-                        <span class="title">首页</span>
+                        <span class="title">@item.Name</span>
                         <span class="selected"></span>
                     </a>
-                </li>
-                <li class="">
-                    <a href="">
-                        <i class="icon-cogs"></i>
-                        <span class="title">配件商管理</span>
-                        <span class="arrow "></span>
-                    </a>
                     <ul class="sub-menu">
-                        <li>
-                            <a href="/PartsSuppliers/PartsList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">配件商列表</a>
-                        </li>
-                        <li>
-                            <a href="/PartsSuppliers/CallRecordList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">通话记录</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="">
-                        <i class="icon-cogs"></i>
-                        <span class="title">修理厂管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/Garage/GarageList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">修理厂列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="icon-cogs"></i>
-                        <span class="title">配件分类</span>
-                        <span class="arrow "></span>
-                    </a>
-                    @{
-                        BaseOptionsService _BaseOptionsService = new BaseOptionsService();
-                        List<BaseOptionsModel> partTypes = _BaseOptionsService.GetByParentID(1);
-                    }
-                    <ul class="sub-menu">
-                        @foreach (var item in partTypes)
-                        {
-                            <li>
-                                <a href="/PartsType/PartsClassify?OptionID=@(item.ID)&name=@(item.Content)&keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">
-                                    @item.Content
-                                </a>
-                            </li>
-                        }
+                        @{menus_Child = menus.Where(p => p.ParentID == item.ID).ToList();
 
+                            foreach (var child in menus_Child)
+                            {
+                                <li>
+                                    <a href="@child.Url">@child.Name</a>
+                                </li>
+                             }
+                        }
                     </ul>
                 </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="icon-cogs"></i>
-                        <span class="title">服务号管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/user/WXUserList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">服务号用户 </a>
-                        </li>
-                        <li>
-                            <a href="/Wechat/Menu">菜单设置 </a>
-                        </li>
-                        <li>
-                            <a href="/Wechat/WXNews">图文推送 </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="icon-cogs"></i>
-                        <span class="title">小程序管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/user/WechatUserList?keyword=&startTime=2017-01-01&endTime=@(nowTime.Date.ToString())">小程序用户 </a>
-                        </li>
-                    </ul>
-                </li>
+                }
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
@@ -354,7 +297,11 @@
 		    //Index.initMiniCharts();
 		    //Index.initDashboardDaterange();
 		    //Index.initIntro();
-		    //UIGeneral.init();
+            //UIGeneral.init();
+            debugger;
+            var pathname = window.location.window.location;
+            var menus = $('.page-sidebar-menu li');
+            var menu = $()
 		});
     </script>
     <!-- END JAVASCRIPTS -->

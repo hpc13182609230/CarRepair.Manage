@@ -65,5 +65,19 @@ namespace Service
             return models;
         }
 
+        public List<ManageMenuModel> GetAlll()
+        {
+            List<ManageMenuModel> models = new List<ManageMenuModel>();
+            var res = repository.GetEntities();
+
+            foreach (var item in res)
+            {
+                ManageMenuModel model = new ManageMenuModel();
+                model = AutoMapperClient.MapTo<ManageMenu, ManageMenuModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
     }
 }

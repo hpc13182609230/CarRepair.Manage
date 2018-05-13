@@ -73,31 +73,48 @@ namespace CarRepairAPI.Controllers
         /// <param name="userid"></param>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
-        /// <returns></returns>
+        /// <returns></returns>0
         [Route("GetBindPartsCompanys")]
         [HttpGet]
-        public DataResultModel GetBindPartsCompanys(long userid, int pageIndex = 1, int pageSize = 10)
+        public DataResultModel GetBindPartsCompanys(long userid,string codeID="370000", int pageIndex = 1, int pageSize = 10)
         {
+            LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetBindPartsCompanys", "codeID = " + codeID + "\r\n" );
             DataResultModel result = new DataResultModel();
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
             try
-            
-{
+            {
                 List<PartsCompanyBindWechatUserModel> _PartsCompanyBindWechatUserList= _PartsCompanyBindWechatUserService.GetListByPage(userid, ref page);
-                var datas= _PartsCompanyService.GetByIDs(_PartsCompanyBindWechatUserList.Select(p => p.PartsCompanyID).ToList());
-
-
+                List<PartsCompanyModel> datas= _PartsCompanyService.GetByIDs(_PartsCompanyBindWechatUserList.Select(p => p.PartsCompanyID).ToList());
                 foreach (var item in datas)
                 {
                     item.Content = HtmlHelper.HTML_RemoveTag(item.Content);
                     item.UpdateTime = _PartsCompanyBindWechatUserList.Where(p => p.PartsCompanyID == item.ID).FirstOrDefault().UpdateTime;
-
                 }
                 datas = datas.OrderByDescending(p => p.UpdateTime).ToList();
+                //如果用户 绑定的 配件商 较少，则 分区 取 推荐的 配件商
+                if (datas.Count < 5)
+                {
+                    #region 显示 默认 逻辑  的配件商
+                    //获取一个月内  的绑定 关系
+                    List<PartsCompanyBindWechatUserModel> defalutBinds = _PartsCompanyBindWechatUserService.GetListByDate(DateTime.Now.Date.AddMonths(-1));
+                    List<PartsCompanyModel> partsCompanys = _PartsCompanyService.GetListByCodeID(codeID);
+                    List<long> partsCompanyIDs = partsCompanys.Select(p => p.ID).ToList();
+                    var ls = defalutBinds.GroupBy(a => a.PartsCompanyID).Select(g => (new { PartsCompanyID = g.Key, Ccount = g.Count() }));
+                    ls = ls.Where(p => partsCompanyIDs.Contains(p.PartsCompanyID)).OrderByDescending(p => p.Ccount).ToList();
+                    List<PartsCompanyModel> defalutdatas = _PartsCompanyService.GetByIDs(ls.Select(p => p.PartsCompanyID).Take(5).ToList());
+                    foreach (var item in defalutdatas)
+                    {
+                        item.Content = HtmlHelper.HTML_RemoveTag(item.Content);
+                    }
+                    datas.AddRange(defalutdatas);
+                    #endregion 
+                }
+
                 result.data = datas;
             }
             catch (Exception ex)
             {
+                LogLib.Tracer.RunLog(LogLib.MessageType.WriteInfomation, "", "GetBindPartsCompanys", "ex = " + ex.Message + "\r\n");
                 result.result = 0;
                 result.message = ex.Message;
             }

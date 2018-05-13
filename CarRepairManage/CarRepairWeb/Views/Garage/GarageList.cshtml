@@ -78,20 +78,24 @@
                                 <th>固话</th>
                                 <th>是否认证</th>
                                 <th>加入时间</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in models)
                             {
-                                <tr ID="@(item.ID)">
-                                    <td  class="hide">@item.Openid</td>
-                                    <td >@(item.CompanyName)</td>
-                                    <td >@(item.BossName)</td>
-                                    <td >@(item.Phone)</td>
-                                    <td >@(item.Mobile)</td>
-                                    <td >@(item.IsCheck)</td>
-                                    <td >@(item.CreateTime.ToString("yyyy-MM-dd"))</td>
-                                </tr>
+                            <tr ID="@(item.ID)">
+                                <td class="hide">@item.Openid</td>
+                                <td>@(item.CompanyName)</td>
+                                <td>@(item.BossName)</td>
+                                <td>@(item.Phone)</td>
+                                <td>@(item.Mobile)</td>
+                                <td>@(item.IsCheck)</td>
+                                <td>@(item.CreateTime.ToString("yyyy-MM-dd"))</td>
+                                <td>
+                                    <div name="goDetail" class="btn mini red-stripe">查看详情</div>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

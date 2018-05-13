@@ -56,6 +56,7 @@
     <Compile Include="GarageRepository.cs" />
     <Compile Include="PartsCallRecordRepository.cs" />
     <Compile Include="ManageMenuRepository.cs" />
+    <Compile Include="ManageUserRepository.cs" />
     <Compile Include="ZTestRepository.cs" />
     <Compile Include="WXUserRepository.cs" />
     <Compile Include="BaseOptionsRepository.cs" />

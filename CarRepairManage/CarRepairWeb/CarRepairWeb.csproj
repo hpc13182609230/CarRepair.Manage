@@ -201,6 +201,7 @@
     <Compile Include="Controllers\MetronicController.cs" />
     <Compile Include="Controllers\PartsSuppliersController.cs" />
     <Compile Include="Controllers\PartsTypeController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WechatController.cs" />
@@ -964,6 +965,10 @@
     <Content Include="resources\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="resources\ckeditor\styles.js" />
     <Content Include="Scripts\action\account-login.js" />
+    <Content Include="Scripts\action\Garage-GarageDetail.js" />
+    <Content Include="Scripts\action\Wechat-WXMessageTemplate.js" />
+    <Content Include="Scripts\action\System-ManageUserDetail.js" />
+    <Content Include="Scripts\action\System-ManageUserList.js" />
     <Content Include="Scripts\action\Wechat-WXNews.js" />
     <Content Include="Scripts\action\menu.js" />
     <Content Include="Scripts\action\home-index.js" />
@@ -1073,6 +1078,10 @@
     <Content Include="Views\PartsSuppliers\CallRecordList.cshtml" />
     <Content Include="Views\Garage\GarageList.cshtml" />
     <Content Include="Views\Wechat\WXNews.cshtml" />
+    <Content Include="Views\System\ManageUserList.cshtml" />
+    <Content Include="Views\System\ManageUserDetail.cshtml" />
+    <Content Include="Views\Garage\GarageDetail.cshtml" />
+    <Content Include="Views\Wechat\WXMessageTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

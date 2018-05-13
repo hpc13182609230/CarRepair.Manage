@@ -26,6 +26,14 @@ namespace Service
             return model;
         }
 
+        public AreaModel GetByCodeID(string codeID)
+        {
+            AreaModel model = new AreaModel();
+            var res = repository.GetEntity(p=>p.codeID== codeID);
+            model = AutoMapperClient.MapTo<Area, AreaModel>(res);
+            return model;
+        }
+
         public int DeleteByID(long id)
         {
             var res = repository.GetEntityByID(id);

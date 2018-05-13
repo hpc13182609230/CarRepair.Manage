@@ -3,75 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HelperLib;
-using ViewModels;
 using EntityModels;
+using ViewModels.CarRepair;
+using AutoMapperLib;
+using Repository;
+using ViewModels;
+using HelperLib;
 
 namespace Service
 {
     public class ManageUserService
     {
-        public long UserInfo_Save(ManageUserModel model)
-        {
-            using (var entity = new CarRepairEntities())
-            {
-                ManageUser dbmodel = entity.ManageUser.Where(p => p.ID == model.id).FirstOrDefault();
-                if (dbmodel == null)
-                {
-                    dbmodel = new ManageUser();
-                    TransformHelper.ConvertBToA(dbmodel, model);
-                    dbmodel.CreateTime = DateTime.Now;
-                    entity.ManageUser.Add(dbmodel);
-                    var id = entity.SaveChanges();
-                }
-                else
-                {
-                    DateTime create = dbmodel.CreateTime;
-                    long ID = dbmodel.ID;
-                    TransformHelper.ConvertBToA(dbmodel, model);
-                    dbmodel.CreateTime = create;
-                    dbmodel.ID= ID;
-                    entity.SaveChanges();
-                }
-                return dbmodel.ID;
-            }
+        private static ManageUserRepository repository = new ManageUserRepository();
+        private static AreaService _AreaService = new AreaService();
 
-        }
-
-        public bool UserInfo_Delete(int id)
-        {
-            using (var entity = new CarRepairEntities())
-            {
-                ManageUser dbmodel = entity.ManageUser.Where(p => p.ID == id).FirstOrDefault();
-                if (dbmodel != null)
-                {
-                    entity.ManageUser.Remove(dbmodel);
-                    entity.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-
-        }
-
-
-        public ManageUserModel WUserInfo_GetByID(int id)
+        public ManageUserModel GetByID(long id)
         {
             ManageUserModel model = new ManageUserModel();
-            using (var entity = new CarRepairEntities())
+            var res = repository.GetEntityByID(id);
+            if (res != null)
             {
-                // 保存【被添加自动回复  或者 消息自动回复】
-                ManageUser dbmodel = entity.ManageUser.Where(p => p.ID == id).FirstOrDefault();
-                if (dbmodel != null)
-                {
-                    TransformHelper.ConvertBToA(model, dbmodel);
-                }
+                model = AutoMapperClient.MapTo<ManageUser, ManageUserModel>(res);
             }
             return model;
+        }
+
+
+        public int DeleteByID(long id)
+        {
+            var res = repository.GetEntityByID(id);
+            var flag = repository.Delete(res);
+            return flag;
+        }
+
+        public long Save(ManageUserModel model)
+        {
+            ManageUser entity = new ManageUser();
+            entity = AutoMapperClient.MapTo<ManageUserModel, ManageUser>(model);
+            long id = 0;
+            if (model.ID == 0)
+            {
+
+                id = repository.Insert(entity);
+            }
+            else
+            {
+                id = repository.Update(entity);
+            }
+            return id;
         }
 
         public ManageUserModel UserInfo_CheckLogin(string loginName, string password, ref string msg)
@@ -126,6 +105,25 @@ namespace Service
                 return dbmodel.ID;
             }
 
+        }
+
+        public List<ManageUserModel> GetAll()
+        {
+            List<ManageUserModel> models = new List<ManageUserModel>();
+            var res = repository.GetEntities();
+
+            foreach (var item in res)
+            {
+                ManageUserModel model = new ManageUserModel();
+                model = AutoMapperClient.MapTo<ManageUser, ManageUserModel>(item);
+                if (!string.IsNullOrWhiteSpace(item.AreaCodeID) && item.AreaCodeID!="0")
+                {
+                    model.Province = _AreaService.GetByCodeID(item.AreaCodeID).name;
+                }
+              
+                models.Add(model);
+            }
+            return models;
         }
     }
 }

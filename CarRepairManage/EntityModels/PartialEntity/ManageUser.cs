@@ -18,6 +18,33 @@
             set { _loginname = value; }
         }
         /// <summary>
+        /// Openid
+        /// </summary>		
+        private string _openid;
+        public string Openid
+        {
+            get { return _openid; }
+            set { _openid = value; }
+        }
+        /// <summary>
+        /// AreaCodeID
+        /// </summary>		
+        private string _areacodeid;
+        public string AreaCodeID
+        {
+            get { return _areacodeid; }
+            set { _areacodeid = value; }
+        }
+        /// <summary>
+        /// Permission
+        /// </summary>		
+        private string _permission;
+        public string Permission
+        {
+            get { return _permission; }
+            set { _permission = value; }
+        }
+        /// <summary>
         /// Password
         /// </summary>		
         private string _password;
@@ -107,6 +134,8 @@
             get { return _lastactivetime; }
             set { _lastactivetime = value; }
         }
+
+
 
 
     }

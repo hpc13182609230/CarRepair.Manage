@@ -1,5 +1,6 @@
 ﻿using HelperLib;
 using LogLib;
+using Newtonsoft.Json.Linq;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -91,7 +92,6 @@ namespace CarRepairWeb.Controllers
                     //TimeOutLog(traceID, "初始化 参数", timeOutThreshold, ref watch);
                     #endregion
 
-
                     #region 获取 微信用户信息
                     //FromUserName = "oqtR-w-Ik-2eXjD5PVMqAccC7w-M";
                     WX_BaseModel_UserInfo userInfo = WeChatServiceHelper.WX_API_GetUserInfo_ByOpenID(FromUserName);//根据openid获取用户的基本信息
@@ -118,7 +118,42 @@ namespace CarRepairWeb.Controllers
                     TimeOutLog(traceID,  "DB  用户信息保存 SaveUserInfo", timeOutThreshold, ref watch);
                     #endregion
 
-                    AccessToCustomerSystem(response, FromUserName, ToUserName, CreateTime.ToString());
+                    if (MsgType == "event")//消息的来源 是  接收事件推送  
+                    {
+                        string _Event = WeChatServiceHelper.GetJsonValue_JObject(WX_InputStream_Json, "Event");
+                        if (_Event == "subscribe")//subscribe(订阅)|unsubscribe(取消订阅)
+                        {
+                            #region  订阅公众号 订阅时的自动回复
+
+                            string newsID = "DwDVF-oaQyQ4Y_AaM-s9O9BLjY5ZZssKEM4anxK8GyA";
+                            List<WX_Model_ReplyMSG_News_Article> Articles = new List<WX_Model_ReplyMSG_News_Article>();
+
+                            List<JToken> jb_List_Articles = WeChatServiceHelper.WX_API_GetURL_News(newsID);
+                            //Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.WriteInfomation.ToString, "jb_List_Articles = ：" + TransformHelper.SerializeObject(jb_List_Articles) + "\r\n");
+                            foreach (var article in jb_List_Articles)
+                            {
+                                WX_Model_ReplyMSG_News_Article _WXArticleModel = new WX_Model_ReplyMSG_News_Article();
+
+                                _WXArticleModel.Title = article["title"].ToString();
+                                _WXArticleModel.Url = article["url"].ToString();
+                                _WXArticleModel.Description = article["content"].ToString();
+                                _WXArticleModel.PicUrl = article["thumb_url"].ToString();
+
+                                Articles.Add(_WXArticleModel);
+                            }
+
+                            WX_Model_ReplyMSG_News _WX_Model_ReplyMSG_News = new WX_Model_ReplyMSG_News() { ToUserName = FromUserName, FromUserName = ToUserName, CreateTime = CreateTime,Articles=Articles };
+                            string msg = WeChatServiceHelper.WX_API_AutomaticReply_News(_WX_Model_ReplyMSG_News, response);
+                            //TimeOutLog(traceID, "DB  subscribe(订阅)", timeOutThreshold, ref watch);
+                            #endregion
+                        }
+                    }
+                    else//消息的来源  是  接收普通消息
+                    {
+
+                    }
+
+                     AccessToCustomerSystem(response, FromUserName, ToUserName, CreateTime.ToString());
                 }
             }
             catch (Exception ex)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace ViewModels.CarRepair
 {
@@ -14,7 +15,7 @@ namespace ViewModels.CarRepair
         private string _openid;
         public string Openid
         {
-            get { return _openid; }
+            get { return _openid??""; }
             set { _openid = value; }
         }
         /// <summary>
@@ -23,7 +24,7 @@ namespace ViewModels.CarRepair
         private string _companyname;
         public string CompanyName
         {
-            get { return _companyname; }
+            get { return _companyname ?? ""; }
             set { _companyname = value; }
         }
         /// <summary>
@@ -32,17 +33,17 @@ namespace ViewModels.CarRepair
         private string _bossname;
         public string BossName
         {
-            get { return _bossname; }
+            get { return _bossname ?? ""; }
             set { _bossname = value; }
         }
 
         /// <summary>
-        /// 手机号 支持多个 , 连接
+        /// 用户 唯一标识
         /// </summary>
         private string _phone;
         public string Phone
         {
-            get { return _phone; }
+            get { return _phone ?? ""; }
             set { _phone = value; }
         }
 
@@ -52,7 +53,7 @@ namespace ViewModels.CarRepair
         private string _mobile;
         public string Mobile
         {
-            get { return _mobile; }
+            get { return _mobile ?? ""; }
             set { _mobile = value; }
         }
 
@@ -73,7 +74,7 @@ namespace ViewModels.CarRepair
         private string _note;
         public string Note
         {
-            get { return _note; }
+            get { return _note ?? ""; }
             set { _note = value; }
         }
         /// <summary>
@@ -82,18 +83,18 @@ namespace ViewModels.CarRepair
         private string _remark;
         public string Remark
         {
-            get { return _remark; }
+            get { return _remark ?? ""; }
             set { _remark = value; }
         }
 
 
         /// <summary>
-        /// Remark
+        /// 暂无图片 显示默认图片
         /// </summary>		
         private string _pictureurl;
         public string PictureURL
         {
-            get { return "https://xcx.xiuchebibei.com/piclib/default.png"; }
+            get { return ConfigurationManager.AppSettings["DomainName_WebAPI_Http"] + ConfigurationManager.AppSettings["DefaultImage"];  }
             set { _pictureurl = value; }
         }
 

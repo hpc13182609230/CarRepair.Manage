@@ -214,9 +214,9 @@
                 </li>
                 @foreach (var item in menus_Parent)
                  {
-                <li class="start active ">
+                <li class="start @*active*@ ">
                     <a href="@item.Url">
-                        <i class="icon-home"></i>
+                        <i class="@item.Icon"></i>
                         <span class="title">@item.Name</span>
                         <span class="selected"></span>
                     </a>
@@ -298,10 +298,10 @@
 		    //Index.initDashboardDaterange();
 		    //Index.initIntro();
             //UIGeneral.init();
-            debugger;
-            var pathname = window.location.window.location;
+            //debugger;
+            var pathname = window.location.pathname;
             var menus = $('.page-sidebar-menu li');
-            var menu = $()
+            //var menu = $()
 		});
     </script>
     <!-- END JAVASCRIPTS -->

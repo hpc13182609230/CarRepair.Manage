@@ -226,7 +226,7 @@ namespace Service
                 if (!string.IsNullOrWhiteSpace(msgid))
                 {
                     WXMessageTemplateModel model = new WXMessageTemplateModel();
-                    //model.WechatUserID = WechatUserID;
+                    model.WechatUserID = 0;
                     model.PartsCompanyID = _PartsCompanyModel.ID;
                     model.Touser = _PartsCompanyModel.Contract;
                     model.Template_id = template_id;
@@ -238,7 +238,7 @@ namespace Service
                 }
                 else
                 {
-                    Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " 推送失败 = ：" + _PartsCompanyModel.Contract + "\r\n");
+                    Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " 推送失败 = ：" + _PartsCompanyModel.Contract + "\r\n"); 
                 }
                 return true;
             }
@@ -263,6 +263,21 @@ namespace Service
                 model = AutoMapperClient.MapTo<WXMessageTemplate, WXMessageTemplateModel>(res);
             }
             return model;
+        }
+
+
+        public List<WXMessageTemplateModel> GetListByPageAndPartsCompanyIDs(List<long> PartsCompanyIDs, DateTime startTime, DateTime endTime, ref PageInfoModel page)
+        {
+            int total = 0;
+            List<WXMessageTemplateModel> models = new List<WXMessageTemplateModel>();
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => PartsCompanyIDs.Contains(p.PartsCompanyID) && p.CreateTime >= startTime && p.CreateTime <= endTime, p => p.ID);
+            page.TotalCount = total;
+            foreach (var item in entities)
+            {
+                WXMessageTemplateModel model = AutoMapperClient.MapTo<WXMessageTemplate, WXMessageTemplateModel>(item);
+                models.Add(model);
+            }
+            return models;
         }
 
     }

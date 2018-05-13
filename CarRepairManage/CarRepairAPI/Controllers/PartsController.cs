@@ -128,7 +128,7 @@ namespace CarRepairAPI.Controllers
                 }
                 else
                 {
-                    result.data = code;
+                    //result.data = code;
                 }
             }
             #endregion
@@ -164,6 +164,12 @@ namespace CarRepairAPI.Controllers
             else
             {
                 PartsCompanyModel _PartsCompanyModel = _PartsCompanyService.GetByLoginToken(requestData.LoginToken);
+                if (_PartsCompanyModel.ID==0)
+                {
+                    result.result = -1;
+                    result.message = "LoginToken无效，请重新登录";
+                    return result;
+                }
                 GarageModel _GarageModel = _GarageService.GetAndSaveByNumber(requestData.Number);
                 PartsCallRecordModel _PartsCallRecordModel = new PartsCallRecordModel();      
                 _PartsCallRecordModel.CallID = requestData.CallID;
@@ -171,6 +177,7 @@ namespace CarRepairAPI.Controllers
                 _PartsCallRecordModel.Openid = _PartsCompanyModel.Contract;
                 _PartsCallRecordModel.GarageID = _GarageModel.ID;
                 _PartsCallRecordModel.Remark = requestData.Number;
+                _PartsCallRecordModel.Phone = _GarageModel.Phone;
                 _PartsCallRecordService.Save(_PartsCallRecordModel);
 
                 result.data = _GarageModel;

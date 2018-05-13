@@ -9,6 +9,7 @@ using AutoMapperLib;
 using Repository;
 using ViewModels;
 using HelperLib;
+using RedisLib;
 
 namespace Service
 {
@@ -16,6 +17,7 @@ namespace Service
     {
         PartsCompanyRepository repository = new PartsCompanyRepository();
         AreaService _AreaService = new AreaService();
+        private static int RedisTTL = 3 * 24 * 60 * 60;//单位是秒
 
         public PartsCompanyModel GetByID(long id)
         {
@@ -60,6 +62,19 @@ namespace Service
                 model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
                 models.Add(model);
             }          
+            return models;
+        }
+
+        public List<PartsCompanyModel> GetByOpenids(List<string> Openids)
+        {
+            List<PartsCompanyModel> models = new List<PartsCompanyModel>();
+            var res = repository.GetEntities(p => Openids.Contains(p.Contract));
+            foreach (var item in res)
+            {
+                PartsCompanyModel model = new PartsCompanyModel();
+                model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                models.Add(model);
+            }
             return models;
         }
 
@@ -171,6 +186,28 @@ namespace Service
             return LoginToken;
         }
 
+        /// <summary>
+        /// 获取 不同地域下的 配件商 【做缓存处理】
+        /// </summary>
+        /// <param name="codeID"></param>
+        /// <returns></returns>
+        public List<PartsCompanyModel> GetListByCodeID(string codeID)
+        {
+            string redisKey = CommonUtil.RedisKey.PartsCompany_CodeID.ToString() + ':' + codeID;
+            List<PartsCompanyModel> models = StackExchangeRedisClient.StringGet<List<PartsCompanyModel>>(redisKey);
+            if (models==null)
+            {
+                models = new List<PartsCompanyModel>();
+                var entities = repository.GetEntities(p => p.codeID == codeID, o => o.ID, false);
+                foreach (var item in entities)
+                {
+                    PartsCompanyModel model = AutoMapperClient.MapTo<PartsCompany, PartsCompanyModel>(item);
+                    models.Add(model);
+                }
+                StackExchangeRedisClient.StringSet(redisKey, models,0,DateTime.Now.AddSeconds(RedisTTL));
+            }
+            return models;
+        }
 
     }
 }

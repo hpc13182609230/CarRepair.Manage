@@ -9,7 +9,7 @@ namespace ViewModels.CarRepair
     public class WXMessageTemplateModel : BaseModel
     {
         /// <summary>
-        /// WechatUserID
+        /// WechatUserID  发送方 小程序的  WechatUser 的主键 id
         /// </summary>		
         private long _wechatuserid;
         public long WechatUserID
@@ -27,7 +27,7 @@ namespace ViewModels.CarRepair
             set { _partscompanyid = value; }
         }
         /// <summary>
-        /// Touser
+        /// Touser 接收方下 微信服务号 openid 
         /// </summary>		
         private string _touser;
         public string Touser
@@ -80,5 +80,27 @@ namespace ViewModels.CarRepair
             get { return _note; }
             set { _note = value; }
         }
+
+
+        /// <summary>
+        /// 发送方 小程序的 用户 昵称  （根据 WechatUser 的主键 id ） 
+        /// </summary>
+        public string  WechatUserNiceNanme { get; set; }
+
+        /// <summary>
+        /// 配件商 名称
+        /// </summary>
+        public string CompanyNanme { get; set; }
+
+        /// <summary>
+        /// 配件商  的 微信 昵称
+        /// </summary>
+        public string CompanyWXNiceNanme { get; set; }
+
+        /// <summary>
+        /// 推送类型
+        /// </summary>
+        public string PushType { get; set; }
+
     }
 }

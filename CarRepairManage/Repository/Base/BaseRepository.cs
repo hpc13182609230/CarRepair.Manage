@@ -164,7 +164,7 @@ namespace Repository
             }
         }
 
-        public int Update(T entity)
+        public long Update(T entity)
         {
             using (DB db = new DB())
             {
@@ -175,7 +175,7 @@ namespace Repository
 
                 dbSet.Attach(entity);
                 db.Entry(entity).State = EntityState.Modified;
-                return db.SaveChanges();
+                return db.SaveChanges()>0? entity.ID: 0;
                
             }
         }

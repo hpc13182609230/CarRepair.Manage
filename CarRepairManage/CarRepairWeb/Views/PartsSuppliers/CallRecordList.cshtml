@@ -68,24 +68,26 @@
                         <thead>
                             <tr>
                                 <th>配件商名称</th>
-                                <th>用户openid</th>
-                                <th class="hidden-phone">修理厂的ID</th>
+                                <th>配件商openid</th>
+                                <th>修理厂ID</th>
+                                <th>来电号码</th>
                                 <th>通话ID</th>
-                                <th>通话时间</th>
-                                <th class="hidden-phone">通话时长</th>
+                                <th>通话时长</th>
+                                <th class="hidden-phone">通话时间</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in models)
                             {
-                                <tr ID="@(item.ID)">
-                                    <td><img src="@item.PartsName" /></td>
-                                    <td class="hidden-phone">@(item.Openid)</td>
-                                    <td class="hidden-phone">@(item.GarageID)</td>
-                                    <td>@(item.CallID)</td>
-                                    <td class="hidden-phone">@(item.CallTime)</td>
-                                    <td class="hidden-phone">@(item.CreateTime)</td>
-                                </tr>
+                            <tr ID="@(item.ID)">
+                                <td>@item.PartsName</td>
+                                <td class="hidden-phone">@(item.Openid)</td>
+                                <td class="hidden-phone">@(item.GarageID)</td>
+                                <td class="hidden-phone">@(item.Phone)</td>
+                                <td>@(item.CallID)</td>
+                                <td class="hidden-phone">@(item.CallTime)</td>
+                                <td class="hidden-phone">@(item.CreateTime)</td>
+                            </tr>
                             }
                         </tbody>
                     </table>

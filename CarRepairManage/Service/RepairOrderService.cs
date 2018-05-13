@@ -33,7 +33,7 @@ namespace Service
             return flag;
         }
 
-        public int UpdateStatu(long id ,int statu)
+        public long UpdateStatu(long id ,int statu)
         { 
             PurchaseOrderRepository repository = new PurchaseOrderRepository();
             var entity = repository.GetEntityByID(id);

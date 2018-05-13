@@ -11,12 +11,14 @@ using ViewModels;
 using HelperLib;
 using ViewModels.Utility;
 using LogLib;
+using RedisLib;
 
 namespace Service
 {
     public class PartsCompanyBindWechatUserService
     {
         PartsCompanyBindWechatUserRepository repository = new PartsCompanyBindWechatUserRepository();
+        private static int RedisTTL = 1 * 24 * 60 * 60;//单位是秒
 
         public PartsCompanyBindWechatUserModel GetByID(long id)
         {
@@ -82,7 +84,29 @@ namespace Service
             return models;
         }
 
+        /// <summary>
+        /// 根据时间 获取配件商 的 绑定关系
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public List<PartsCompanyBindWechatUserModel> GetListByDate(DateTime date)
+        {
+            string redisKey = CommonUtil.RedisKey.PartsCompanyBindWechatUser_Date.ToString() + ':' + date.ToString("yyyy-MM-dd");
+            List<PartsCompanyBindWechatUserModel> models = StackExchangeRedisClient.StringGet<List<PartsCompanyBindWechatUserModel>>(redisKey);
+            if (models == null)
+            {
+                models = new List<PartsCompanyBindWechatUserModel>();
+                var entities = repository.GetEntities(p => p.CreateTime >= date);
+                foreach (var item in entities)
+                {
+                    PartsCompanyBindWechatUserModel model = AutoMapperClient.MapTo<PartsCompanyBindWechatUser, PartsCompanyBindWechatUserModel>(item);
+                    models.Add(model);
+                }
+                StackExchangeRedisClient.StringSet(redisKey, models, 0, DateTime.Now.AddSeconds(RedisTTL));
+            }
+            return models;
 
+        }
 
     }
 }

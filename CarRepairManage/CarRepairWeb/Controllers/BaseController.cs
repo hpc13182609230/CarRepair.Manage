@@ -24,7 +24,7 @@ namespace CarRepairWeb.Controllers
             //验证session
             CheckLogin(filterContext);
             //获取  用户的菜单 权限
-            List<ManageMenuModel> menus = _ManageMenuService.GetAlll();
+            List<ManageMenuModel> menus = _ManageMenuService.GetAll();
             ViewBag.menus = menus;
             base.OnActionExecuting(filterContext);
         }

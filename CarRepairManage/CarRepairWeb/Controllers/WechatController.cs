@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ViewModels;
 using ViewModels.CarRepair;
 using WechatAppLib;
 
@@ -18,6 +19,14 @@ namespace CarRepairWeb.Controllers
     public class WechatController : BaseController
     {
         WXMenuService _WXMenuService = new WXMenuService();
+
+        BaseOptionsService _BaseOptionsService = new BaseOptionsService();
+        PartsCompanyService _PartsCompanyService = new PartsCompanyService();
+        PartsCallRecordService _PartsCallRecordService = new PartsCallRecordService();
+        AreaService _AreaService = new AreaService();
+        DateTime current = DateTime.Now.Date;
+        WXMessageTemplateService _WXMessageTemplateService = new WXMessageTemplateService();
+        WechatUserService _WechatUserService = new WechatUserService();
 
         #region 自定义菜单
 
@@ -209,6 +218,43 @@ namespace CarRepairWeb.Controllers
             List<string> OpenIDs = WeChatServiceHelper.WX_API_User_GetAll();
             WeChatServiceHelper.WX_SendMSG_OpenID(OpenIDs,WeChatServiceHelper.WX_MessageType.mpnews, NewsID);
             return Json(null,JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
+
+        #region 消息模板推送
+        //配件商 列表
+        public ActionResult WXMessageTemplate(string keyword, DateTime startTime, DateTime? endTime, string codeID = "370000", int pageIndex = 1, int pageSize = 10)
+        {
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+            endTime = endTime ?? DateTime.Now.Date;
+            List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
+            List<BaseOptionsModel> pushTypes = _BaseOptionsService.GetByParentID(8);
+            List<PartsCompanyModel> partsCompanys = _PartsCompanyService.GetListByCodeID(codeID).Where(p=>p.Name.Contains(keyword??"")).ToList();
+            List<long> partIDs = partsCompanys.Select(p => p.ID).Distinct().ToList();
+            List<AreaModel> provinces = _AreaService.GetListByParentID("0");
+            List<WXMessageTemplateModel> models = _WXMessageTemplateService.GetListByPageAndPartsCompanyIDs(partIDs,startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
+
+            List<WechatUserModel> _WechatUserModels = _WechatUserService.GetByIDs(models.Select(p=>p.WechatUserID).ToList());
+            foreach (var item in models)
+            {
+                item.PushType = pushTypes.Where(p => p.ID == item.BaseOptionsID).FirstOrDefault()?.Content;
+                item.CompanyNanme = partsCompanys.Where(p => p.ID == item.PartsCompanyID).FirstOrDefault()?.Name;
+                item.WechatUserNiceNanme = _WechatUserModels.Where(p => p.ID == item.WechatUserID).FirstOrDefault()?.NickName;
+            }
+
+
+            ViewBag.provinces = provinces;
+            ViewBag.page = page;
+            ViewBag.codeID = codeID;
+            ViewBag.startTime = startTime;
+            ViewBag.endTime = endTime;
+            ViewBag.options = options;
+            ViewBag.models = models;
+            ViewBag.keyword = keyword;
+
+            return View();
         }
 
         #endregion

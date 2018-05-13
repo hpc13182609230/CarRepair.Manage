@@ -3,7 +3,7 @@ $("[name=WXNewsPush]").click(function () {
     var that = $(this);
     var NewsID = that.attr("NewsID");
     var r=confirm("你确定推送图文吗，确认之后无法撤销");
-    if (r==true)
+    if (r)
     {
         $.ajax({
             type: 'GET',

@@ -22,7 +22,7 @@ namespace CarRepairAPI.Filter
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             NameValueCollection request = HttpContext.Current.Request.Form;
-            Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.WriteInfomation.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + "ex = ：" + TransformHelper.SerializeObject(request)+ "\r\n");
+            Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.WriteInfomation.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + "ex = ：" + request.ToString() + "\r\n");
             string msg = CheckRequest(request);
             if (!string.IsNullOrWhiteSpace(msg))//验证不通过
             {

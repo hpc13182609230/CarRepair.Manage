@@ -29,7 +29,7 @@ namespace ViewModels.CarRepair
         }
 
         /// <summary>
-        /// WXUser  的  openid ID
+        /// 配件商的 openid
         /// </summary>		
         private string _openid;
         public string Openid
@@ -48,7 +48,15 @@ namespace ViewModels.CarRepair
             set { _garageid = value; }
         }
 
-
+        /// <summary>
+        /// 手机号 用户的 唯一标识
+        /// </summary>
+        private string _phone;
+        public string Phone
+        {
+            get { return _phone; }
+            set { _phone = value; }
+        }
 
         /// <summary>
         /// Note

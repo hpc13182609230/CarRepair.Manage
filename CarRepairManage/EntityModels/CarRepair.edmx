@@ -76,7 +76,10 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LoginName" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Openid" Type="varchar" MaxLength="100" />
           <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="AreaCodeID" Type="varchar" MaxLength="100" />
+          <Property Name="Permission" Type="varchar" MaxLength="100" />
           <Property Name="Url" Type="varchar" MaxLength="100" />
           <Property Name="Info" Type="varchar" MaxLength="100" />
           <Property Name="Content" Type="varchar" MaxLength="500" />
@@ -97,6 +100,7 @@
           <Property Name="CallID" Type="bigint" Nullable="false" />
           <Property Name="CallTime" Type="bigint" Nullable="false" />
           <Property Name="Openid" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="GarageID" Type="bigint" Nullable="false" />
           <Property Name="Remark" Type="varchar" MaxLength="1000" />
           <Property Name="Note" Type="varchar" MaxLength="1000" />
@@ -408,6 +412,9 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Openid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AreaCodeID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Permission" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="WechatUser">
           <Key>
@@ -722,6 +729,7 @@
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -750,6 +758,9 @@
           <EntitySetMapping Name="ManageUser">
             <EntityTypeMapping TypeName="CarRepairModel.ManageUser">
               <MappingFragment StoreEntitySet="ManageUser">
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="AreaCodeID" ColumnName="AreaCodeID" />
+                <ScalarProperty Name="Openid" ColumnName="Openid" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
@@ -1061,6 +1072,7 @@
           <EntitySetMapping Name="PartsCallRecord">
             <EntityTypeMapping TypeName="CarRepairModel.PartsCallRecord">
               <MappingFragment StoreEntitySet="PartsCallRecord">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelTF" ColumnName="DelTF" />

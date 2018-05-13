@@ -65,7 +65,7 @@ namespace Service
             return models;
         }
 
-        public List<ManageMenuModel> GetAlll()
+        public List<ManageMenuModel> GetAll()
         {
             List<ManageMenuModel> models = new List<ManageMenuModel>();
             var res = repository.GetEntities();

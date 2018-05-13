@@ -32,7 +32,7 @@ namespace Repository
 
         long Insert(T entity);
 
-        int Update(T entity);
+        long Update(T entity);
 
         int Delete(T entity);
 

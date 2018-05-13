@@ -15,6 +15,7 @@ namespace Service
     {
         private static PartsCallRecordRepository repository = new PartsCallRecordRepository();
         private static PartsCompanyRepository _PartsCompanyRepository = new PartsCompanyRepository();
+        PartsCompanyService _PartsCompanyService = new PartsCompanyService();
 
         public PartsCallRecordModel GetByID(long id)
         {
@@ -84,6 +85,7 @@ namespace Service
                     foreach (var item in entities)
                     {
                         PartsCallRecordModel model = AutoMapperClient.MapTo<PartsCallRecord, PartsCallRecordModel>(item);
+                        model.PartsName = company.Name;
                         models.Add(model);
                     }
                 }
@@ -91,10 +93,16 @@ namespace Service
             else
             {
                 var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.CreateTime >= startTime && p.CreateTime<= endTime, p => p.ID);
+                List<string> Openids = entities.Where(p=>p.Openid!=null).Select(p => p.Openid).Distinct().ToList();
+                List<PartsCompanyModel> companys = _PartsCompanyService.GetByOpenids(Openids).ToList();
                 page.TotalCount = total;
                 foreach (var item in entities)
                 {
                     PartsCallRecordModel model = AutoMapperClient.MapTo<PartsCallRecord, PartsCallRecordModel>(item);
+
+                    var cpmpany = companys.Where(p => p.Contract == model.Openid).FirstOrDefault();
+                    model.PartsName = cpmpany==null?"": cpmpany.Name;
+
                     models.Add(model);
                 }
             }

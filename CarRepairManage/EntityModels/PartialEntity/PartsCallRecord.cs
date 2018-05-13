@@ -48,7 +48,15 @@
             set { _garageid = value; }
         }
 
-
+        /// <summary>
+        /// 手机号 用户的 唯一标识
+        /// </summary>
+        private string _phone;
+        public string Phone
+        {
+            get { return _phone; }
+            set { _phone = value; }
+        }
 
         /// <summary>
         /// Note

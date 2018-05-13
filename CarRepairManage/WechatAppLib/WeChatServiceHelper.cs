@@ -11,6 +11,7 @@ using System.Net;
 using System.IO;
 using System.Web;
 using System.Web.Security;
+using RedisLib;
 
 namespace WechatAppLib
 {
@@ -34,7 +35,7 @@ namespace WechatAppLib
         //微信公众号的推广id
         private static string Tgid_WX = ConfigureHelper.Get("Tgid_WX");//从配置文件中获取
 
-        private static string AccessToken_CacheKey = "XCBB_FWH:AccessToken";//从配置文件中获取
+        private static string AccessToken_CacheKey = "AccessToken_FWH:XiuCheBiBei";//从配置文件中获取
 
 
 
@@ -43,6 +44,9 @@ namespace WechatAppLib
         private static string refresh_token = "";
         private static string openid = "";
         private static string unionid = "";
+
+        private static int WX_AccessToken_Expire = 10;//min
+
         #endregion
 
         #region AccessToken相关
@@ -53,7 +57,7 @@ namespace WechatAppLib
             WX_Model_AccessToken _WX_Model_AccessToken = new WX_Model_AccessToken();
             try
             {
-                int expireMinute = 60;  //AccessToken的有效期时间
+                int expireMinute = WX_AccessToken_Expire;  //AccessToken的有效期时间
                 string url_base = "https://api.weixin.qq.com/cgi-bin/token";//get方式
                 string postData = "grant_type=" + Grant_Type + "&appid=" + AppID + "&secret=" + AppSecret;
                 string rtnStr = HttpHelper.HttpGet(url_base, postData);
@@ -137,7 +141,9 @@ namespace WechatAppLib
         public static WX_Model_AccessToken GetAccessTokenRedisValue()
         {
             string key = AccessToken_CacheKey;
-            WX_Model_AccessToken model =CacheHelper.GetCache<WX_Model_AccessToken>(key);
+            //WX_Model_AccessToken model =CacheHelper.GetCache<WX_Model_AccessToken>(key);
+            WX_Model_AccessToken model = StackExchangeRedisClient.StringGet<WX_Model_AccessToken>(key);
+           
             return model;  
         }
 
@@ -150,7 +156,8 @@ namespace WechatAppLib
             {
                 //RedisHelper _RedisHelper = new RedisHelper();
                 //_RedisHelper.Set(accessToken, key);
-                CacheHelper.SetCache(key, accessToken);
+                //CacheHelper.SetCache(key, accessToken);
+                StackExchangeRedisClient.StringSet<WX_Model_AccessToken>(key, accessToken,0, DateTime.Now.AddMinutes(WX_AccessToken_Expire));
                 return true;
             }
             catch (Exception ex)
@@ -1005,8 +1012,7 @@ namespace WechatAppLib
             WX_OutPutStream_Json = WX_OutPutStream_Json.Replace("[ArticleCount]", WX_Model_ReplyMSG_News.Articles.Count.ToString());
             WX_OutPutStream_Json = WX_OutPutStream_Json.Replace("[Articles]", resulu_Articles);
             //string WX_OutPutStream_Json = "<xml><ToUserName><![CDATA[" + WX_Model_ReplyMSG_Text.ToUserName + "]]></ToUserName>                                                                          <FromUserName><![CDATA[" + WX_Model_ReplyMSG_Text.FromUserName + "]]></FromUserName>                                                                    <CreateTime>" + WX_Model_ReplyMSG_Text.CreateTime + "</CreateTime>                                                                                      <MsgType><![CDATA[" + WX_Model_ReplyMSG_Text.MsgType + "]]></MsgType>                                                                                   <Content><![CDATA[" + WX_Model_ReplyMSG_Text.Content + "]]></Content></xml>";
-            Tracer.RunLog(MessageType.WriteInfomation, "", "log", "返回 news 的 xml:" + WX_OutPutStream_Json
-                                                                        + "\r\n");
+            //Tracer.RunLog(MessageType.WriteInfomation, "", "log", "返回 news 的 xml:" + WX_OutPutStream_Json + "\r\n");
             //XmlDocument  xml = TransformHelper.Convert_Json2Xml(WX_OutPutStream_Json);
             //{"ToUserName":"toUser","FromUserName":"fromUser","CreateTime":"12345678","MsgType":"text","Content":"你好"}
             response.ContentEncoding = Encoding.UTF8;
@@ -1368,6 +1374,10 @@ namespace WechatAppLib
             //返回格式{"errcode":0,"errmsg":"send job submission success","msg_id":34182,"msg_data_id":206227730}
             string rtnStr = HttpHelper.HttpPost(request_URL, postData);
             string msgid = GetJsonValue_JObject(rtnStr, "msgid");//(jb["media_id"] ?? "").ToString();     
+            if (string.IsNullOrWhiteSpace(msgid))
+            {
+                Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " msg = ：" + rtnStr + "\r\n");
+            }
             return msgid;
         }
 

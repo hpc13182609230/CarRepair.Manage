@@ -45,9 +45,9 @@ namespace CarRepairWeb.Controllers
         //配件商 单个详情
         public ActionResult PartDetail(int id=0)
         {
-            PartsCompanyModel model =id==0?new PartsCompanyModel() : service.GetByID(id);
+            PartsCompanyModel model =(id==0?new PartsCompanyModel() : service.GetByID(id));
 
-            //分类相关
+            //分类相关2
             List<BaseOptionsModel> options = _BaseOptionsService.GetByParentID(1);
             //PartsClassifyCompanyService _PartsClassifyCompanyService = new PartsClassifyCompanyService();
             //PartsClassifyCompanyModel PartsClassifyCompany = _PartsClassifyCompanyService.GetByPartsCompanyID(id);
@@ -95,26 +95,6 @@ namespace CarRepairWeb.Controllers
             Url_Path = UpLoad_Image(upImg);
             return Json(new { Url_Path = Url_Path }, JsonRequestBehavior.AllowGet);
         }
-
-       
-
-        //[HttpPost]
-        //public ActionResult Upload(HttpPostedFileBase upImg)
-        //{
-        //    string Url_Path = "";
-        //    try
-        //    {
-        //        Tracer.RunLog(MessageType.WriteInfomation, "", "log", "Upload start" + "\r\n");
-        //        string fileName = System.IO.Path.GetFileName(upImg.FileName);
-        //        Url_Path = UpLoad_Image(upImg);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Url_Path = ex.Message;
-        //        Tracer.RunLog(MessageType.WriteInfomation, "", "log", "Upload 异常 = ：" + ex + "\r\n");
-        //    }
-        //    return Json(new { Url_Path = Url_Path }, JsonRequestBehavior.AllowGet);
-        //}
 
         //将File文件保存到本地，返回物理的相对地址
         private string UpLoad_Image(HttpPostedFileBase file)

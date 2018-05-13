@@ -9,8 +9,22 @@ namespace ViewModels
     public abstract class BaseModel
     {
         public long ID { get; set; }
-        public Nullable<int> DelTF { get; set; }
+	
+        private Nullable<int> _deltf;
+        public Nullable<int> DelTF
+        {
+            get { return _deltf ?? 0; }
+            set { _deltf = value; }
+        }
+
         public System.DateTime CreateTime { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
+
+        private Nullable<DateTime> _updatetime;
+        public Nullable<DateTime> UpdateTime
+        {
+            get { return _updatetime ?? DateTime.MinValue; }
+            set { _updatetime = value; }
+        }
+
     }
 }

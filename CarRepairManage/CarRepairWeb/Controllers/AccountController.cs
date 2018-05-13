@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ViewModels;
+using ViewModels.CarRepair;
 
 namespace CarRepairWeb.Controllers
 {
@@ -48,15 +49,15 @@ namespace CarRepairWeb.Controllers
             if (_UserInfoModel != null)
             {
                 #region 验证成功，更新最后登录时间 ,保存到cookie和session中
-                _UserInfoService.UserInfo_Update_LastLoginTime(_UserInfoModel.id);
+                _UserInfoService.UserInfo_Update_LastLoginTime(_UserInfoModel.ID);
                 var cookie = new HttpCookie("UserName", _UserInfoModel.LoginName);
                 cookie.Expires = DateTime.Now.AddMonths(1);
                 Response.Cookies.Add(cookie);
 
                 Response.Cookies["AccessUserID"].Expires = DateTime.MaxValue;
-                Response.Cookies["AccessUserID"].Value = _UserInfoModel.id.ToString();
+                Response.Cookies["AccessUserID"].Value = _UserInfoModel.ID.ToString();
 
-                Utility.UserUtility.Current.SetLogin(_UserInfoModel.id, _UserInfoModel.LoginName);
+                Utility.UserUtility.Current.SetLogin(_UserInfoModel.ID, _UserInfoModel.LoginName);
 
                 //_DataResultModel.data = _UserInfoModel;
 

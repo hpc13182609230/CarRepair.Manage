@@ -36,7 +36,7 @@
         }
 
         /// <summary>
-        /// 手机号 支持多个 , 连接
+        /// 手机号 用户的 唯一标识
         /// </summary>
         private string _phone;
         public string Phone

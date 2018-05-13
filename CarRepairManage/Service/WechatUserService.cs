@@ -110,5 +110,18 @@ namespace Service
         }
 
 
+        public List<WechatUserModel> GetByIDs(List<long> ids)
+        {
+            List<WechatUserModel> models = new List<WechatUserModel>();
+            var entities = repository.GetEntities(p=>ids.Contains(p.ID));
+            foreach (var item in entities)
+            {
+                WechatUserModel model = AutoMapperClient.MapTo<WechatUser, WechatUserModel>(item);
+                models.Add(model);
+            }
+            return models;
+        }
+
+
     }
 }

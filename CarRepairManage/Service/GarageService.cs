@@ -38,7 +38,7 @@ namespace Service
 
         public long Save(GarageModel model)
         {
-            Garage original = repository.GetEntity(p => p.Phone == model.Phone||p.Mobile==model.Mobile);
+            Garage original = repository.GetEntity(p => p.Phone == model.Phone);
             long id = 0;
             if (original == null)
             {

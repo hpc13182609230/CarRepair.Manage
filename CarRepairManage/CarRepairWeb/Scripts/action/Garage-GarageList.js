@@ -1,5 +1,4 @@
-﻿/// <reference path="PartsType-PartsClassfy.js" />
-jQuery(document).ready(function () {
+﻿jQuery(document).ready(function () {
     Search.init();
     if (jQuery().datepicker) {
         $('.date-picker').datepicker();
@@ -20,7 +19,7 @@ $("#UploadExcel").click(function () {
     //var dataString = new FormData(form);
     var formData = new FormData();
     var file = document.getElementById("file").files[0];
-    if (file == undefined) {
+    if (file === undefined) {
         alert("请先上传Excel表格");
         return;
     }
@@ -34,6 +33,21 @@ $("#UploadExcel").click(function () {
         contentType: false,
         success: function (data) {
             debugger;
+            if (data.result) {
+                alert("导入成功");
+                window.location.reload();
+            }
+            else {
+                alert(data.message);
+            }
         }
     });
+});
+
+//查看详情
+$("[name=goDetail]").click(function () {
+    var that = $(this);
+    var id = that.parents('tr').attr("id");
+    //window.location.href = "/Garage/GarageDetail?id=" + id;
+    window.open("/Garage/GarageDetail?id=" + id);
 });

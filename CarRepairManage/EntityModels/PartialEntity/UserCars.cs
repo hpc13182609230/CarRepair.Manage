@@ -98,6 +98,18 @@
             get { return _note; }
             set { _note = value; }
         }
+
+        public int InsuranceMonth { get; set; }
+        /// <summary>
+        /// InsuranceMonth
+        /// </summary>		
+        //private int _insurancemonth;
+        //public int InsuranceMonth
+        //{
+        //    get { return _insurancemonth; }
+        //    set { _insurancemonth = value; }
+        //}
+
     }
 }
 

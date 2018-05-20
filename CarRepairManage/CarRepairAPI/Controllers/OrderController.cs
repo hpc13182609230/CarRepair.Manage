@@ -245,14 +245,14 @@ namespace CarRepairAPI.Controllers
 
         [Route("GetRepairOrderList")]
         [HttpGet]
-        public DataResultModel GetRepairOrderList(long userid, int pageIndex = 1, int pageSize = 10)
+        public DataResultModel GetRepairOrderList(long userid,int? UserCarID =0, int pageIndex = 1, int pageSize = 10)
         {
             DataResultModel result = new DataResultModel();
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
             RepairOrderService service = new RepairOrderService();
             try
             {
-                result.data = service.GetListByPage(userid,  ref page);
+                result.data = service.GetListByPage(userid, UserCarID, ref page);
             }
             catch (Exception ex)
             {

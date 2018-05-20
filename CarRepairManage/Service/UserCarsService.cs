@@ -78,7 +78,7 @@ namespace Service
             keyword = keyword ?? "";
             List<UserCarsModel> models = new List<UserCarsModel>();
             UserCarsRepository repository = new UserCarsRepository();
-            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&p.CarNO.Contains(keyword),p=>p.ID);
+            var entities = repository.GetEntitiesForPaging(ref total,page.PageIndex,page.PageSize,p=>p.WechatUserID==WechatUserID&&(p.CarNO.Contains(keyword)||p.CarOwnerTel.Contains(keyword)||p.CarType.Contains(keyword)||p.CarOwnerName.Contains(keyword)),p=>p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {

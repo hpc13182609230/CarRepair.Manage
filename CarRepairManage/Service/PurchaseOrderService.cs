@@ -8,6 +8,7 @@ using ViewModels.CarRepair;
 using AutoMapperLib;
 using Repository;
 using ViewModels;
+using System.Linq.Expressions;
 
 namespace Service
 {
@@ -56,12 +57,17 @@ namespace Service
         /// <param name="WechatUserID"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public  List<RepairOrderModel> GetListByPage(long WechatUserID,ref PageInfoModel page)
+        public  List<RepairOrderModel> GetListByPage(long WechatUserID, int? UserCarID, ref PageInfoModel page)
         {
             int total = 0;
             List<RepairOrderModel> models = new List<RepairOrderModel>();
             RepairOrderRepository repository = new RepairOrderRepository();
-            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => p.WechatUserID == WechatUserID , p => p.ID);
+            Expression<Func<RepairOrder, bool>> query = (p => p.WechatUserID == WechatUserID);
+            if (UserCarID != null && UserCarID != 0)
+            {
+                query = (p => p.WechatUserID == WechatUserID && p.UserCarID == UserCarID);
+            }
+            var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, query, p => p.ID);
             page.TotalCount = total;
             foreach (var item in entities)
             {

@@ -232,12 +232,13 @@
           <Property Name="CarNO" Type="varchar" MaxLength="10" />
           <Property Name="CarOwnerName" Type="varchar" MaxLength="500" />
           <Property Name="CarOwnerTel" Type="varchar" MaxLength="50" />
-          <Property Name="InsuranceTime" Type="datetime" />
+          <Property Name="InsuranceTime" Type="datetime" Nullable="false" />
           <Property Name="Remark" Type="varchar" MaxLength="500" />
           <Property Name="Note" Type="varchar" MaxLength="500" />
           <Property Name="DelTF" Type="int" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="InsuranceMonth" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WechatUser">
           <Key>
@@ -587,13 +588,14 @@
           <Property Name="CarNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CarOwnerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="CarOwnerTel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="InsuranceTime" Type="DateTime" Precision="3" />
+          <Property Name="InsuranceTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="DelTF" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="AttributionChar" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="InsuranceMonth" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ZTest">
           <Key>
@@ -929,6 +931,7 @@
           <EntitySetMapping Name="UserCars">
             <EntityTypeMapping TypeName="CarRepairModel.UserCars">
               <MappingFragment StoreEntitySet="UserCars">
+                <ScalarProperty Name="InsuranceMonth" ColumnName="InsuranceMonth" />
                 <ScalarProperty Name="AttributionChar" ColumnName="AttributionChar" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />

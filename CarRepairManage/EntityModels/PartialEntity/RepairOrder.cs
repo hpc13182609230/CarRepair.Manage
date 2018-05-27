@@ -133,6 +133,17 @@
             get { return _carno; }
             set { _carno = value; }
         }
+
+        /// <summary>
+        /// 行驶里程
+        /// </summary>
+        public int Distance { get; set; }
+
+        /// <summary>
+        /// 单据图片
+        /// </summary>
+        public string PicURL { get; set; }
+
     }
 }
 

@@ -21,9 +21,10 @@ namespace TestConsole
         static void Main(string[] args)
         {
 
+
             #region test redis
-            string a = StackExchangeRedisClient.StringGet("a");
-            StackExchangeRedisClient.StringSet("a","b");
+            //string a = StackExchangeRedisClient.StringGet("a");
+            //StackExchangeRedisClient.StringSet("a","b");
             #endregion
 
             //var model =  service.GetByID(1);
@@ -47,10 +48,10 @@ namespace TestConsole
             //}
             #endregion
 
-            string accesstoken = "8_AacYDouoLFCYM8I0QI35uG-JtAZznzpcsEpcvhw4lUwd7sKGsSB8RpIbHrJC2YYoT1P7JbfIQGYWcPRtDQx4YoCadLci_0-kM1TWpCsJOONIWXStcksjtTR9sTUCupyNmIP2j9Oqzl81_Gn9ZSHbAEAPIX";
+            //string accesstoken = "8_AacYDouoLFCYM8I0QI35uG-JtAZznzpcsEpcvhw4lUwd7sKGsSB8RpIbHrJC2YYoT1P7JbfIQGYWcPRtDQx4YoCadLci_0-kM1TWpCsJOONIWXStcksjtTR9sTUCupyNmIP2j9Oqzl81_Gn9ZSHbAEAPIX";
             ////string param = "scene_str:tirelabel";
-            string param = "103";
-            WX_API_Create_QRcode_Forever(param, accesstoken);
+            //string param = "103";
+            //WX_API_Create_QRcode_Forever(param, accesstoken);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,19 @@ namespace ViewModels.CarRepair
         /// 单据图片
         /// </summary>
         public string PicURL { get; set; }
+
+
+        private string picURLShow;
+        public string PicURLShow
+        {
+            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\", "/"); }
+            set { picURLShow = value; }
+        }
+
+        //public string CreateTimeFormat
+        //{
+        //    get { return CreateTime.ToString("yyyy-MM-dd"); }
+        //}
 
     }
 }

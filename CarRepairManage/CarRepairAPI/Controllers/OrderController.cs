@@ -182,6 +182,7 @@ namespace CarRepairAPI.Controllers
             RepairOrderService service = new RepairOrderService();
             try
             {
+                model.PicURL = model.PicURL ?? "";
                 //model.RepairTime = Convert.ToDateTime(model.RepairTimeFormat);
                 result.data = service.Save(model);
             }
@@ -263,6 +264,42 @@ namespace CarRepairAPI.Controllers
         }
 
 
+        #region 财务统计 报表 相关
+        [Route("GetFinanceStatisticList")]
+        [HttpGet]
+        public DataResultModel GetFinanceStatisticList(long userid, DateTime startData, DateTime endData, int pageIndex = 1, int pageSize = 10)
+        {
+            startData = startData.Date;
+            endData = endData.Date.AddDays(1);
+            DataResultModel result = new DataResultModel();
+            RepairOrderService service = new RepairOrderService();
+            try
+            {
+                List<RepairOrderModel> models = service.GetList(userid, startData, endData);
+                foreach (var item in models)
+                {
+                    item.CreateTime = item.CreateTime.Date;
+                }
+
+                //IEnumerable<IGrouping<string, RepairOrderModel>> modelGroup = models.GroupBy(p => p.CreateTimeFormat);
+                var r = models.GroupBy(p => p.RepairTimeFormat).Select(g => (new { X = g.Key, Y = g.Sum(item => item.TotalPrice),Y1=g.Sum(item=>item.CostEvaluation) })).OrderBy(p=>p.X);
+
+                result.data = new {
+                    X = r.Select(p => p.X).ToList(),
+                    Y = r.Select(p => p.Y).ToList(),
+                    Y1 = r.Select(p => p.Y1).ToList(),
+                    Sum_TotalPrice = models.Sum(p=>p.TotalPrice),
+                    Sum_CostEvaluation = models.Sum(p => p.CostEvaluation) };
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return result;
+        }
+
+        #endregion
 
         #endregion
 

@@ -14,10 +14,10 @@ namespace Service
 {
     public class RepairOrderService
     {
+        RepairOrderRepository repository = new RepairOrderRepository();
         public RepairOrderModel GetByID(long id)
         {
             RepairOrderModel model = new RepairOrderModel();
-            RepairOrderRepository repository = new RepairOrderRepository();
             var res = repository.GetEntityByID(id);
             if (res!=null)
                 model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(res);
@@ -27,8 +27,6 @@ namespace Service
 
         public int DeleteByID(long id)
         {
-
-            RepairOrderRepository repository = new RepairOrderRepository();
             var res = repository.GetEntityByID(id);
             var flag = repository.Delete(res);
             return flag;
@@ -36,7 +34,6 @@ namespace Service
 
         public long Save(RepairOrderModel model)
         {
-            RepairOrderRepository repository = new RepairOrderRepository();
             RepairOrder entity = new RepairOrder();
             entity= AutoMapperClient.MapTo<RepairOrderModel, RepairOrder> (model);
             long id = 0;
@@ -61,7 +58,6 @@ namespace Service
         {
             int total = 0;
             List<RepairOrderModel> models = new List<RepairOrderModel>();
-            RepairOrderRepository repository = new RepairOrderRepository();
             Expression<Func<RepairOrder, bool>> query = (p => p.WechatUserID == WechatUserID);
             if (UserCarID != null && UserCarID != 0)
             {
@@ -80,9 +76,22 @@ namespace Service
 
         public int CountByUserID(long id)
         {
-            RepairOrderRepository repository = new RepairOrderRepository();
             var res = repository.GetEntitiesCount(p => p.WechatUserID == id);
             return res;
+        }
+
+        
+        public List<RepairOrderModel> GetList(long WechatUserID, DateTime startData, DateTime endData)
+        {
+            List<RepairOrderModel> models = new List<RepairOrderModel>();
+            Expression<Func<RepairOrder, bool>> query = (p => p.WechatUserID == WechatUserID && p.RepairTime >= startData && p.RepairTime < endData);
+            var entities = repository.GetEntities(query, p => p.ID);
+            foreach (var item in entities)
+            {
+                RepairOrderModel model = AutoMapperClient.MapTo<RepairOrder, RepairOrderModel>(item);
+                models.Add(model);
+            }
+            return models;
         }
     }
 }

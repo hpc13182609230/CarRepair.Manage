@@ -71,6 +71,9 @@ namespace CarRepairAPI.Controllers
             try
             {
                 PartsCompanyModel model = service.GetByID(id);
+
+                //model.Content = HtmlHelper.HTML_RemoveTag(model.Content);
+
                 result.data = model;
             }
             catch (Exception ex)

@@ -9,6 +9,9 @@ using ViewModels;
 
 namespace CarRepairWeb.Controllers
 {
+    /// <summary>
+    /// 配件 分类 相关
+    /// </summary>
     public class PartsTypeController : BaseController
     {
         // GET: PartsType

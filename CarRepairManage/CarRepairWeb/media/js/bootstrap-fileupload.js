@@ -41,7 +41,7 @@
 
     this.$preview = this.$element.find('.fileupload-preview')
     var height = this.$preview.css('height')
-    if (this.$preview.css('display') != 'inline' && height != '0px' && height != 'none') this.$preview.css('line-height', height)
+    if (this.$preview.css('display') !== 'inline' && height !== '0px' && height !== 'none') this.$preview.css('line-height', height)
 
     this.original = {
       'exists': this.$element.hasClass('fileupload-exists'),
@@ -83,7 +83,7 @@
         var element = this.$element
 
         reader.onload = function(e) {
-          preview.html('<img src="' + e.target.result + '" ' + (preview.css('max-height') != 'none' ? 'style="max-height: ' + preview.css('max-height') + ';"' : '') + ' />')
+          preview.html('<img src="' + e.target.result + '" ' + (preview.css('max-height') !== 'none' ? 'style="max-height: ' + preview.css('max-height') + ';"' : '') + ' />')
           element.addClass('fileupload-exists').removeClass('fileupload-new')
         }
 
@@ -94,24 +94,49 @@
       }
 
       debugger
-      //将图片上传到服务器
-      var form = $('#FormUpload')[0];
-      var dataString = new FormData(form);
-      $.ajax({
-          url: '/PartsSuppliers/Upload',  //Server script to process data
-          type: 'POST',
-          data: dataString,
-          contentType: false,
-          processData: false,
-          success: function (data) {
-              debugger;
-              if (data) {
-                  $('#PicURL').val(data.Url_Path);
-              }
-          }
-      });
-
-
+        //将图片上传到服务器
+        var form = $('#FormUpload')[0];
+        if (form) {
+            var formData  = new FormData(form);
+            $.ajax({
+                url: '/PartsSuppliers/Upload',  //Server script to process data
+                type: 'POST',
+                data: formData ,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    debugger;
+                    if (data) {
+                        $('#PicURL').val(data.Url_Path);
+                    }
+                }
+            });
+        }
+        //将图片上传到 七牛服务器
+        var QiNiuForm = $('#QiNiuFormUpload')[0];
+        if (QiNiuForm) {
+            var QiNiudataString = new FormData(QiNiuForm);
+            $.ajax({
+                url: '/Media/Upload',  //Server script to process data
+                type: 'POST',
+                data: QiNiudataString,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    debugger;
+                    if (data.result.result === 1) {
+                        $('#PicURL').attr("FileKey", data.result.key);
+                        $('#PicURL').attr("FileHash", data.result.hash);
+                        $('#PicURL').val(data.ShowURL);
+                    }
+                    else {
+                        alert(data.result.message);
+                    }
+                }
+            });
+        }
+     
     },
 
     clear: function(e) {
@@ -163,7 +188,7 @@
       var $this = $(this)
       , data = $this.data('fileupload')
       if (!data) $this.data('fileupload', (data = new Fileupload(this, options)))
-      if (typeof options == 'string') data[options]()
+      if (typeof options === 'string') data[options]()
     })
   }
 

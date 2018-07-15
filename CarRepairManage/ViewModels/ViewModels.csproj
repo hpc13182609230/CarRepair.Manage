@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="CarRepair\ShortVideoModel.cs" />
+    <Compile Include="CarRepair\VehicleTypeModel.cs" />
     <Compile Include="CarRepair\WXArticleModel.cs" />
     <Compile Include="CarRepair\WXMessageTemplateModel.cs" />
     <Compile Include="CarRepair\BaseOptionsModel.cs" />

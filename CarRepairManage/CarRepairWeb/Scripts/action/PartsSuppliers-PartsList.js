@@ -1,4 +1,6 @@
-﻿/// <reference path="PartsType-PartsClassfy.js" />
+﻿/// <reference path="PartsType-PartsClassfy.js" />//import { debug } from "util";
+
+
 jQuery(document).ready(function () {
     Search.init();
     if (jQuery().datepicker) {
@@ -136,5 +138,62 @@ $('[name="ChangeType"]').click(function () {
             });
         }
     })
-    
 
+
+//订单完成后台手动推送
+$('#portlet-config-push [name="save"]').click(function () {
+    debugger
+    var $this = $(this);//保存按钮
+    var model = $('#portlet-config-push');//分类层 隐藏
+
+    var pushDate = model.find('[name="pushDate"]').eq(0).val();
+    var userName = model.find('[name="userName"]').eq(0).val();
+    var partscompanyid = model.find('[name="partscompanyid"]').eq(0).val();
+
+    if (!userName) {
+        alert("名称不能为空");
+        return;
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '/Wechat/MessageTemplate_OrderComplete_Push',
+        data: { date: pushDate, userName: userName, partscompanyid: partscompanyid },
+        success: function (data) {
+            debugger
+            if (data.result > 0) {
+                alert('推送成功');
+                //location.reload();
+            }
+            else {
+                alert(data.message);
+            }
+        }
+    });
+
+});
+
+//分类 打开 推送层 并初始化
+$('[name="OrderComplete_Push"]').click(function () {
+    //debugger
+    var $this = $(this);//修改分类 按钮
+    var model = $('#portlet-config-push');//层model
+    var partscompanyid = $this.parent().parent().attr("partscompanyid");//赋值 配件商 id
+
+    var openid = $this.parent().parent().find('td').eq(3).text();
+    if (!openid) {
+        alert("该配件商还未绑定服务号，请先关注后再推送");
+        return;
+    }
+
+    model.find('[name = "partscompanyid"]').val(partscompanyid);
+    model.find('[name = "userName"]').val();
+
+    model.show();
+});
+
+$('#portlet-config-push .close').click(function () {
+    debugger
+    var model = $('#portlet-config-push');
+    model.hide();
+});

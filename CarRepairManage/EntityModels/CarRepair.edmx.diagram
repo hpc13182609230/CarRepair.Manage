@@ -23,6 +23,8 @@
         <EntityTypeShape EntityType="CarRepairModel.WXMenu" Width="1.5" PointX="3.375" PointY="13.75" />
         <EntityTypeShape EntityType="CarRepairModel.Garage" Width="1.5" PointX="13.375" PointY="5.75" />
         <EntityTypeShape EntityType="CarRepairModel.PartsCallRecord" Width="1.5" PointX="13.375" PointY="10.75" />
+        <EntityTypeShape EntityType="CarRepairModel.ShortVideo" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CarRepairModel.VehicleType" Width="1.5" PointX="5.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

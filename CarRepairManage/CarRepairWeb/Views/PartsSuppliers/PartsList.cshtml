@@ -48,6 +48,39 @@
     </div>
 </div>
 
+<div id="portlet-config-push" class="modal hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>手动推送</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            <div class="control-group">
+                <label class="control-label">时间</label>
+                <div class="controls">
+                    <input name="pushDate" type="text" class="m-wra tags" value="@(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">用户名称</label>
+                <div class="controls">
+                    <input name="userName" type="text" class="m-wra tags" value="">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">配件商id</label>
+                <div class="controls">
+                    <input name="partscompanyid" type="text" class="m-wra tags" value="">
+                </div>
+            </div>
+
+            <button name="save" class="btn blue" style="text-align:center;margin:0 auto">推送</button>
+        </div>
+    </div>
+</div>
+
 @*<div id="ChangeExpireTimeModel" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button"></button>
@@ -124,7 +157,6 @@
                                     }
                                 }
                             </div>
-                          
                         </div>
 
                         <div class="chat-form">
@@ -170,7 +202,7 @@
                                             <div name="goDetail" class="btn mini red-stripe">查看详情</div>
                                         </a>
                                         <div name="Delete" class="btn mini red-stripe">删除</div>
-                                        @*<div name="ChangeExpireTime" class="btn mini red-stripe" href="#">修改时间</div>*@
+                                        <div name="OrderComplete_Push" class="btn mini red-stripe" href="#">推送</div>
                                     </td>
                                 </tr>
                             }
@@ -179,22 +211,7 @@
                 </div>
 
                 @Html.Partial("_Pager", ViewBag.Page as ViewModels.PageInfoModel)
-
-                @*<div class="space5"></div>
-                    <div class="pagination pagination-right">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li class="active"><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>*@
-
             </div>
-
         </div>
         <!--end tabbable-->
     </div>

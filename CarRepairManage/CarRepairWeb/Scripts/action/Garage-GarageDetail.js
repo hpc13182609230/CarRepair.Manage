@@ -50,30 +50,3 @@ $('#codeID').find("span").click(function () {
 })
 
 
-//异步上传图片 此处代码已迁移到 bootstrap-fileupload
-//$("#btnUpload").click(function () {
-//    //var file = $('.btn.btn-file  [type="file"]');
-//    //if ($("#upImage").val() == "") {
-//    //    alert("请选择一个图片文件，再点击上传。");
-//    //    return;
-//    //}
-//    debugger
-//    var form = $('#FormUpload')[0];
-//    var dataString = new FormData(form);
-//    $.ajax({
-//        url: '/PartsSuppliers/Upload',  //Server script to process data
-//        type: 'POST',
-//        data: dataString,
-//        contentType: false,
-//        processData: false,
-//        success: function (data) {
-//            debugger;
-//            if (data) {
-//                //alert(data.Url_Path);
-//                $('#PicURL').val(data.Url_Path);
-//                //$('#FormUpload img').attr("src",data.Url_Show);
-//            }
-//        }
-//    });
-//});
-

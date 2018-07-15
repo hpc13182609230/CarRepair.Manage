@@ -62,6 +62,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CarRepair.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PartialEntity\ShortVideo.cs" />
+    <Compile Include="PartialEntity\VehicleType.cs" />
     <Compile Include="PartialEntity\PartsCompanyBindWechatUser.cs" />
     <Compile Include="PartialEntity\WXMenu.cs" />
     <Compile Include="PartialEntity\WXMessageTemplate.cs" />

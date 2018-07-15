@@ -14,16 +14,19 @@ namespace CarRepairAPI.Controllers
     [RoutePrefix("api/Classify")]
     public class ClassifyController : ApiController
     {
+        PartsClassifyService _PartsClassifyService = new PartsClassifyService();
+        PartsCompanyService _PartsCompanyService = new PartsCompanyService();
+        VehicleTypeService _VehicleTypeService = new VehicleTypeService();
+
         //根据一级分类 获取分类列表
         [Route("GetPartsClassifyList")]
         [HttpGet]
         public DataResultModel GetPartsClassifyList(long OptionID,string keyword)
         {
             DataResultModel result = new DataResultModel();
-            PartsClassifyService service = new PartsClassifyService();
             try
             {
-                List<PartsClassifyModel> models = service.SearchAllByParentIDThenOrder(OptionID,keyword);
+                List<PartsClassifyModel> models = _PartsClassifyService.SearchAllByParentIDThenOrder(OptionID,keyword);
                 result.data = models;
             }
             catch (Exception ex)
@@ -43,10 +46,10 @@ namespace CarRepairAPI.Controllers
             PageInfoModel page = new PageInfoModel() { PageIndex=1,PageSize=100};
             DateTime start= new DateTime(2017, 1, 1, 0, 00, 00, 001); //正确
             DataResultModel result = new DataResultModel();
-            PartsCompanyService service = new PartsCompanyService();
+           
             try
             {
-                List<PartsCompanyModel> data = service.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, codeID,ref page);
+                List<PartsCompanyModel> data = _PartsCompanyService.GetListByPage(keyword, partsClassifyID, start, DateTime.Now, codeID,ref page);
                 foreach (var item in data)
                 {
                     item.Content = HtmlHelper.HTML_RemoveTag(item.Content);
@@ -67,13 +70,11 @@ namespace CarRepairAPI.Controllers
         public DataResultModel GetPartsCompany(long id)
         {
             DataResultModel result = new DataResultModel();
-            PartsCompanyService service = new PartsCompanyService();
             try
             {
-                PartsCompanyModel model = service.GetByID(id);
-
+                PartsCompanyModel model = _PartsCompanyService.GetByID(id,false);
+                model.PicURLShow = model.PicURLShow.Replace("?imageView2/2/w/200", "");
                 //model.Content = HtmlHelper.HTML_RemoveTag(model.Content);
-
                 result.data = model;
             }
             catch (Exception ex)
@@ -98,11 +99,10 @@ namespace CarRepairAPI.Controllers
         public DataResultModel SearchPartsCompany(string keyword, string codeID = "370000", int pageIndex = 1, int pageSize = 10)
         {
             DataResultModel result = new DataResultModel();
-            PartsCompanyService service = new PartsCompanyService();
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
             try
             {
-                List<PartsCompanyModel> models = service.GetListByPage(keyword, codeID, new DateTime(2017,1,1), DateTime.Now, ref page);
+                List<PartsCompanyModel> models = _PartsCompanyService.GetListByPage(keyword, codeID, new DateTime(2017,1,1), DateTime.Now, ref page);
                 foreach (var item in models)
                 {
                     item.Content = HtmlHelper.HTML_RemoveTag(item.Content);
@@ -117,8 +117,29 @@ namespace CarRepairAPI.Controllers
             return result;
         }
 
-
-
+        #region 车型
+        /// <summary>
+        /// 获取所有车型 【缓存】
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetVehicleTypeList")]
+        [HttpGet]
+        public DataResultModel GetVehicleTypeList()
+        {
+            DataResultModel result = new DataResultModel();
+            try
+            {
+                List<VehicleTypeModel> models = _VehicleTypeService.GetAll().OrderBy(p=>p.Name_FC).ThenBy(p=>p.ID).ToList();
+                result.data = models;
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return result;
+        }
+        #endregion
 
     }
 }

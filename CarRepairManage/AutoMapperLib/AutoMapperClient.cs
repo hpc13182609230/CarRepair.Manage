@@ -50,6 +50,8 @@ namespace AutoMapperLib
                 cfg.CreateMap<WXMessageTemplate, WXMessageTemplateModel>();
                 cfg.CreateMap<WXUser, WXUserModel>();
                 cfg.CreateMap<WXMenu, WXMenuModel>();
+                cfg.CreateMap<VehicleType, VehicleTypeModel>();
+                cfg.CreateMap<ShortVideo, ShortVideoModel>();
             }); 
             return config;
         }

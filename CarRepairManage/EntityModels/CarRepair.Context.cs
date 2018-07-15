@@ -43,5 +43,7 @@ namespace EntityModels
         public virtual DbSet<WXMenu> WXMenu { get; set; }
         public virtual DbSet<Garage> Garage { get; set; }
         public virtual DbSet<PartsCallRecord> PartsCallRecord { get; set; }
+        public virtual DbSet<ShortVideo> ShortVideo { get; set; }
+        public virtual DbSet<VehicleType> VehicleType { get; set; }
     }
 }

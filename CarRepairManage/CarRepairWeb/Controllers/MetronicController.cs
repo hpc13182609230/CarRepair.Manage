@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 namespace CarRepairWeb.Controllers
 {
+    /// <summary>
+    /// metronic 模板 相关
+    /// </summary>
     public class MetronicController : Controller
     {
         // GET: metronic

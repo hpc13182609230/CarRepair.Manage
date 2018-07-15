@@ -13,6 +13,9 @@ using WechatAppLib;
 
 namespace CarRepairWeb.Controllers
 {
+    /// <summary>
+    /// 后台 系统设置相关
+    /// </summary>
     public class SystemController : BaseController
     {
         ManageUserService _ManageUserService = new ManageUserService();

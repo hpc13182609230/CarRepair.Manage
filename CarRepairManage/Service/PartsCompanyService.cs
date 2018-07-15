@@ -30,6 +30,23 @@ namespace Service
             return model;
         }
 
+        /// <summary>
+        /// 获取model
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="showMiniImage">是否显示 小图</param>
+        /// <returns></returns>
+        public PartsCompanyModel GetByID(long id,bool showMiniImage)
+        {
+            PartsCompanyModel model = new PartsCompanyModel(showMiniImage);
+            var res = repository.GetEntityByID(id);
+            if (res != null)
+            {
+                TransformHelper.ConvertBToA(model, res);
+            }
+            return model;
+        }
+
         public PartsCompanyModel GetByLoginToken(string LoginToken)
         {
             PartsCompanyModel model = new PartsCompanyModel();

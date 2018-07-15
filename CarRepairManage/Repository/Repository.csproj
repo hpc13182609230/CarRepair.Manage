@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShortVideoRepository.cs" />
+    <Compile Include="VehicleTypeRepository.cs" />
     <Compile Include="WXMessageTemplateRepository.cs" />
     <Compile Include="PartsCompanyBindWechatUserRepository.cs" />
     <Compile Include="WXMenuRepository.cs" />

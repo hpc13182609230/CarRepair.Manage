@@ -21,8 +21,7 @@ namespace CarRepairAPI.Controllers
         WXMessageTemplateService _WXMessageTemplateService = new WXMessageTemplateService();
 
         #endregion
-
-
+       
         #region 服务号 推送
         /// <summary>
         /// 修理厂 给 配件商 电话 推送
@@ -71,6 +70,8 @@ namespace CarRepairAPI.Controllers
         }
 
         #endregion
+
+
 
     }
 }

@@ -73,9 +73,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\新建文件夹\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -196,9 +195,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\GarageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MetronicController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\PartsSuppliersController.cs" />
     <Compile Include="Controllers\PartsTypeController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
@@ -965,7 +966,9 @@
     <Content Include="resources\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="resources\ckeditor\styles.js" />
     <Content Include="Scripts\action\account-login.js" />
+    <Content Include="Scripts\action\Media-ShortVideoList.js" />
     <Content Include="Scripts\action\Garage-GarageDetail.js" />
+    <Content Include="Scripts\action\Car-VehicleTypeList.js" />
     <Content Include="Scripts\action\Wechat-WXMessageTemplate.js" />
     <Content Include="Scripts\action\System-ManageUserDetail.js" />
     <Content Include="Scripts\action\System-ManageUserList.js" />
@@ -1082,6 +1085,8 @@
     <Content Include="Views\System\ManageUserDetail.cshtml" />
     <Content Include="Views\Garage\GarageDetail.cshtml" />
     <Content Include="Views\Wechat\WXMessageTemplate.cshtml" />
+    <Content Include="Views\Car\VehicleTypeList.cshtml" />
+    <Content Include="Views\Media\ShortVideoList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1117,6 +1122,10 @@
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{5f756021-5df4-4b78-aec3-f19d86c84922}</Project>
       <Name>Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdPartyLib\ThirdPartyLib.csproj">
+      <Project>{bfe2d275-4637-4601-abe2-49c7fc71b272}</Project>
+      <Name>ThirdPartyLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{f893bbac-f207-4f3b-8dcb-dded509ed0ac}</Project>

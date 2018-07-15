@@ -222,6 +222,25 @@
           <Property Name="Distance" Type="int" Nullable="false" />
           <Property Name="PicURL" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
+        <EntityType Name="ShortVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="500" />
+          <Property Name="FileKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileHash" Type="nvarchar" MaxLength="50" />
+          <Property Name="URL" Type="varchar" MaxLength="500" />
+          <Property Name="Size" Type="int" />
+          <Property Name="HitCount" Type="int" />
+          <Property Name="CollectCount" Type="int" />
+          <Property Name="ShareCount" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="UserCars">
           <Key>
             <PropertyRef Name="ID" />
@@ -241,6 +260,22 @@
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdateTime" Type="datetime" />
           <Property Name="InsuranceMonth" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VehicleType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_PY" Type="nvarchar" MaxLength="200" />
+          <Property Name="Name_FC" Type="nvarchar" MaxLength="10" />
+          <Property Name="FileKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileHash" Type="nvarchar" MaxLength="50" />
+          <Property Name="URL" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="DelTF" Type="int" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
         </EntityType>
         <EntityType Name="WechatUser">
           <Key>
@@ -357,7 +392,9 @@
           <EntitySet Name="Points" EntityType="Self.Points" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrder" EntityType="Self.PurchaseOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RepairOrder" EntityType="Self.RepairOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShortVideo" EntityType="Self.ShortVideo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserCars" EntityType="Self.UserCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WechatUser" EntityType="Self.WechatUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WXMenu" EntityType="Self.WXMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WXMessageTemplate" EntityType="Self.WXMessageTemplate" Schema="dbo" store:Type="Tables" />
@@ -467,6 +504,8 @@
           <EntitySet Name="WXMenu" EntityType="CarRepairModel.WXMenu" />
           <EntitySet Name="Garage" EntityType="CarRepairModel.Garage" />
           <EntitySet Name="PartsCallRecord" EntityType="CarRepairModel.PartsCallRecord" />
+          <EntitySet Name="ShortVideo" EntityType="CarRepairModel.ShortVideo" />
+          <EntitySet Name="VehicleType" EntityType="CarRepairModel.VehicleType" />
         </EntityContainer>
         <EntityType Name="BaseOptions">
           <Key>
@@ -736,6 +775,41 @@
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateTime" Type="DateTime" Precision="3" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ShortVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="HitCount" Type="Int32" />
+          <Property Name="CollectCount" Type="Int32" />
+          <Property Name="ShareCount" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="FileKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VehicleType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_PY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name_FC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FileKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DelTF" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1091,6 +1165,43 @@
                 <ScalarProperty Name="Openid" ColumnName="Openid" />
                 <ScalarProperty Name="CallTime" ColumnName="CallTime" />
                 <ScalarProperty Name="CallID" ColumnName="CallID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShortVideo">
+            <EntityTypeMapping TypeName="CarRepairModel.ShortVideo">
+              <MappingFragment StoreEntitySet="ShortVideo">
+                <ScalarProperty Name="FileHash" ColumnName="FileHash" />
+                <ScalarProperty Name="FileKey" ColumnName="FileKey" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ShareCount" ColumnName="ShareCount" />
+                <ScalarProperty Name="CollectCount" ColumnName="CollectCount" />
+                <ScalarProperty Name="HitCount" ColumnName="HitCount" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleType">
+            <EntityTypeMapping TypeName="CarRepairModel.VehicleType">
+              <MappingFragment StoreEntitySet="VehicleType">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelTF" ColumnName="DelTF" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="FileHash" ColumnName="FileHash" />
+                <ScalarProperty Name="FileKey" ColumnName="FileKey" />
+                <ScalarProperty Name="Name_FC" ColumnName="Name_FC" />
+                <ScalarProperty Name="Name_PY" ColumnName="Name_PY" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

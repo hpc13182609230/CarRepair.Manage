@@ -33,7 +33,6 @@ namespace Service
                 _WechatUserModel.Openid = _OpenIdAndSessionKey.openid;
                 _WechatUserModel.SubScribeTime = DateTime.Now;
                 _WechatUserModel.LastActiveTime = DateTime.Now;
-                _WechatUserModel.LoginToken = thirdSession;
                 _WechatUserModel.ShareID = ShareID;
 
                 _WechatUserModel.LoginToken = thirdSession;
@@ -75,8 +74,9 @@ namespace Service
             }
             else
             {
-                _WechatUserModel.LoginToken = thirdSession;
-                long id = service.Save(_WechatUserModel);
+                //_WechatUserModel.LoginToken = thirdSession;
+                //long id = service.Save(_WechatUserModel);
+                thirdSession = _WechatUserModel.LoginToken;
             }
 
             return thirdSession;

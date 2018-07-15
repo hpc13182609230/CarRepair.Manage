@@ -12,17 +12,17 @@ namespace ViewModels.CarRepair
 
         private string baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
 
-        //public PartsCompanyModel(bool showMiniImage=false)
-        //{
-        //    if (showMiniImage)//显示小图
-        //    {
-        //        baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
-        //    }
-        //    else
-        //    {
-        //        baseImageURL = ConfigurationManager.AppSettings["ImageShowURL"];
-        //    }
-        //}
+        public PartsCompanyModel(bool showMiniImage = true)
+        {
+            if (showMiniImage)//显示小图
+            {
+                baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
+            }
+            else
+            {
+                baseImageURL = ConfigurationManager.AppSettings["ImageShowURL"];
+            }
+        }
 
 
 

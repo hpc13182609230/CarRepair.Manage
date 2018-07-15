@@ -84,6 +84,63 @@ namespace Service
         }
 
         /// <summary>
+        /// 订单完成，后台手动推送
+        /// </summary>
+        /// <param name="wechatID">小程序 用户 id</param>
+        /// <param name="partsCompanyID">配件商 id</param>
+        /// <param name="touser">服务号 用户 openid</param>
+        /// <param name="template_id">推送的模版消息id</param>
+        /// <returns></returns>
+        public bool WX_MessageTemplate_OrderComplete_Push(DateTime date, string userName, long partsCompanyID,string template_id = "CwhLNFzWeJ7qmtxOH_Jz2QW1kHA_Yq_q7U1ME26vxrk")
+        {
+            try
+            {
+                PartsCompanyModel _PartsCompanyModel = _PartsCompanyService.GetByID(partsCompanyID);
+                if (string.IsNullOrWhiteSpace(_PartsCompanyModel.Contract))
+                {
+                    Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " 推送失败 partsCompanyID= ：" + partsCompanyID + "未关注微信服务号" + "\r\n");
+                    return false;
+                }
+                else
+                {
+                    object dataObj = new
+                    {
+                        first = new { value = "尊敬的修车必备认证商户，您即将接到来自平台修理厂用户的电话！", color = "#FF0000" },
+                        keyword1 = new { value = date.ToString("yyyy-MM-dd HH:mm:ss"), color = "#173177" },
+                        keyword2 = new { value = "【" + userName + "】" + "正在拨打您的电话,，请保持电话畅通，并提供专业、高效、优质的服务，祝生意兴隆！【" + _PartsCompanyModel.Name + "】", color = "#173177" },
+                        remark = new { value = "此功能仅限平台来电，不包含广告书和其他渠道！", color = "#173177" }
+                    };
+                    string data = TransformHelper.SerializeObject(dataObj);
+                    string msgid = WeChatServiceHelper.WX_Message_Template_Send(_PartsCompanyModel.Contract, template_id, data);
+                    if (!string.IsNullOrWhiteSpace(msgid))
+                    {
+                        WXMessageTemplateModel model = new WXMessageTemplateModel();
+                        model.WechatUserID = 0;
+                        model.PartsCompanyID = partsCompanyID;
+                        model.Touser = _PartsCompanyModel.Contract;
+                        model.Template_id = template_id;
+                        model.BaseOptionsID = 13;
+                        model.Data = data;
+                        model.Remark = "msgid=" + msgid;
+                        long id = Save(model);
+                    }
+                    else
+                    {
+                        Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Error.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " 推送失败 = ：" + partsCompanyID + "\r\n");
+                    }
+                    return string.IsNullOrWhiteSpace(msgid) ? false : true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.RunLog(MessageType.WriteInfomation, "", MessageType.Fatal.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name + " ex = ：" + ex.Message + "\r\n");
+                return false;
+            }
+
+        }
+
+
+        /// <summary>
         /// 服务号 电话 推送
         /// </summary>
         /// <param name="wechatID">小程序 用户 id</param>
@@ -139,6 +196,7 @@ namespace Service
             }
            
         }
+
 
         /// <summary>
         /// 服务号  绑定会员推送

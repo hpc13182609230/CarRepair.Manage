@@ -27,6 +27,7 @@ namespace CarRepairWeb.Controllers
         DateTime current = DateTime.Now.Date;
         WXMessageTemplateService _WXMessageTemplateService = new WXMessageTemplateService();
         WechatUserService _WechatUserService = new WechatUserService();
+    
 
         #region 自定义菜单
 
@@ -222,9 +223,8 @@ namespace CarRepairWeb.Controllers
 
         #endregion
 
-
         #region 消息模板推送
-        //配件商 列表
+        //列表
         public ActionResult WXMessageTemplate(string keyword, DateTime startTime, DateTime? endTime, string codeID = "370000", int pageIndex = 1, int pageSize = 10)
         {
             PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
@@ -257,6 +257,30 @@ namespace CarRepairWeb.Controllers
             return View();
         }
 
+        /// <summary>
+        ///  订单完成，后台手动推送
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="userName"></param>
+        /// <param name="partsCompanyID"></param>
+        /// <returns></returns>
+        public ActionResult MessageTemplate_OrderComplete_Push(DateTime date, string userName, long partsCompanyID)
+        {
+            DataResultModel result = new DataResultModel();
+            try
+            {
+                result.data = _WXMessageTemplateService.WX_MessageTemplate_OrderComplete_Push( date, userName,  partsCompanyID);
+            }
+            catch (Exception ex)
+            {
+                result.result = 0;
+                result.message = ex.Message;
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
         #endregion
+
     }
 }

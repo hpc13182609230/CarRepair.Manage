@@ -13,7 +13,9 @@ using System.Data;
 
 namespace CarRepairWeb.Controllers
 {
-    //  Garage
+    /// <summary>
+    /// 修理厂 相关
+    /// </summary>
     public class GarageController : BaseController
     {
         GarageService _GarageService = new GarageService();

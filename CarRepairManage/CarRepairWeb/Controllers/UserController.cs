@@ -11,6 +11,9 @@ using static WechatAppLib.WeChatServiceHelper;
 
 namespace CarRepairWeb.Controllers
 {
+    /// <summary>
+    /// 用户 相关
+    /// </summary>
     public class UserController : BaseController
     {
 

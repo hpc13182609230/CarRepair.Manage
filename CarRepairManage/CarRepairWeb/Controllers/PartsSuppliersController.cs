@@ -12,7 +12,9 @@ using LogLib;
 
 namespace CarRepairWeb.Controllers
 {
-    //配件商 
+    /// <summary>
+    ///  配件商 相关
+    /// </summary>
     public class PartsSuppliersController : BaseController
     {
         BaseOptionsService _BaseOptionsService = new BaseOptionsService();
@@ -20,6 +22,7 @@ namespace CarRepairWeb.Controllers
         PartsCallRecordService _PartsCallRecordService = new PartsCallRecordService();
         AreaService _AreaService = new AreaService();
         DateTime current = DateTime.Now.Date;
+        VehicleTypeService _VehicleTypeService = new VehicleTypeService();
 
         //配件商 列表
         public ActionResult PartsList(string keyword, DateTime startTime,DateTime? endTime, string codeID = "370000", int pageIndex = 1, int pageSize = 10)
@@ -83,6 +86,33 @@ namespace CarRepairWeb.Controllers
             return Json(flag, JsonRequestBehavior.AllowGet);
         }
 
+        
+
+        //重新排序
+        public ActionResult ResetCompanyOrder(string codeID)
+        {
+            string msg= service.ResetCompanyOrder(codeID);
+            return Json(msg, JsonRequestBehavior.AllowGet);
+        }
+
+        //配件商的 通话记录
+        public ActionResult CallRecordList(string keyword, DateTime startTime, DateTime? endTime,  int pageIndex = 1, int pageSize = 10)
+        {
+            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
+            endTime = endTime ?? DateTime.Now.Date;
+            List<PartsCallRecordModel> models = _PartsCallRecordService.GetListByPage(keyword, startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
+
+            ViewBag.page = page;
+            ViewBag.keyword = keyword;
+            ViewBag.startTime = startTime;
+            ViewBag.endTime = endTime;
+            ViewBag.models = models;
+            return View();
+        }
+
+
+        #region 上传素材
+
         /// <summary>
         /// 上次 图片
         /// </summary>
@@ -111,28 +141,7 @@ namespace CarRepairWeb.Controllers
             string Url_Show = "\\" + filename.Replace(rootPath, "");
             return Url_Show;
         }
-
-        //重新排序
-        public ActionResult ResetCompanyOrder(string codeID)
-        {
-            string msg= service.ResetCompanyOrder(codeID);
-            return Json(msg, JsonRequestBehavior.AllowGet);
-        }
-
-        //配件商的 通话记录
-        public ActionResult CallRecordList(string keyword, DateTime startTime, DateTime? endTime,  int pageIndex = 1, int pageSize = 10)
-        {
-            PageInfoModel page = new PageInfoModel() { PageIndex = pageIndex, PageSize = pageSize };
-            endTime = endTime ?? DateTime.Now.Date;
-            List<PartsCallRecordModel> models = _PartsCallRecordService.GetListByPage(keyword, startTime, Convert.ToDateTime(endTime).AddDays(1), ref page);
-
-            ViewBag.page = page;
-            ViewBag.keyword = keyword;
-            ViewBag.startTime = startTime;
-            ViewBag.endTime = endTime;
-            ViewBag.models = models;
-            return View();
-        }
+        #endregion
 
     }
 }

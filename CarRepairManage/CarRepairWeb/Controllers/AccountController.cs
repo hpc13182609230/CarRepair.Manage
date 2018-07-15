@@ -10,6 +10,9 @@ using ViewModels.CarRepair;
 
 namespace CarRepairWeb.Controllers
 {
+    /// <summary>
+    /// 后台用户相关
+    /// </summary>
     public class AccountController : Controller
     {
         public ActionResult Login()

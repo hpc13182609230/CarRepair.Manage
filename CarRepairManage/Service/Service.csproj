@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShortVideoService.cs" />
+    <Compile Include="VehicleTypeService.cs" />
     <Compile Include="WXMessageTemplateService.cs" />
     <Compile Include="PartsCompanyBindWechatUserService.cs" />
     <Compile Include="WXMenuService.cs" />

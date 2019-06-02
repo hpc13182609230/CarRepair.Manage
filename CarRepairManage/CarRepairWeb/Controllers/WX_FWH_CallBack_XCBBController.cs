@@ -100,7 +100,7 @@ namespace CarRepairWeb.Controllers
                         ResponseEnd(response);
                         return Json(null);
                     }
-                    Tracer.RunLog(MessageType.WriteInfomation, "", logName, "WX_BaseModel_UserInfo = ：" + TransformHelper.SerializeObject(userInfo) + "\r\n");
+                    //Tracer.RunLog(MessageType.WriteInfomation, "", logName, "WX_BaseModel_UserInfo = ：" + TransformHelper.SerializeObject(userInfo) + "\r\n");
                     TimeOutLog(traceID, "API-微信 获取微信用户信息", timeOutThreshold, ref watch);
                     #endregion
 
@@ -147,6 +147,18 @@ namespace CarRepairWeb.Controllers
                             //TimeOutLog(traceID, "DB  subscribe(订阅)", timeOutThreshold, ref watch);
                             #endregion
                         }
+                        else if (_Event.ToUpper() == "CLICK")
+                        {
+                            WX_Model_ReplyMSG_Text WX_Model_ReplyMSG_Text = new WX_Model_ReplyMSG_Text() { ToUserName = FromUserName, FromUserName = ToUserName, CreateTime = CreateTime };
+                            WX_Model_ReplyMSG_Text.MsgType = "text";//回复的消息类型
+                            WX_Model_ReplyMSG_Text.Content ="山东客服：15318819937\n" +
+                                "四川客服：18224448182\n" +
+                                "江苏客服：13260889789\n" +
+                                "湖南客服：13342511431\n" +
+                                "云南客服：13759474041\n";
+                            WeChatServiceHelper.WX_API_AutomaticReply_Text(WX_Model_ReplyMSG_Text, response);
+                        }
+
                     }
                     else//消息的来源  是  接收普通消息
                     {

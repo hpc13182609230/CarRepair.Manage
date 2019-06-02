@@ -54,7 +54,7 @@ namespace Service
         public List<WXMenuModel> WXMenu_GetAll()
         {
             List<WXMenuModel> models = new List<WXMenuModel>();
-            var res = repository.GetEntities(null,p=>p.ID);
+            var res = repository.GetEntities(null,p=>p.ID,true);
             models = AutoMapperClient.MapToList<WXMenu, WXMenuModel>(res);
             //foreach (var item in res)
             //{

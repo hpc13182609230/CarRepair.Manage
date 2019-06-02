@@ -144,7 +144,7 @@ namespace Service
         public List<PartsCompanyModel> GetListByPage(string keyword,long partsClassifyID, DateTime startTime, DateTime endTime,string codeID, ref PageInfoModel page)
         {
             keyword = string.IsNullOrWhiteSpace(keyword)?"":keyword;
-            int total = 0;
+            int total = 0; 
             List<PartsCompanyModel> models = new List<PartsCompanyModel>();
             var entities = repository.GetEntitiesForPaging(ref total, page.PageIndex, page.PageSize, p => (p.Name.Contains(keyword)||p.Content.Contains(keyword)) && p.CreateTime >= startTime && p.CreateTime <= endTime&&p.PartsClassifyID==partsClassifyID&&p.codeID==codeID, o => o.Order, false);
             page.TotalCount = total;

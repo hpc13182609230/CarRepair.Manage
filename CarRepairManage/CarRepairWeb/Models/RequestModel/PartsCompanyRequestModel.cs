@@ -1,30 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using ViewModels;
 
-namespace ViewModels.CarRepair
+namespace CarRepairWeb.Models.RequestModel
 {
-    public class PartsCompanyModel:BaseModel
+    public class PartsCompanyRequestModel : BaseModel
     {
-
-        private  string baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"]??"";
-
-        public PartsCompanyModel(bool showMiniImage = true)
-        {
-            if (showMiniImage)//显示小图
-            {
-                baseImageURL = ConfigurationManager.AppSettings["ImageShowURL_Mini"];
-            }
-            else
-            {
-                baseImageURL = ConfigurationManager.AppSettings["ImageShowURL"];
-            }
-        }
-
-
 
         public string Name { get; set; }
         public string Content { get; set; }
@@ -48,14 +31,6 @@ namespace ViewModels.CarRepair
         public long PartsClassifyID { get; set; }
         public long WechatID { get; set; }
         public string PartsClassifyIDNote { get; set; }//ip对应的地址
-
-
-        private string picURLShow;
-        public string PicURLShow
-        {
-            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : string.Format(baseImageURL, PicURL.Replace("\\", "/")); }
-            set { picURLShow = value; }
-        }
 
     }
 }

@@ -45,7 +45,7 @@ namespace ViewModels.CarRepair
         private string picURLShow;
         public string PicURLShow
         {
-            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "") + PicURL.Replace("\\", "/"); }
+            get { return string.IsNullOrWhiteSpace(PicURL) ? "" : (ConfigurationManager.AppSettings["ImageShowURL"] ?? "").ToString().Replace("{0}","") + PicURL.Replace("\\", "/"); }
             set { picURLShow = value; }
         }
 

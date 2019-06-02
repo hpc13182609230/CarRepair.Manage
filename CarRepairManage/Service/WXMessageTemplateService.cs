@@ -165,7 +165,7 @@ namespace Service
                     {
                         first = new { value = "尊敬的修车必备认证商户，您即将接到来自平台修理厂用户的电话！", color = "#FF0000" },
                         keyword1 = new { value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), color = "#173177" },
-                        keyword2 = new { value = "【" + wechatUser.NickName + "】" + "正在拨打您的电话,，请保持电话畅通，并提供专业、高效、优质的服务，祝生意兴隆！【" + _PartsCompanyModel.Name + "】", color = "#173177" },
+                        keyword2 = new { value = "【" + wechatUser?.NickName + "】" + "正在拨打您的电话,，请保持电话畅通，并提供专业、高效、优质的服务，祝生意兴隆！【" + _PartsCompanyModel.Name + "】", color = "#173177" },
                         remark = new { value = "此功能仅限平台来电，不包含广告书和其他渠道！", color = "#173177" }
                     };
                     string data = TransformHelper.SerializeObject(dataObj);

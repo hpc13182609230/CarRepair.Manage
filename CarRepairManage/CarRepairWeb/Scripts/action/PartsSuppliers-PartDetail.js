@@ -37,7 +37,7 @@ $('#save').click(function () {
     $.ajax({
         type: 'POST',
         url: '/PartsSuppliers/PartsCompanySave',
-        data: { ID: ID, Name: Name, LoginToken: LoginToken, Contract: Contract, Mobile: Mobile, Address: Address, Tel: Tel, Phone: Phone, Order: Order, Content: Content, PicURL: PicURL, codeID: codeID, PartsClassifyID: PartsClassifyID, PartsClassifyIDNote: PartsClassifyIDNote },
+        data: { ID: ID, Name: Name, LoginToken: LoginToken, Contract: Contract, Mobile: Mobile, Address: Address, Tel: Tel, Phone: Phone, Order: Order, Content: Content, PicURL: PicURL, codeID: codeID, PartsClassifyID: PartsClassifyID, PartsClassifyIDNote: PartsClassifyIDNote},
         success: function (data) {
             if (data > 0) {
                 //$('#form').attr('partsID', data);

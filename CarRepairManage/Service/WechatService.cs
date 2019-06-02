@@ -74,9 +74,9 @@ namespace Service
             }
             else
             {
-                //_WechatUserModel.LoginToken = thirdSession;
-                //long id = service.Save(_WechatUserModel);
-                thirdSession = _WechatUserModel.LoginToken;
+                _WechatUserModel.LoginToken = thirdSession;
+                long id = service.Save(_WechatUserModel);
+                //thirdSession = _WechatUserModel.LoginToken;
             }
 
             return thirdSession;

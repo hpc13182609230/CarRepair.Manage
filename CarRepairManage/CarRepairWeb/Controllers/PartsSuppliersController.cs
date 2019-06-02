@@ -9,6 +9,7 @@ using ViewModels.CarRepair;
 using System.IO;
 using HelperLib;
 using LogLib;
+using CarRepairWeb.Models.RequestModel;
 
 namespace CarRepairWeb.Controllers
 {
@@ -56,7 +57,7 @@ namespace CarRepairWeb.Controllers
             //PartsClassifyCompanyModel PartsClassifyCompany = _PartsClassifyCompanyService.GetByPartsCompanyID(id);
 
             //获取所有省份 
-            List<AreaModel> provinces = _AreaService.GetListByParentID("0");
+            List<AreaModel> provinces = _AreaService.GetListByParentID("0"); 
             ViewBag.provinces = provinces;
             ViewBag.options = options;
             //ViewBag.PartsClassifyCompany = PartsClassifyCompany;
@@ -66,13 +67,15 @@ namespace CarRepairWeb.Controllers
         }
 
         //配件商 单个保存
-        public ActionResult PartsCompanySave(PartsCompanyModel model)
+        public ActionResult PartsCompanySave(PartsCompanyRequestModel model)
         {
             model.Content = EncryptHelper.UrlDecode(model.Content);
             model.Address = model.Address ?? "";
 
             PartsCompanyService service = new PartsCompanyService();
-            var id =  service.Save(model);
+            PartsCompanyModel _PartsCompanyModel = new PartsCompanyModel();
+            TransformHelper.ConvertBToA(_PartsCompanyModel, model);
+            var id =  service.Save(_PartsCompanyModel);
            
 
             return Json(id,JsonRequestBehavior.AllowGet);
